@@ -60,7 +60,7 @@
         "alt": "Portada de este portafolio con el mapa de capítulos tipo metro",
         "points": [
           "Edito todo desde un admin propio y el admin hace el commit",
-          "14 workflows de GitHub Actions y más de 100 pruebas en cada cambio",
+          "15 workflows de GitHub Actions y más de 100 pruebas en cada cambio",
           "Accesibilidad 100 exigida por Lighthouse: si baja, el cambio no entra"
         ]
       },
@@ -72,7 +72,7 @@
         "alt": "Home page of this portfolio with the metro-style chapter map",
         "points": [
           "I edit everything from my own admin, and the admin commits",
-          "14 GitHub Actions workflows and over 100 tests on every change",
+          "15 GitHub Actions workflows and over 100 tests on every change",
           "Accessibility 100 required by Lighthouse: if it drops, the change does not merge"
         ]
       },

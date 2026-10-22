@@ -11,7 +11,7 @@ Este repositorio es un **espejo de solo lectura**: se actualiza solo con cada ca
 
 ## Qué no hay, a propósito
 
-El panel de administración, sus pruebas y sus workflows; los datos del CV, y el perfil de GitHub. Por eso aquí hay 6 de los 14 workflows del proyecto, y las pruebas del admin no están en `portfolio/tests/`.
+El panel de administración, sus pruebas y sus workflows; los datos del CV, y el perfil de GitHub. Por eso aquí hay 6 de los 15 workflows del proyecto, y las pruebas del admin no están en `portfolio/tests/`.
 
 ## Correrlo
 

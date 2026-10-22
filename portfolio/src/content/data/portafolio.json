@@ -5,7 +5,7 @@
     "langAria": "Read in English",
     "kicker": "Proyecto personal · Este mismo sitio",
     "tagline": "Un portafolio que se prueba, se publica y se vigila solo.",
-    "lede": "Lo que estás leyendo no es una plantilla. Es un producto con su propio CI/CD, un panel de administración, funciones serverless y 14 workflows de GitHub Actions. Ningún cambio sale sin pasar pruebas, Lighthouse y accesibilidad, y cada lunes me llega un correo con cómo le fue a la semana.",
+    "lede": "Lo que estás leyendo no es una plantilla. Es un producto con su propio CI/CD, un panel de administración, funciones serverless y 15 workflows de GitHub Actions. Ningún cambio sale sin pasar pruebas, Lighthouse y accesibilidad, y cada lunes me llega un correo con cómo le fue a la semana.",
     "meta": [
       "Proyecto personal",
       "2026 · en producción",
@@ -26,7 +26,7 @@
     "numbersTitle": "En cifras",
     "numbers": [
       {
-        "n": "14",
+        "n": "15",
         "label": "workflows de GitHub Actions",
         "note": "pruebas, imágenes, CV, enlaces, secretos, métricas y publicación, sin pasos a mano"
       },
@@ -195,7 +195,7 @@
       },
       {
         "k": "CI/CD",
-        "v": "14 workflows de GitHub Actions: calidad con Lighthouse, axe y Playwright, imágenes, CV, enlaces, secretos y publicación."
+        "v": "15 workflows de GitHub Actions: calidad con Lighthouse, axe y Playwright, imágenes, CV, enlaces, secretos y publicación."
       },
       {
         "k": "Operación",
@@ -231,7 +231,7 @@
     "langAria": "Leer en español",
     "kicker": "Personal project · This very site",
     "tagline": "A portfolio that tests, ships and watches itself.",
-    "lede": "What you are reading is not a template. It is a product with its own CI/CD, an admin panel, serverless functions and 14 GitHub Actions workflows. No change ships without passing tests, Lighthouse and accessibility, and every Monday an email tells me how the week went.",
+    "lede": "What you are reading is not a template. It is a product with its own CI/CD, an admin panel, serverless functions and 15 GitHub Actions workflows. No change ships without passing tests, Lighthouse and accessibility, and every Monday an email tells me how the week went.",
     "meta": [
       "Personal project",
       "2026 · in production",
@@ -252,7 +252,7 @@
     "numbersTitle": "By the numbers",
     "numbers": [
       {
-        "n": "14",
+        "n": "15",
         "label": "GitHub Actions workflows",
         "note": "tests, images, CV, links, secrets, metrics and publishing, with no manual steps"
       },
@@ -421,7 +421,7 @@
       },
       {
         "k": "CI/CD",
-        "v": "14 GitHub Actions workflows: quality with Lighthouse, axe and Playwright, images, résumé, links, secrets and publishing."
+        "v": "15 GitHub Actions workflows: quality with Lighthouse, axe and Playwright, images, résumé, links, secrets and publishing."
       },
       {
         "k": "Operations",

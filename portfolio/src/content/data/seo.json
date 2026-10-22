@@ -135,24 +135,24 @@
   "portafolioPages": {
     "es": {
       "title": "Portafolio HGS — Se prueba y publica solo | Harol Guerrero Salgado",
-      "description": "Cómo está hecho este portafolio: admin propio, 14 workflows de GitHub Actions y Lighthouse exigido en cada cambio. Documentación en docs.hgsportafolio.site.",
-      "ogDescription": "Un portafolio tratado como producto: admin propio, 14 workflows de GitHub Actions y calidad exigida en cada cambio.",
+      "description": "Cómo está hecho este portafolio: admin propio, 15 workflows de GitHub Actions y Lighthouse exigido en cada cambio. Documentación en docs.hgsportafolio.site.",
+      "ogDescription": "Un portafolio tratado como producto: admin propio, 15 workflows de GitHub Actions y calidad exigida en cada cambio.",
       "ogImageAlt": "Portafolio HGS — Un sitio que se prueba y publica solo",
       "fallback": {
         "heading": "Portafolio HGS — Un sitio que se prueba, se publica y se vigila solo",
-        "paragraph": "Este portafolio es mi proyecto personal: React, TypeScript y Vite en dos idiomas, un admin propio sobre Netlify Functions para editar todo el contenido, 14 workflows de GitHub Actions con Lighthouse, axe y Playwright, CV en PDF generado de los mismos datos y un resumen semanal por correo. Su documentación técnica completa está en docs.hgsportafolio.site.",
+        "paragraph": "Este portafolio es mi proyecto personal: React, TypeScript y Vite en dos idiomas, un admin propio sobre Netlify Functions para editar todo el contenido, 15 workflows de GitHub Actions con Lighthouse, axe y Playwright, CV en PDF generado de los mismos datos y un resumen semanal por correo. Su documentación técnica completa está en docs.hgsportafolio.site.",
         "site": "Documentación técnica en docs.hgsportafolio.site",
         "back": "Volver al portafolio"
       }
     },
     "en": {
       "title": "Portafolio HGS — Tests and ships itself | Harol Guerrero Salgado",
-      "description": "How this portfolio is built: its own admin, 14 GitHub Actions workflows, Lighthouse and accessibility required on every change. Docs at docs.hgsportafolio.site.",
-      "ogDescription": "A portfolio treated as a product: its own admin, 14 GitHub Actions workflows and quality required on every change.",
+      "description": "How this portfolio is built: its own admin, 15 GitHub Actions workflows, Lighthouse and accessibility required on every change. Docs at docs.hgsportafolio.site.",
+      "ogDescription": "A portfolio treated as a product: its own admin, 15 GitHub Actions workflows and quality required on every change.",
       "ogImageAlt": "Portafolio HGS — A site that tests and ships itself",
       "fallback": {
         "heading": "Portafolio HGS — A site that tests, ships and watches itself",
-        "paragraph": "This portfolio is my personal project: React, TypeScript and Vite in two languages, my own admin on Netlify Functions to edit all the content, 14 GitHub Actions workflows with Lighthouse, axe and Playwright, a PDF résumé built from the same data and a weekly email digest. Its full technical documentation is at docs.hgsportafolio.site.",
+        "paragraph": "This portfolio is my personal project: React, TypeScript and Vite in two languages, my own admin on Netlify Functions to edit all the content, 15 GitHub Actions workflows with Lighthouse, axe and Playwright, a PDF résumé built from the same data and a weekly email digest. Its full technical documentation is at docs.hgsportafolio.site.",
         "site": "Technical docs at docs.hgsportafolio.site",
         "back": "Back to the portfolio"
       }
