@@ -1,0 +1,66 @@
+/* —— Más contraste: quien lo pide en el sistema recibe paneles opacos en vez de vidrio, y bordes y texto más firmes —— */
+@media (prefers-contrast: more) {
+  :root {
+    --ink-dim: #1f2224;
+    --on-ink-dim: #e6e6e1;
+    --glass-fill: #1c1f22;
+    --glass-edge: #f5f5f0;
+  }
+
+  .unit,
+  .duties .card,
+  .lightbox,
+  .nav,
+  .stop span {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Paneles sobre fondo oscuro: opacos, con borde claro. */
+  .unit,
+  .duties .card,
+  .tile {
+    background: #1c1f22 !important;
+    border: 2px solid #f5f5f0 !important;
+  }
+
+  /* Paneles sobre papel claro: opacos, con borde de tinta. */
+  .bento .card,
+  .beat {
+    background: #fff !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    border: 2px solid var(--ink) !important;
+  }
+
+  .nav {
+    background: var(--paper) !important;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  html[data-on="startup"] .nav,
+  html[data-on="stack"] .nav {
+    background: var(--ink) !important;
+    border-bottom-color: var(--paper);
+  }
+
+  /* Sin resplandores de color detrás del texto. */
+  .dark::before,
+  #tenure::before,
+  #practice::before {
+    display: none;
+  }
+
+  .tags span,
+  .lang,
+  .social-btn {
+    border-width: 2px;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline-width: 4px !important;
+  }
+}

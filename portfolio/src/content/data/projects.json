@@ -1,0 +1,287 @@
+{
+  "projects": [
+    {
+      "id": "devpanel",
+      "featured": true,
+      "shot": "shots/devpanel.webp",
+      "code": "https://github.com/DevCat-HGS/DevPanel",
+      "hue": 230,
+      "stack": [
+        "Electron",
+        "TypeScript",
+        "Python",
+        "OpenCV"
+      ],
+      "es": {
+        "tag": "Proyecto personal, Código abierto",
+        "title": "DevPanel",
+        "dek": "Mi app de escritorio de código abierto: tus repos de GitHub, tus proyectos locales, herramientas y Claude Code en un solo panel que se abre con tu rostro.",
+        "result": "Código abierto · pruebas e2e sobre Electron en CI",
+        "alt": "Inicio de DevPanel con builds fallando, pull requests y actividad reciente",
+        "points": [
+          "Login facial con prueba anti-foto, sin guardar fotos",
+          "Instalador propio y actualizaciones automáticas por canal",
+          "Código abierto con pruebas e2e sobre la app real"
+        ]
+      },
+      "en": {
+        "tag": "Personal project, Open source",
+        "title": "DevPanel",
+        "dek": "My open-source desktop app: your GitHub repos, local projects, tools and Claude Code in one panel that opens with your face.",
+        "result": "Open source · e2e tests on Electron in CI",
+        "alt": "DevPanel home with failing builds, pull requests and recent activity",
+        "points": [
+          "Face sign-in with an anti-photo check, no photos stored",
+          "Custom installer and automatic updates by channel",
+          "Open source, with e2e tests on the real app"
+        ]
+      },
+      "case": "devpanel",
+      "own": true,
+      "download": "https://github.com/DevCat-HGS/DevPanel/releases/tag/installer"
+    },
+    {
+      "id": "portafolio",
+      "featured": true,
+      "shot": "shots/portafolio.webp",
+      "code": "https://github.com/DevCat-HGS/hgsportafolio",
+      "hue": 280,
+      "stack": [
+        "React",
+        "TypeScript",
+        "Netlify Functions",
+        "GitHub Actions"
+      ],
+      "es": {
+        "tag": "Proyecto personal, Este sitio",
+        "title": "Este portafolio",
+        "dek": "Este mismo sitio, tratado como producto: admin propio, funciones serverless y un CI/CD que lo prueba, lo publica y lo vigila solo.",
+        "result": "Accesibilidad 100 exigida · documentación en docs.hgsportafolio.site",
+        "alt": "Portada de este portafolio con el mapa de capítulos tipo metro",
+        "points": [
+          "Edito todo desde un admin propio y el admin hace el commit",
+          "14 workflows de GitHub Actions y más de 100 pruebas en cada cambio",
+          "Accesibilidad 100 exigida por Lighthouse: si baja, el cambio no entra"
+        ]
+      },
+      "en": {
+        "tag": "Personal project, This site",
+        "title": "This portfolio",
+        "dek": "This very site, treated as a product: its own admin, serverless functions and a CI/CD that tests, ships and watches it on its own.",
+        "result": "Accessibility 100 required · docs at docs.hgsportafolio.site",
+        "alt": "Home page of this portfolio with the metro-style chapter map",
+        "points": [
+          "I edit everything from my own admin, and the admin commits",
+          "14 GitHub Actions workflows and over 100 tests on every change",
+          "Accessibility 100 required by Lighthouse: if it drops, the change does not merge"
+        ]
+      },
+      "case": "portafolio",
+      "own": true
+    },
+    {
+      "id": "sabaneta",
+      "featured": true,
+      "href": "https://hechoensabaneta.com",
+      "shot": "shots/sabaneta.webp",
+      "stack": [
+        "TypeScript",
+        "Next.js",
+        "Firebase",
+        "Google Cloud"
+      ],
+      "es": {
+        "tag": "Comercio",
+        "title": "Hecho en Sabaneta",
+        "dek": "Plataforma de comercio local: directorio, catálogo, carrito y eventos del municipio.",
+        "result": "Entregado al cliente",
+        "alt": "Captura de la página de inicio de Hecho en Sabaneta"
+      },
+      "en": {
+        "tag": "Commerce",
+        "title": "Hecho en Sabaneta",
+        "dek": "Local commerce platform: directory, catalog, cart, and events for the municipality.",
+        "result": "Delivered to the client",
+        "alt": "Screenshot of the Hecho en Sabaneta home page"
+      }
+    },
+    {
+      "id": "aria",
+      "featured": true,
+      "shot": "shots/aria.webp",
+      "clientHref": "https://arixgroup.com.co/",
+      "hue": 265,
+      "stack": [
+        "AWS",
+        "Lambda",
+        "Bedrock",
+        "S3 Vectors",
+        "Python",
+        "React"
+      ],
+      "es": {
+        "tag": "IA generativa, SAP",
+        "title": "ARIA",
+        "dek": "Asistente de soporte SAP que responde desde más de 13.000 SAP Notes con Bedrock y RAG sobre AWS serverless. En el equipo hice la interfaz de chat, el panel de fuentes, la capa de API y la documentación.",
+        "result": "Respuesta completa en 5,9 s (antes 16,7 s)",
+        "alt": "Captura del asistente ARIA: chat de soporte SAP con consultas sugeridas",
+        "client": "Arix Group"
+      },
+      "en": {
+        "tag": "Generative AI, SAP",
+        "title": "ARIA",
+        "dek": "SAP support assistant that answers from more than 13,000 SAP Notes with Bedrock and RAG on serverless AWS. On the team I built the chat interface, the sources panel, the API layer and the documentation.",
+        "result": "Full answer in 5.9 s (was 16.7 s)",
+        "alt": "Screenshot of the ARIA assistant: SAP support chat with suggested queries",
+        "client": "Arix Group"
+      },
+      "case": "aria"
+    },
+    {
+      "id": "arcoiris",
+      "href": "https://arcoiriszapateria.com",
+      "shot": "shots/arcoiris.webp",
+      "stack": [
+        "TypeScript",
+        "Next.js",
+        "Firebase",
+        "Google Cloud"
+      ],
+      "es": {
+        "tag": "Servicios, En vivo",
+        "title": "Arcoiris Zapatería",
+        "dek": "Sitio de servicios para un taller familiar en Medellín. Más de cincuenta oficios, antes/después, diagnóstico guiado a WhatsApp.",
+        "result": "En vivo · contactos por WhatsApp",
+        "alt": "Captura de la página de inicio de Arcoiris Zapatería"
+      },
+      "en": {
+        "tag": "Services, Live",
+        "title": "Arcoiris Zapatería",
+        "dek": "Service site for a family workshop in Medellín. Fifty-plus trades, before/after, guided diagnosis to WhatsApp.",
+        "result": "Live · leads via WhatsApp",
+        "alt": "Screenshot of the Arcoiris Zapatería home page"
+      }
+    },
+    {
+      "id": "sena",
+      "href": "https://senacloud.netlify.app/",
+      "institutional": true,
+      "logo": "sena-logo.svg",
+      "hue": 150,
+      "stack": [
+        "TypeScript",
+        "React",
+        "MongoDB"
+      ],
+      "es": {
+        "tag": "Plataforma, En vivo",
+        "title": "SENA Cloud",
+        "dek": "Operación académica y administrativa para instructores, admins y superadmins.",
+        "result": "En vivo · tres roles de usuario",
+        "client": "Desarrollado durante mi formación en el SENA"
+      },
+      "en": {
+        "tag": "Platform, Live",
+        "title": "SENA Cloud",
+        "dek": "Academic and administrative ops for instructors, admins, and superadmins.",
+        "result": "Live · three user roles",
+        "client": "Built during my training at SENA"
+      },
+      "code": "https://github.com/DevCat-HGS/sena-cloud"
+    },
+    {
+      "id": "cashwin",
+      "hue": 25,
+      "stack": [
+        "Unity",
+        "C#",
+        "Photon"
+      ],
+      "es": {
+        "tag": "Juego",
+        "title": "CashWin",
+        "dek": "Dados multijugador en tiempo real. Photon PUN 2, MercadoPago, Unity y C#.",
+        "result": "Juego en tiempo real, pagos reales",
+        "client": "Inversiones Amazónica S.A.S."
+      },
+      "en": {
+        "tag": "Game",
+        "title": "CashWin",
+        "dek": "Realtime multiplayer dice. Photon PUN 2, MercadoPago, Unity and C#.",
+        "result": "Realtime play, real payments",
+        "client": "Inversiones Amazónica S.A.S."
+      }
+    },
+    {
+      "id": "sensores",
+      "institutional": true,
+      "logo": "sena-logo.svg",
+      "hue": 195,
+      "stack": [
+        "Arduino",
+        "C++",
+        "IoT"
+      ],
+      "es": {
+        "tag": "IoT",
+        "title": "SensoresAPP",
+        "dek": "Alerta temprana de inundaciones con Arduino para comunidades cercanas.",
+        "result": "Alertas por sensores",
+        "client": "Desarrollado durante mi formación en el SENA"
+      },
+      "en": {
+        "tag": "IoT",
+        "title": "SensoresAPP",
+        "dek": "Arduino flood early-warning for nearby communities.",
+        "result": "Sensor-driven alerts",
+        "client": "Built during my training at SENA"
+      },
+      "code": "https://github.com/DevCat-HGS/sensores-app"
+    },
+    {
+      "id": "farmacia",
+      "hue": 170,
+      "stack": [
+        "React",
+        "MongoDB"
+      ],
+      "es": {
+        "tag": "Interno",
+        "title": "Farmacia Admin",
+        "dek": "Inventario, ventas y reportes privados para farmacias.",
+        "result": "Inventario, ventas, reportes",
+        "client": "Droguería Medifarma"
+      },
+      "en": {
+        "tag": "Internal",
+        "title": "Farmacia Admin",
+        "dek": "Private inventory, sales, and reporting for pharmacies.",
+        "result": "Inventory, sales, reports",
+        "client": "Droguería Medifarma"
+      }
+    },
+    {
+      "id": "chaman",
+      "hue": 300,
+      "stack": [
+        "React",
+        "Supabase",
+        "Make"
+      ],
+      "es": {
+        "tag": "IA, Ops",
+        "title": "Chaman Tarot",
+        "dek": "Dashboard de lecturas. Predicciones con IA, automatización con Make, datos en Supabase.",
+        "result": "IA y automatización, un panel",
+        "client": "Inversiones Amazónica S.A.S."
+      },
+      "en": {
+        "tag": "AI, Ops",
+        "title": "Chaman Tarot",
+        "dek": "Dashboard for readings. Predictions via AI, automation with Make, data on Supabase.",
+        "result": "AI and automation, one panel",
+        "client": "Inversiones Amazónica S.A.S."
+      }
+    }
+  ]
+}

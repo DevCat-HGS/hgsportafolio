@@ -1,0 +1,11 @@
+dist
+.vite
+node_modules
+public
+package-lock.json
+src/styles
+index.html
+.reports
+
+# Escrito por el editor de admin.hgsportafolio.site con su propio formato.
+src/content/data

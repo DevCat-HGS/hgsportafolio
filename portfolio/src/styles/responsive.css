@@ -1,0 +1,61 @@
+/* —— Responsive —— */
+@media (min-width: 760px) {
+  .hero-bottom {
+    grid-template-columns: 1fr auto;
+  }
+
+  .practice-grid {
+    grid-template-columns: 1.4fr 0.8fr;
+    align-items: end;
+  }
+
+  .bento .card {
+    grid-template-columns: minmax(12rem, 0.8fr) 1.2fr;
+  }
+
+  .tenure-sticky {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+  }
+
+  .tenure-sticky > div:first-child {
+    position: sticky;
+    top: calc(var(--nav) + 2rem);
+  }
+
+  .work {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .work .project:nth-child(even) {
+    margin-top: 5rem;
+  }
+
+  .cred-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cred-list li {
+    grid-template-columns: 1fr auto auto;
+  }
+
+  .duties {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .duties {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .cred-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 759px) {
+  .scroll-cue {
+    margin-left: 0;
+  }
+}

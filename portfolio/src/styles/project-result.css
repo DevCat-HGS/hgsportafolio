@@ -1,0 +1,20 @@
+/* —— Línea de resultado en cada proyecto —— */
+.project .result {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.6rem;
+  margin: 0.7rem 0 0;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.project .result span {
+  padding: 0.05rem 0.5rem;
+  font-weight: 800;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--lc);
+  color: #fff;
+}

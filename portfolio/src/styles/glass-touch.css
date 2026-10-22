@@ -1,0 +1,42 @@
+/* Táctil y pantallas pequeñas: el desenfoque en vivo cuesta ~1 s de bloqueo en móviles de gama media (medido con Lighthouse),
+   así que se sustituye por rellenos más opacos con el mismo borde de luz. */
+@media (max-width: 759px), (hover: none) {
+  .duties .card,
+  .unit,
+  .bento .card,
+  .beat,
+  .nav,
+  .lightbox,
+  .lightbox-close,
+  .stop span {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .duties .card,
+  .unit {
+    background: rgba(40, 44, 48, 0.78);
+  }
+
+  .bento .card,
+  .beat {
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  html[data-on="startup"] .nav,
+  html[data-on="stack"] .nav {
+    background: rgba(17, 19, 21, 0.94);
+  }
+
+  html[data-on="close"] .nav {
+    background: rgba(255, 212, 0, 0.96);
+  }
+
+  .nav {
+    background: rgba(235, 234, 228, 0.96);
+  }
+
+  .lightbox {
+    background: rgba(17, 19, 21, 0.9);
+  }
+}

@@ -1,0 +1,120 @@
+/* —— Hero: plano de la línea y cifras —— */
+.hero {
+  overflow: hidden;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.line-art {
+  position: absolute;
+  top: var(--nav);
+  right: 0;
+  width: min(62%, 760px);
+  height: calc(100% - var(--nav));
+  pointer-events: none;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.art-a,
+.art-b {
+  stroke-width: 12;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.art-a {
+  stroke: var(--metro);
+  opacity: 0.2;
+}
+
+.art-b {
+  stroke: #c2410c;
+  opacity: 0.18;
+}
+
+.art-c {
+  stroke: var(--ink);
+  stroke-width: 4;
+  stroke-dasharray: 2 14;
+  opacity: 0.22;
+}
+
+.art-stop {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 5;
+  opacity: 0.28;
+}
+
+html.is-ready .art-a,
+html.is-ready .art-b {
+  animation: draw 2.2s var(--ease) 0.2s backwards;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
+@media (max-width: 759px) {
+  .line-art {
+    width: 100%;
+    opacity: 0.6;
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 0.4rem clamp(1.25rem, 4vw, 3rem);
+  margin: 0;
+}
+
+.stats div {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.stats dt {
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  line-height: 0.9;
+  color: var(--metro);
+}
+
+.stats dd {
+  margin: 0;
+  max-width: 11rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  line-height: 1.25;
+  color: var(--ink-dim);
+}
+
+.hero .stats {
+  transition: opacity 0.8s ease 0.5s;
+}
+
+html:not(.is-ready) .hero .stats {
+  opacity: 0;
+}
+
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:not(.is-ready) .hero .stats {
+    opacity: 1;
+  }
+}

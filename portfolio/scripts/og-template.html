@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Open Graph card</title>
+    <style>
+      /* Rendered to public/og.png by scripts/og.mjs (npm run og). Edit here, not the PNG. */
+      @font-face {
+        font-family: "Archivo Variable";
+        src: url("../node_modules/@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2") format("woff2");
+        font-weight: 100 900;
+        font-stretch: 62% 125%;
+      }
+
+      :root {
+        --paper: #ebeae4;
+        --ink: #111315;
+        --signal: #ffd400;
+        --metro: #00794f;
+        --line-b: #c2410c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Archivo Variable", "Segoe UI", system-ui, sans-serif;
+      }
+
+      .card {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 64px 72px 0 96px;
+      }
+
+      /* The rail down the left edge, like the site. */
+      .rail {
+        position: absolute;
+        left: 40px;
+        top: 52px;
+        bottom: 118px;
+        width: 8px;
+        border-radius: 4px;
+        background: rgba(17, 19, 21, 0.16);
+      }
+
+      .rail::after {
+        content: "";
+        position: absolute;
+        inset: 0 0 80% 0;
+        border-radius: 4px;
+        background: var(--metro);
+      }
+
+      .rail i {
+        position: absolute;
+        left: -6px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--paper);
+        border: 4px solid var(--ink);
+      }
+
+      .rail i:nth-child(1) {
+        top: 0;
+      }
+      .rail i:nth-child(2) {
+        top: 38%;
+      }
+      .rail i:nth-child(3) {
+        top: 76%;
+      }
+      .rail i:nth-child(4) {
+        top: calc(100% - 20px);
+      }
+
+      .rail b {
+        z-index: 1;
+        position: absolute;
+        left: -3px;
+        top: 15%;
+        width: 14px;
+        height: 28px;
+        border-radius: 6px;
+        background: var(--signal);
+        border: 4px solid var(--ink);
+      }
+
+      .art {
+        position: absolute;
+        right: -20px;
+        top: 20px;
+        width: 560px;
+        height: 480px;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .art .a {
+        stroke: var(--metro);
+        stroke-width: 14;
+        opacity: 0.22;
+      }
+      .art .b {
+        stroke: var(--line-b);
+        stroke-width: 14;
+        opacity: 0.2;
+      }
+      .art .c {
+        stroke: var(--ink);
+        stroke-width: 4;
+        stroke-dasharray: 2 14;
+        opacity: 0.25;
+      }
+      .art circle {
+        fill: var(--paper);
+        stroke: var(--ink);
+        stroke-width: 5;
+        opacity: 0.3;
+      }
+
+      .kicker {
+        position: relative;
+        margin: 0 0 18px;
+        font-weight: 700;
+        font-size: 28px;
+        letter-spacing: 0.01em;
+      }
+
+      h1 {
+        position: relative;
+        margin: 0;
+        font-weight: 900;
+        font-stretch: 62%;
+        font-variation-settings: "wdth" 62;
+        font-size: 226px;
+        line-height: 0.82;
+        text-transform: uppercase;
+        letter-spacing: -0.005em;
+      }
+
+      h1 span {
+        display: block;
+      }
+
+      h1 span:first-child {
+        color: var(--metro);
+      }
+
+      .tags {
+        position: relative;
+        display: flex;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .tags span {
+        padding: 8px 18px;
+        font-weight: 700;
+        font-size: 26px;
+        background: var(--ink);
+        color: var(--signal);
+      }
+
+      .tags span:last-child {
+        background: var(--metro);
+        color: #fff;
+      }
+
+      .bar {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 40px;
+        background: var(--signal);
+        border-top: 6px solid var(--ink);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="rail"><i></i><i></i><i></i><i></i><b></b></div>
+
+      <svg class="art" viewBox="0 0 600 700" aria-hidden="true">
+        <path class="a" d="M300 20 V250 Q300 300 340 340 L430 430 Q460 460 460 500 V680" />
+        <path class="b" d="M40 380 H200 Q250 380 275 355 L340 290 Q370 260 420 260 H580" />
+        <path class="c" d="M90 120 L300 250 L520 130" />
+        <circle cx="300" cy="250" r="13" />
+        <circle cx="340" cy="340" r="13" />
+        <circle cx="460" cy="500" r="13" />
+        <circle cx="200" cy="380" r="13" />
+        <circle cx="420" cy="260" r="13" />
+      </svg>
+
+      <p class="kicker">Full Stack Developer</p>
+      <h1><span>Harol</span><span>G. Salgado</span></h1>
+      <div class="tags"><span>Full Stack</span><span>Medellín, Colombia</span></div>
+
+      <div class="bar"></div>
+    </div>
+  </body>
+</html>

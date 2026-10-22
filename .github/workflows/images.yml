@@ -1,0 +1,71 @@
+name: Images
+
+# When a pull request or a push to main (the admin editor commits there) adds or changes an original in
+# portfolio/images/, generates the WebP files the site serves (scripts/images.mjs) and commits them to the same
+# branch. Forks get a failing check instead, since the token cannot push to them.
+on:
+  pull_request:
+    paths:
+      - portfolio/images/**
+      - portfolio/scripts/images.mjs
+  push:
+    branches: [main]
+    paths:
+      - portfolio/images/**
+
+permissions:
+  contents: write
+  # Pushes made with GITHUB_TOKEN do not start other workflows, so CI is dispatched by hand on the new commit.
+  actions: write
+
+concurrency:
+  group: images-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: portfolio
+
+jobs:
+  optimize:
+    name: Optimize images
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: portfolio/package-lock.json
+
+      - run: npm ci
+
+      # A fresh checkout gives every file the same date, so regenerate everything.
+      - run: npm run images -- --force
+
+      - name: Check the size budgets
+        run: npx vitest run tests/assets.test.ts
+
+      - name: Commit the generated files
+        if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          git add public
+          if git diff --cached --quiet; then
+            echo "Generated files already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(images): regenerate optimized images"
+          git push
+          gh workflow run portfolio-ci.yml --ref "${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Fail on forks with stale images
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        run: git diff --exit-code -- public || (echo "Run npm run images and commit the result." && exit 1)

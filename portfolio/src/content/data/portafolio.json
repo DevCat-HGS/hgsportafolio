@@ -1,0 +1,454 @@
+{
+  "es": {
+    "back": "Portafolio",
+    "langLabel": "EN",
+    "langAria": "Read in English",
+    "kicker": "Proyecto personal · Este mismo sitio",
+    "tagline": "Un portafolio que se prueba, se publica y se vigila solo.",
+    "lede": "Lo que estás leyendo no es una plantilla. Es un producto con su propio CI/CD, un panel de administración, funciones serverless y 14 workflows de GitHub Actions. Ningún cambio sale sin pasar pruebas, Lighthouse y accesibilidad, y cada lunes me llega un correo con cómo le fue a la semana.",
+    "meta": [
+      "Proyecto personal",
+      "2026 · en producción",
+      "Español e inglés"
+    ],
+    "links": [
+      {
+        "label": "Ver el código",
+        "href": "https://github.com/DevCat-HGS/hgsportafolio",
+        "event": "code-portafolio"
+      },
+      {
+        "label": "Leer la documentación técnica",
+        "href": "https://docs.hgsportafolio.site",
+        "event": "portafolio-docs"
+      }
+    ],
+    "numbersTitle": "En cifras",
+    "numbers": [
+      {
+        "n": "14",
+        "label": "workflows de GitHub Actions",
+        "note": "pruebas, imágenes, CV, enlaces, secretos, métricas y publicación, sin pasos a mano"
+      },
+      {
+        "n": "100+",
+        "label": "pruebas unitarias",
+        "note": "más pruebas de navegador con axe y teclado en los dos idiomas"
+      },
+      {
+        "n": "100",
+        "label": "en accesibilidad, exigido",
+        "note": "es un presupuesto de Lighthouse: si baja, el cambio no se fusiona"
+      },
+      {
+        "n": "0",
+        "label": "despliegues a mano",
+        "note": "Netlify publica cada push a main y cada PR trae su propia vista previa"
+      }
+    ],
+    "problemTitle": "El problema",
+    "problem": [
+      "Un portafolio normal envejece rápido: cifras viejas, enlaces rotos y un CV en PDF que ya no dice lo mismo que la web.",
+      "Cambiar un texto obliga a abrir el código, hacer commit y esperar el despliegue.",
+      "Nadie se entera si una página se volvió lenta, dejó de ser accesible o Google dejó de mostrarla."
+    ],
+    "solutionTitle": "La solución",
+    "solution": "Trato el portafolio como un producto. El contenido vive en archivos JSON que edito desde un admin propio, cada cambio pasa por un CI con presupuestos de calidad, el CV en PDF sale de los mismos datos y los robots revisan enlaces, secretos y estadísticas mientras yo trabajo en otra cosa.",
+    "shotsTitle": "El sitio",
+    "shots": [
+      {
+        "src": "shots/portafolio.webp",
+        "alt": "Portada del portafolio con el nombre de Harol Guerrero Salgado y el mapa de capítulos tipo metro",
+        "caption": "Portada: bilingüe, rápida y legible para Google antes de que corra JavaScript."
+      },
+      {
+        "src": "shots/portafolio-case.webp",
+        "alt": "Caso de estudio de DevPanel en el portafolio, con su título, su resumen y los enlaces al código y a la descarga",
+        "caption": "Casos de estudio: una plantilla compartida, cada caso solo aporta sus textos."
+      },
+      {
+        "src": "shots/portafolio-docs.webp",
+        "alt": "Documentación técnica del portafolio en docs.hgsportafolio.site, con el menú de secciones y el buscador",
+        "caption": "Documentación: se publica sola en docs.hgsportafolio.site con cada cambio."
+      }
+    ],
+    "mapTitle": "Cómo funciona",
+    "mapLead": "Dos recorridos que se cruzan en main: el de cada cambio que hago y el de lo que pasa solo, sin que lo toque.",
+    "transfer": "Transbordo",
+    "lines": [
+      {
+        "name": "Cada cambio",
+        "color": "signal",
+        "stops": [
+          {
+            "k": "Admin o commit",
+            "v": "Edito un texto en admin.hgsportafolio.site y el admin hace el commit en GitHub, con el token guardado solo en el servidor."
+          },
+          {
+            "k": "Pull request",
+            "v": "Typecheck, lint, formato, más de 100 pruebas y build; después Lighthouse, axe, teclado y capturas en un navegador real."
+          },
+          {
+            "k": "Comentario del bot",
+            "v": "El PR recibe las cifras de Lighthouse frente a main y el enlace a su vista previa en Netlify."
+          },
+          {
+            "k": "Escaneo de secretos",
+            "v": "gitleaks revisa todo el historial: una clave filtrada bloquea la fusión."
+          },
+          {
+            "k": "main",
+            "v": "Netlify publica el sitio y el admin; GitHub Pages, la documentación.",
+            "transfer": true
+          }
+        ]
+      },
+      {
+        "name": "Solo, sin tocarlo",
+        "color": "metro",
+        "stops": [
+          {
+            "k": "main",
+            "v": "Cada push regenera el CV en PDF, la imagen para compartir y las imágenes WebP que cambiaron.",
+            "transfer": true
+          },
+          {
+            "k": "Cada día",
+            "v": "Se actualizan las gráficas de lenguajes y actividad de mi perfil de GitHub."
+          },
+          {
+            "k": "Lunes, enlaces",
+            "v": "lychee revisa cada URL del contenido y del CV, y abre un issue si alguna se rompió."
+          },
+          {
+            "k": "Lunes, resumen",
+            "v": "Me llega un correo con visitas, descargas del CV y resultados en Google, de Umami y Search Console."
+          },
+          {
+            "k": "Dependabot",
+            "v": "Propone las actualizaciones de dependencias; solo entran si pasan el mismo CI."
+          }
+        ]
+      }
+    ],
+    "decisionsTitle": "Decisiones y por qué",
+    "decisions": [
+      {
+        "k": "El contenido es dato, no código",
+        "v": "Cada sección vive en un JSON con tipos y pruebas. La web y el admin leen el mismo archivo, y el CV en PDF sale de su propio JSON, así web y CV no se contradicen."
+      },
+      {
+        "k": "La calidad es requisito, no deseo",
+        "v": "Lighthouse exige rendimiento 90 en móvil y 95 en escritorio, accesibilidad 100 y 95 en buenas prácticas y SEO. Toma la mediana de varias corridas para que un pico de red no tumbe un PR."
+      },
+      {
+        "k": "Legible para Google sin JavaScript",
+        "v": "Cada página trae su head, sus datos estructurados y un texto de respaldo en el HTML estático, en dos idiomas con hreflang. El sitemap usa la fecha del último cambio real de contenido."
+      },
+      {
+        "k": "Un admin privado",
+        "v": "Se entra con dos factores y su código no se publica. El token de GitHub nunca llega al navegador: los commits salen de una función serverless."
+      },
+      {
+        "k": "Imágenes con presupuesto",
+        "v": "Subo el original y un script lo convierte a WebP en dos tamaños. Una prueba falla si una captura pasa de 120 KB."
+      },
+      {
+        "k": "Seguridad de serie",
+        "v": "Política de contenido (CSP) y encabezados estrictos, security.txt, SVG saneados antes de publicarse y escaneo de secretos en cada push."
+      }
+    ],
+    "brokeTitle": "Lo que se rompió",
+    "broke": [
+      {
+        "k": "La fecha del sitemap mentía",
+        "v": "Era la del build, así que cambiaba en cada despliegue y enseñaba a Google a ignorarla. Ahora es la del último commit que tocó contenido visible."
+      },
+      {
+        "k": "Una etiqueta pegada rompía todas las páginas",
+        "v": "Pegar el script completo de Umami en la variable dañaba el head de todo el sitio. El build ahora extrae solo el identificador."
+      },
+      {
+        "k": "Lighthouse daba falsos rojos",
+        "v": "Una sola corrida lenta tumbaba el PR. Ahora corre varias veces, se queda con la mediana y reintenta si el navegador falla."
+      },
+      {
+        "k": "El bot de imágenes no lanzaba el CI",
+        "v": "Un push hecho con el token de GitHub Actions no dispara otros workflows, así que el commit de las imágenes quedaba sin revisar. El workflow ahora lanza el CI a mano."
+      },
+      {
+        "k": "La documentación perdía su dominio",
+        "v": "Cada publicación reemplaza todo el sitio de la documentación y borraba el archivo del dominio. Ahora el workflow lo escribe en cada edición."
+      }
+    ],
+    "roleTitle": "Mi parte",
+    "role": "Todo: diseño, desarrollo, CI/CD, admin, SEO y operación",
+    "period": "2026 · proyecto personal",
+    "duties": [
+      {
+        "k": "Sitio",
+        "v": "React 19, TypeScript y Vite: portada y casos de estudio en español e inglés, con datos estructurados y texto de respaldo para buscadores."
+      },
+      {
+        "k": "Admin",
+        "v": "Editor de todo el contenido, mensajes del formulario y resumen semanal, sobre Netlify Functions, Netlify Blobs y Resend."
+      },
+      {
+        "k": "CI/CD",
+        "v": "14 workflows de GitHub Actions: calidad con Lighthouse, axe y Playwright, imágenes, CV, enlaces, secretos y publicación."
+      },
+      {
+        "k": "Operación",
+        "v": "Dominio y DNS, Search Console, analítica con Umami y una documentación técnica que se publica sola."
+      }
+    ],
+    "nextTitle": "Lo que falta",
+    "next": [
+      "Una cifra medible y con fuente para cada proyecto, en vez de resultados cualitativos.",
+      "Versiones con CHANGELOG público en cada fusión a main.",
+      "Que las cifras de Lighthouse del README se actualicen solas desde el CI."
+    ],
+    "stack": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Netlify Functions",
+      "Netlify Blobs",
+      "Resend",
+      "GitHub Actions",
+      "Playwright",
+      "Lighthouse",
+      "axe",
+      "gitleaks",
+      "Python",
+      "Umami"
+    ],
+    "footer": "Este portafolio es un proyecto personal. La documentación técnica completa está en docs.hgsportafolio.site."
+  },
+  "en": {
+    "back": "Portfolio",
+    "langLabel": "ES",
+    "langAria": "Leer en español",
+    "kicker": "Personal project · This very site",
+    "tagline": "A portfolio that tests, ships and watches itself.",
+    "lede": "What you are reading is not a template. It is a product with its own CI/CD, an admin panel, serverless functions and 14 GitHub Actions workflows. No change ships without passing tests, Lighthouse and accessibility, and every Monday an email tells me how the week went.",
+    "meta": [
+      "Personal project",
+      "2026 · in production",
+      "Spanish and English"
+    ],
+    "links": [
+      {
+        "label": "View the code",
+        "href": "https://github.com/DevCat-HGS/hgsportafolio",
+        "event": "code-portafolio"
+      },
+      {
+        "label": "Read the technical docs",
+        "href": "https://docs.hgsportafolio.site",
+        "event": "portafolio-docs"
+      }
+    ],
+    "numbersTitle": "By the numbers",
+    "numbers": [
+      {
+        "n": "14",
+        "label": "GitHub Actions workflows",
+        "note": "tests, images, CV, links, secrets, metrics and publishing, with no manual steps"
+      },
+      {
+        "n": "100+",
+        "label": "unit tests",
+        "note": "plus browser tests with axe and keyboard checks in both languages"
+      },
+      {
+        "n": "100",
+        "label": "accessibility, required",
+        "note": "it is a Lighthouse budget: if it drops, the change does not merge"
+      },
+      {
+        "n": "0",
+        "label": "manual deploys",
+        "note": "Netlify ships every push to main and every PR gets its own preview"
+      }
+    ],
+    "problemTitle": "The problem",
+    "problem": [
+      "A regular portfolio ages fast: stale figures, broken links and a PDF résumé that no longer says what the site says.",
+      "Changing one line of copy means opening the code, committing and waiting for a deploy.",
+      "Nobody notices when a page gets slow, stops being accessible or drops out of Google."
+    ],
+    "solutionTitle": "The solution",
+    "solution": "I treat the portfolio as a product. Content lives in JSON files I edit from my own admin, every change goes through CI with quality budgets, the PDF résumé is built from the same data, and bots check links, secrets and stats while I work on something else.",
+    "shotsTitle": "The site",
+    "shots": [
+      {
+        "src": "shots/portafolio.webp",
+        "alt": "Portfolio home page with Harol Guerrero Salgado's name and the metro-style chapter map",
+        "caption": "Home: bilingual, fast and readable by Google before any JavaScript runs."
+      },
+      {
+        "src": "shots/portafolio-case.webp",
+        "alt": "DevPanel case study on the portfolio, with its title, summary and links to the code and the download",
+        "caption": "Case studies: one shared template, each case only brings its copy."
+      },
+      {
+        "src": "shots/portafolio-docs.webp",
+        "alt": "The portfolio's technical docs at docs.hgsportafolio.site, with the section menu and search",
+        "caption": "Docs: published on their own at docs.hgsportafolio.site with every change."
+      }
+    ],
+    "mapTitle": "How it works",
+    "mapLead": "Two journeys that meet at main: every change I make, and everything that runs on its own without me.",
+    "transfer": "Transfer",
+    "lines": [
+      {
+        "name": "Every change",
+        "color": "signal",
+        "stops": [
+          {
+            "k": "Admin or commit",
+            "v": "I edit copy at admin.hgsportafolio.site and the admin commits to GitHub, with the token kept on the server only."
+          },
+          {
+            "k": "Pull request",
+            "v": "Typecheck, lint, formatting, over 100 tests and the build; then Lighthouse, axe, keyboard checks and screenshots in a real browser."
+          },
+          {
+            "k": "Bot comment",
+            "v": "The PR gets its Lighthouse figures against main and a link to its Netlify preview."
+          },
+          {
+            "k": "Secret scan",
+            "v": "gitleaks scans the whole history: a leaked key blocks the merge."
+          },
+          {
+            "k": "main",
+            "v": "Netlify ships the site and the admin; GitHub Pages, the docs.",
+            "transfer": true
+          }
+        ]
+      },
+      {
+        "name": "On its own",
+        "color": "metro",
+        "stops": [
+          {
+            "k": "main",
+            "v": "Every push rebuilds the PDF résumé, the share image and any WebP images that changed.",
+            "transfer": true
+          },
+          {
+            "k": "Every day",
+            "v": "The language and activity charts on my GitHub profile are refreshed."
+          },
+          {
+            "k": "Monday, links",
+            "v": "lychee checks every URL in the content and the résumé, and opens an issue if one broke."
+          },
+          {
+            "k": "Monday, digest",
+            "v": "An email with visits, résumé downloads and Google results, from Umami and Search Console."
+          },
+          {
+            "k": "Dependabot",
+            "v": "Proposes dependency updates; they only land if they pass the same CI."
+          }
+        ]
+      }
+    ],
+    "decisionsTitle": "Decisions and why",
+    "decisions": [
+      {
+        "k": "Content is data, not code",
+        "v": "Each section lives in a typed, tested JSON file. The site and the admin read the same file, and the PDF résumé comes from its own JSON, so site and résumé never disagree."
+      },
+      {
+        "k": "Quality is a requirement, not a wish",
+        "v": "Lighthouse requires 90 performance on mobile and 95 on desktop, 100 accessibility and 95 for best practices and SEO. It takes the median of several runs so a network spike cannot fail a PR."
+      },
+      {
+        "k": "Readable by Google without JavaScript",
+        "v": "Every page ships its head, structured data and a fallback text in the static HTML, in two languages with hreflang. The sitemap uses the date of the last real content change."
+      },
+      {
+        "k": "A private admin",
+        "v": "Sign-in takes two factors and its code is not published. The GitHub token never reaches the browser: commits come from a serverless function."
+      },
+      {
+        "k": "Images on a budget",
+        "v": "I upload the original and a script turns it into WebP at two sizes. A test fails if a screenshot goes over 120 KB."
+      },
+      {
+        "k": "Security by default",
+        "v": "A strict content security policy and headers, security.txt, SVGs sanitized before they ship and a secret scan on every push."
+      }
+    ],
+    "brokeTitle": "What broke",
+    "broke": [
+      {
+        "k": "The sitemap date was lying",
+        "v": "It was the build date, so it changed on every deploy and taught Google to ignore it. Now it is the date of the last commit that touched visible content."
+      },
+      {
+        "k": "One pasted tag broke every page",
+        "v": "Pasting Umami's whole script into the variable broke the head of the entire site. The build now extracts just the ID."
+      },
+      {
+        "k": "Lighthouse raised false alarms",
+        "v": "A single slow run failed the PR. Now it runs several times, keeps the median and retries if the browser crashes."
+      },
+      {
+        "k": "The image bot did not trigger CI",
+        "v": "A push made with the GitHub Actions token does not trigger other workflows, so the image commit went unchecked. The workflow now starts CI itself."
+      },
+      {
+        "k": "The docs kept losing their domain",
+        "v": "Each publish replaces the whole docs site and deleted the domain file. The workflow now writes it on every edition."
+      }
+    ],
+    "roleTitle": "My part",
+    "role": "All of it: design, development, CI/CD, admin, SEO and operations",
+    "period": "2026 · personal project",
+    "duties": [
+      {
+        "k": "Site",
+        "v": "React 19, TypeScript and Vite: home and case studies in Spanish and English, with structured data and a fallback text for search engines."
+      },
+      {
+        "k": "Admin",
+        "v": "An editor for all the content, contact form messages and a weekly digest, on Netlify Functions, Netlify Blobs and Resend."
+      },
+      {
+        "k": "CI/CD",
+        "v": "14 GitHub Actions workflows: quality with Lighthouse, axe and Playwright, images, résumé, links, secrets and publishing."
+      },
+      {
+        "k": "Operations",
+        "v": "Domain and DNS, Search Console, analytics with Umami and technical docs that publish themselves."
+      }
+    ],
+    "nextTitle": "What is left",
+    "next": [
+      "A measurable figure with its source for every project, instead of qualitative results.",
+      "Releases with a public CHANGELOG on every merge to main.",
+      "Lighthouse figures in the README that update themselves from CI."
+    ],
+    "stack": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Netlify Functions",
+      "Netlify Blobs",
+      "Resend",
+      "GitHub Actions",
+      "Playwright",
+      "Lighthouse",
+      "axe",
+      "gitleaks",
+      "Python",
+      "Umami"
+    ],
+    "footer": "This portfolio is a personal project. The full technical docs are at docs.hgsportafolio.site."
+  }
+}

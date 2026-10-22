@@ -1,0 +1,83 @@
+[build]
+  # images: convierte a WebP las capturas que se suban desde el admin antes de que el commit del workflow Images llegue.
+  command = "npm run images && npm run build"
+  publish = "dist"
+
+# Dominio de producción: canonical, hreflang, Open Graph, JSON-LD y sitemap salen de aquí.
+[build.environment]
+  VITE_SITE_URL = "https://hgsportafolio.site"
+
+# portafolio-hgs.netlify.app sigue abierto como respaldo gratuito. No compite en Google: cada página declara como
+# canonical su versión en hgsportafolio.site, así que el buscador indexa solo el dominio propio.
+
+# First-time visitors with an English browser land on /en/. The language toggle sets the nf_lang cookie, which
+# Netlify checks before the browser language, so a manual choice sticks. Crawlers send no language and get /.
+[[redirects]]
+  from = "/"
+  to = "/en/"
+  status = 302
+  force = true
+  conditions = { Language = ["en"] }
+
+[[redirects]]
+  from = "/migozz/"
+  to = "/en/migozz/"
+  status = 302
+  force = true
+  conditions = { Language = ["en"] }
+
+[[redirects]]
+  from = "/aria/"
+  to = "/en/aria/"
+  status = 302
+  force = true
+  conditions = { Language = ["en"] }
+
+[[redirects]]
+  from = "/devpanel/"
+  to = "/en/devpanel/"
+  status = 302
+  force = true
+  conditions = { Language = ["en"] }
+
+[[redirects]]
+  from = "/portafolio/"
+  to = "/en/portafolio/"
+  status = 302
+  force = true
+  conditions = { Language = ["en"] }
+
+# Archivos con hash en el nombre: nunca cambian, se cachean un año.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Imágenes, íconos, capturas de MIGOZZ y CV conservan su nombre aunque cambien. El navegador revalida siempre:
+# si no hubo cambio, Netlify responde 304 al instante (ETag) y no se vuelve a descargar nada; si lo hubo, el
+# visitante ve la versión nueva en la siguiente carga, sin esperar a que caduque una caché vieja.
+[[headers]]
+  for = "/shots/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/credentials/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/icons/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/migozz/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# El CV se regenera con cada cambio de cv_data.json: siempre la última versión.
+[[headers]]
+  for = "/cv/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

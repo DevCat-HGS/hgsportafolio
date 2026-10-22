@@ -1,0 +1,28 @@
+/* —— Foco de luz sobre el vidrio —— */
+.duties .card,
+.unit {
+  position: relative;
+}
+
+.duties .card::before,
+.unit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 255, 255, 0.13), transparent 70%);
+  transition: opacity 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .duties .card:hover::before,
+  .unit:hover::before {
+    opacity: 1;
+  }
+}
+
+main {
+  display: block;
+}

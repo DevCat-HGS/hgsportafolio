@@ -1,0 +1,158 @@
+/* —— Cierre: señal amarilla —— */
+.close {
+  background: var(--signal);
+  color: var(--ink);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.close h2 {
+  font-size: clamp(4rem, 14.5vw, 15rem);
+  line-height: 0.8;
+  max-width: none;
+}
+
+.close .lede {
+  margin-top: 2rem;
+  color: var(--ink);
+}
+
+.mail {
+  display: inline-block;
+  margin-top: 2rem;
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  font-size: clamp(2rem, 6.4vw, 4.6rem);
+  line-height: 1;
+  overflow-wrap: anywhere;
+  border-bottom: 6px solid var(--ink);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.mail:hover {
+  background: var(--ink);
+  color: var(--signal);
+}
+
+.close .socials {
+  margin-top: 2.5rem;
+}
+
+/* Formulario de contacto (Netlify Forms) */
+.contact {
+  display: grid;
+  gap: 1rem;
+  max-width: 46rem;
+  margin-top: 3rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 4px solid var(--ink);
+}
+
+.contact-title {
+  margin: 0;
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  text-transform: uppercase;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1;
+}
+
+.contact-row {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .contact-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact label {
+  display: grid;
+  gap: 0.3rem;
+  font-weight: 700;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  font-weight: 500;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.55);
+  border: 2px solid var(--ink);
+  border-radius: 0;
+}
+
+.contact textarea {
+  resize: vertical;
+}
+
+.contact input:focus-visible,
+.contact textarea:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+  background: #fff;
+}
+
+.contact-hp {
+  position: absolute;
+  left: -9999px;
+}
+
+.contact-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.contact-foot button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.contact-status {
+  margin: 0;
+  font-weight: 700;
+}
+
+.close .social-btn.primary {
+  background: var(--ink);
+  color: var(--signal);
+}
+
+.close .social-btn.primary:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.footer {
+  padding: 1.5rem 0 2rem;
+  background: var(--ink);
+  color: var(--on-ink-dim);
+  font-size: 0.92rem;
+}
+
+/* —— Datos de GitHub (solo se muestran con suficientes repos públicos) —— */
+.gh-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2.5rem;
+  margin: 2.5rem 0 0;
+}
+
+.gh-stats dt {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.gh-stats dd {
+  margin: 0.1rem 0 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+}

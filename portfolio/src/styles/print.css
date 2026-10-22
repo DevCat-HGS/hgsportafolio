@@ -1,0 +1,182 @@
+/* —— Impresión: Ctrl+P saca un perfil limpio en papel blanco, sin la línea, el vidrio ni las animaciones —— */
+@media print {
+  @page {
+    margin: 14mm 14mm 16mm;
+  }
+
+  :root {
+    --paper: #fff;
+    --paper-2: #fff;
+    --ink: #000;
+    --ink-dim: #333;
+    --on-ink-dim: #333;
+    --gutter: 0px;
+    --pad: 0px;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+  }
+
+  /* Fuera: navegación, línea de metro, bienvenida, decoración e interacción. */
+  #splash,
+  .skip,
+  .nav,
+  .line,
+  .line-art,
+  .marquee,
+  .scroll-cue,
+  .unit-eye,
+  .unit-leds,
+  .contact,
+  .lightbox,
+  .map,
+  .gh-stats,
+  .stores a:not(.web-link),
+  .visit {
+    display: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Fondos oscuros y resplandores a blanco y negro. */
+  .dark,
+  .close,
+  .section,
+  .tenure,
+  .hero,
+  #practice,
+  #tenure {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .dark::before,
+  #tenure::before,
+  #practice::before {
+    display: none !important;
+  }
+
+  .wrap,
+  .hero-inner {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .section,
+  .tenure,
+  .hero {
+    padding: 6mm 0 !important;
+    min-height: 0 !important;
+  }
+
+  .display,
+  .close h2,
+  .startup-top h2,
+  .company {
+    font-size: 26pt !important;
+    line-height: 1 !important;
+  }
+
+  .hero .display {
+    font-size: 34pt !important;
+  }
+
+  /* Todo visible: las animaciones de entrada y el acordeón del stack. */
+  html:not(.is-ready) .hero .mask > span,
+  html:not(.is-ready) .hero .kicker,
+  html:not(.is-ready) .hero-bottom,
+  html:not(.is-ready) .hero-foot,
+  [data-r] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .unit-panel {
+    grid-template-rows: 1fr !important;
+  }
+
+  #selected,
+  #credentials,
+  #stack {
+    content-visibility: visible !important;
+  }
+
+  .unit,
+  .duties .card,
+  .bento .card,
+  .beat,
+  .tile,
+  .project,
+  .cred {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #000 !important;
+  }
+
+  /* Que las tarjetas no se partan entre páginas. */
+  .project,
+  .cred,
+  .beat,
+  .card,
+  .unit,
+  .tile {
+    break-inside: avoid;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  /* En papel los enlaces no se pueden pulsar: se imprime la dirección. */
+  .mail::after,
+  .web-link::after {
+    content: "";
+  }
+
+  .socials a[href*="github.com"]::after,
+  .socials a[href*="linkedin.com"]::after {
+    content: " (" attr(href) ")";
+    font-weight: 400;
+    font-size: 9pt;
+  }
+
+  /* Textos amarillos o claros pensados para fondo oscuro: a tinta. */
+  .role,
+  .dark .role,
+  .lede,
+  .dark .lede,
+  .duties .v,
+  .mail {
+    color: #000 !important;
+  }
+
+  /* Las credenciales se imprimen como lista: título y emisor, sin miniaturas. */
+  .cred-img {
+    display: none !important;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  .media img,
+  .cred-img img {
+    max-height: 60mm;
+    width: auto;
+    object-fit: contain;
+  }
+}

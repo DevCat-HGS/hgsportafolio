@@ -1,0 +1,35 @@
+/* —— Frase que viaja con el scroll —— */
+.marquee {
+  overflow: hidden;
+  padding: 1.2rem 0;
+  background: var(--signal);
+  border-block: 4px solid var(--ink);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  transform: translate3d(calc(var(--m, 0) * -38%), 0, 0);
+  will-change: transform;
+}
+
+.marquee-track span {
+  flex: none;
+  padding-right: 0.6em;
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  text-transform: uppercase;
+  font-size: clamp(4.5rem, 14vw, 11rem);
+  line-height: 0.9;
+}
+
+.marquee-track span:nth-child(even) {
+  color: transparent;
+  -webkit-text-stroke: 3px var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    transform: none;
+  }
+}

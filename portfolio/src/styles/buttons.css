@@ -1,0 +1,36 @@
+/* —— Botones de contacto —— */
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  transition: background-color 0.18s, color 0.18s, transform 0.18s;
+}
+
+.social-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.social-btn:active {
+  transform: translateY(1px);
+}
+
+.social-btn.primary {
+  background: var(--signal);
+}
+
+.social-btn.primary:hover {
+  background: var(--ink);
+  color: var(--signal);
+}

@@ -1,0 +1,190 @@
+/* —— Stack: unidades de servidor (sección oscura) —— */
+.rack {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.unit {
+  position: relative;
+  overflow: hidden;
+  background: #1c1f22;
+  border-left: 8px solid #3a3e42;
+  transition: border-color 0.25s;
+}
+
+.unit[data-open] {
+  border-left-color: var(--signal);
+}
+
+.unit-head {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem 1rem 1.1rem;
+}
+
+.unit-head::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 24%;
+  pointer-events: none;
+  background: repeating-linear-gradient(90deg, transparent 0 7px, rgba(235, 234, 228, 0.07) 7px 8px);
+  mask-image: linear-gradient(90deg, transparent, #000 70%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 70%);
+}
+
+.unit-leds {
+  display: grid;
+  gap: 5px;
+}
+
+.unit-leds i {
+  width: 22px;
+  height: 5px;
+  border-radius: 3px;
+  background: #3a3e42;
+}
+
+.unit-leds i:nth-child(1) {
+  background: var(--signal);
+  animation: blink 2.4s ease infinite;
+}
+
+.unit[data-open] .unit-leds i:nth-child(2) {
+  background: #3fd68c;
+}
+
+.unit-text {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.unit-k {
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  text-transform: uppercase;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  line-height: 1;
+}
+
+.unit-v {
+  font-size: 0.95rem;
+  color: var(--on-ink-dim);
+}
+
+.unit-eye {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.95rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  border: 2px solid var(--paper);
+  border-radius: 6px;
+  transition: background-color 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.unit-eye:hover {
+  background: var(--signal);
+  border-color: var(--signal);
+  color: var(--ink);
+}
+
+.unit-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--ease);
+}
+
+.unit-panel[data-open] {
+  grid-template-rows: 1fr;
+}
+
+.unit-panel > div {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.unit-tiles {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1.1rem 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 0.6rem;
+}
+
+.tile {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.5rem;
+  min-height: 96px;
+  padding: 0.7rem 0.4rem;
+  background: #15181a;
+  border: 1px solid #2c3034;
+  color: var(--paper);
+  text-align: center;
+  transition: border-color 0.18s, transform 0.18s var(--ease);
+}
+
+@media (hover: hover) {
+  .tile:hover {
+    border-color: var(--signal);
+    transform: translateY(-2px);
+  }
+}
+
+.tile img {
+  display: block;
+  width: 44px;
+  height: 44px;
+}
+
+.tile span {
+  font-weight: 600;
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+.tile.plain {
+  background: transparent;
+  border: 2px dashed #5b6064;
+  color: var(--paper);
+}
+
+@media (max-width: 640px) {
+  .unit-head {
+    grid-template-columns: auto 1fr;
+  }
+
+  .unit-eye {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+/* Tecnologías en segundo plano: unidad más discreta y separada del rack principal. */
+.unit.secondary {
+  margin-top: 1rem;
+  background: transparent;
+  border: 1px dashed #3a3e42;
+  border-left-width: 8px;
+  border-left-style: solid;
+}
+
+.unit.secondary .unit-k {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--on-ink-dim);
+}
+
+.unit.secondary .unit-leds i:nth-child(1) {
+  background: #3a3e42;
+  animation: none;
+}

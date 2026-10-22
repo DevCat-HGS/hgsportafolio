@@ -1,0 +1,57 @@
+/* —— Barra superior —— */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  height: var(--nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 var(--pad);
+  background: rgba(235, 234, 228, 0.88);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.wordmark {
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  font-size: 1.7rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.here {
+  flex: 1;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink-dim);
+}
+
+.here::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 0.55rem;
+  border-radius: 50%;
+  background: var(--signal);
+  border: 2px solid var(--ink);
+}
+
+.lang {
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.8rem;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.lang:hover {
+  background: var(--ink);
+  color: var(--paper);
+}

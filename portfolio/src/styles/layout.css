@@ -1,0 +1,57 @@
+/* —— Estructura general —— */
+main,
+.section,
+.hero,
+.tenure,
+.footer {
+  position: relative;
+}
+
+.wrap,
+.hero-inner {
+  width: min(var(--max), calc(100% - var(--gutter) - var(--pad)));
+  margin-left: calc(var(--gutter) + max(0px, (100% - var(--gutter) - var(--pad) - var(--max)) / 2));
+  margin-right: var(--pad);
+}
+
+.section,
+.tenure {
+  padding: clamp(5rem, 11vw, 9rem) 0 clamp(3rem, 6vw, 5rem);
+}
+
+.dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Secciones bajo el pliegue: el navegador salta su render hasta que se acercan. El tamaño estimado evita saltos
+   del scroll; "auto" recuerda el real una vez pintadas. */
+#selected,
+#credentials,
+#stack {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1600px;
+}
+
+/* Proyectos mide mucho más con las franjas de los proyectos propios. Si el estimado se queda corto, todo lo de
+   abajo se corre al pintarse, y axe mide Credenciales sobre una franja oscura que ya no está ahí. */
+#selected {
+  contain-intrinsic-size: auto 4600px;
+}
+
+@media (min-width: 960px) {
+  #selected {
+    contain-intrinsic-size: auto 3500px;
+  }
+}
+
+.section-head {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.section-head h2 {
+  font-size: clamp(3.4rem, 9vw, 7.5rem);
+  max-width: 15ch;
+}

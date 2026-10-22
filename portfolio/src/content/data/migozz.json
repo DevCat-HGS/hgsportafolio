@@ -1,0 +1,367 @@
+{
+  "links": {
+    "web": "https://migozz.com",
+    "play": "https://play.google.com/store/apps/details?id=com.migozz.migozzApp",
+    "apple": "https://apps.apple.com/co/app/migozz/id6502121020"
+  },
+  "es": {
+    "title": "MIGOZZ — Caso y métricas | Harol Guerrero Salgado",
+    "back": "Portafolio",
+    "langLabel": "EN",
+    "langAria": "EN · Switch to English",
+    "status": "En vivo",
+    "tagline": "El ecosistema social con IA",
+    "lede": "Conecta, centraliza y monetiza toda la presencia digital de creadores, influencers, marcas y artistas. Un perfil, un recuento total de la comunidad y un motor de monetización.",
+    "orbitLabel": "Las siete redes que MIGOZZ reúne en un solo perfil",
+    "metricsTitle": "Métricas públicas",
+    "metricsNote": "Fuentes: Google Play, App Store y migozz.com, consultadas el 10 de octubre de 2026.",
+    "metrics": [
+      {
+        "n": "500+",
+        "count": 500,
+        "suffix": "+",
+        "label": "descargas en Google Play",
+        "source": "Google Play",
+        "icon": "download"
+      },
+      {
+        "n": "3",
+        "count": 3,
+        "label": "plataformas: Android, iOS y Web",
+        "source": "migozz.com",
+        "icon": "devices"
+      },
+      {
+        "n": "7",
+        "count": 7,
+        "label": "redes conectables a un solo perfil",
+        "source": "migozz.com",
+        "icon": "link"
+      },
+      {
+        "n": "2",
+        "count": 2,
+        "label": "idiomas: español e inglés",
+        "source": "migozz.com",
+        "icon": "languages"
+      },
+      {
+        "n": "feb. 2026",
+        "label": "en la App Store",
+        "source": "App Store",
+        "icon": "calendar"
+      },
+      {
+        "n": "2",
+        "count": 2,
+        "label": "pasarelas de pago: Stripe y PayPal",
+        "source": "App",
+        "icon": "card"
+      }
+    ],
+    "flowTitle": "Cómo funciona",
+    "flowStep": "Paso",
+    "flow": [
+      {
+        "k": "Conecta",
+        "v": "El creador enlaza sus redes a un solo perfil.",
+        "icon": "link"
+      },
+      {
+        "k": "Suma",
+        "v": "MIGOZZ cuenta la comunidad total de todas las redes.",
+        "icon": "users"
+      },
+      {
+        "k": "Recibe",
+        "v": "Los seguidores envían regalos con coins.",
+        "icon": "gift"
+      },
+      {
+        "k": "Cobra",
+        "v": "Las coins se retiran a efectivo.",
+        "icon": "cash"
+      }
+    ],
+    "problemTitle": "El problema",
+    "problem": [
+      "Los creadores construyen en todas partes, pero se miden en piezas.",
+      "Las marcas ven una plataforma, no la influencia total.",
+      "La atención está dispersa y el crecimiento es una adivinanza."
+    ],
+    "solutionTitle": "La solución",
+    "solution": "MIGOZZ unifica las plataformas, agrega datos reales de la audiencia y permite regalos directos e ingresos centrados en el creador, con un coach de IA que convierte la presencia dispersa en poder digital estructurado.",
+    "featuresTitle": "Funciones",
+    "features": [
+      {
+        "k": "Impacto global",
+        "v": "El total de seguidores de todas las redes, en un solo número.",
+        "icon": "users"
+      },
+      {
+        "k": "Un solo link",
+        "v": "Tus seguidores te siguen en otras redes directamente desde tu perfil.",
+        "icon": "link"
+      },
+      {
+        "k": "Regalos y coins",
+        "v": "Monedas virtuales que se compran, se regalan entre usuarios y se retiran a efectivo.",
+        "icon": "gift"
+      },
+      {
+        "k": "Vibez",
+        "v": "Descubrimiento tipo swipe para encontrar colaboraciones entre creadores, marcas y artistas.",
+        "icon": "cards"
+      },
+      {
+        "k": "Chat con IA",
+        "v": "Mensajería 1:1 con fotos, video y audio, y un asistente de IA dentro de la conversación.",
+        "icon": "chat"
+      },
+      {
+        "k": "Verificación",
+        "v": "Niveles premium que se pagan con Stripe o PayPal.",
+        "icon": "badge"
+      }
+    ],
+    "networksTitle": "Redes que conecta",
+    "timelineTitle": "Línea de tiempo",
+    "timeline": [
+      {
+        "date": "feb. 2026",
+        "k": "Llega a la App Store",
+        "v": "MIGOZZ se publica para iPhone."
+      },
+      {
+        "date": "20 sep. 2026",
+        "k": "Versión 1.6.0 en iOS",
+        "v": "Última actualización publicada en la App Store."
+      },
+      {
+        "date": "28 sep. 2026",
+        "k": "Me uno al equipo",
+        "v": "Entro como desarrollador Full Stack."
+      },
+      {
+        "date": "oct. 2026",
+        "k": "500+ descargas",
+        "v": "Cifra pública en Google Play."
+      }
+    ],
+    "shotsTitle": "La app",
+    "shots": [],
+    "roleTitle": "Mi trabajo",
+    "role": "Desarrollador Full Stack",
+    "period": "28 sep. 2026 – Actualidad",
+    "duties": [
+      {
+        "k": "Mantenimiento",
+        "v": "Mantengo estable la app en vivo en Android, iOS y Web."
+      },
+      {
+        "k": "QA testing",
+        "v": "Pruebo cada funcionalidad y detecto regresiones antes que los usuarios."
+      },
+      {
+        "k": "Desarrollo",
+        "v": "Construyo nuevas funciones en la app Flutter y el backend Firebase."
+      },
+      {
+        "k": "Issues y PRs",
+        "v": "Resuelvo issues y entrego las correcciones mediante pull requests."
+      }
+    ],
+    "stack": [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "Firestore",
+      "Cloud Functions",
+      "Stripe",
+      "PayPal",
+      "Gemini"
+    ],
+    "visit": "Ir a migozz.com",
+    "footer": "Harol Guerrero Salgado, Desarrollador Full Stack"
+  },
+  "en": {
+    "title": "MIGOZZ — Case study and metrics | Harol Guerrero Salgado",
+    "back": "Portfolio",
+    "langLabel": "ES",
+    "langAria": "ES · Cambiar a español",
+    "status": "Live",
+    "tagline": "The AI social ecosystem",
+    "lede": "Connects, centralizes and monetizes the whole digital presence of creators, influencers, brands and artists. One profile, one total community count and one monetization engine.",
+    "orbitLabel": "The seven networks MIGOZZ brings into one profile",
+    "metricsTitle": "Public metrics",
+    "metricsNote": "Sources: Google Play, the App Store and migozz.com, checked on October 10, 2026.",
+    "metrics": [
+      {
+        "n": "500+",
+        "count": 500,
+        "suffix": "+",
+        "label": "downloads on Google Play",
+        "source": "Google Play",
+        "icon": "download"
+      },
+      {
+        "n": "3",
+        "count": 3,
+        "label": "platforms: Android, iOS and Web",
+        "source": "migozz.com",
+        "icon": "devices"
+      },
+      {
+        "n": "7",
+        "count": 7,
+        "label": "networks linked to a single profile",
+        "source": "migozz.com",
+        "icon": "link"
+      },
+      {
+        "n": "2",
+        "count": 2,
+        "label": "languages: Spanish and English",
+        "source": "migozz.com",
+        "icon": "languages"
+      },
+      {
+        "n": "Feb 2026",
+        "label": "on the App Store",
+        "source": "App Store",
+        "icon": "calendar"
+      },
+      {
+        "n": "2",
+        "count": 2,
+        "label": "payment providers: Stripe and PayPal",
+        "source": "App",
+        "icon": "card"
+      }
+    ],
+    "flowTitle": "How it works",
+    "flowStep": "Step",
+    "flow": [
+      {
+        "k": "Connect",
+        "v": "Creators link their networks to a single profile.",
+        "icon": "link"
+      },
+      {
+        "k": "Add up",
+        "v": "MIGOZZ counts the total community across every network.",
+        "icon": "users"
+      },
+      {
+        "k": "Receive",
+        "v": "Followers send gifts with coins.",
+        "icon": "gift"
+      },
+      {
+        "k": "Cash out",
+        "v": "Coins are withdrawn as cash.",
+        "icon": "cash"
+      }
+    ],
+    "problemTitle": "The problem",
+    "problem": [
+      "Creators build everywhere, but are measured in pieces.",
+      "Brands see one platform, not the total influence.",
+      "Attention is scattered and growth is guesswork."
+    ],
+    "solutionTitle": "The solution",
+    "solution": "MIGOZZ unifies platforms, aggregates real audience data and enables direct gifts and creator-first income, with an AI coach that turns a scattered presence into structured digital power.",
+    "featuresTitle": "Features",
+    "features": [
+      {
+        "k": "Global impact",
+        "v": "Total followers across every network, in a single number.",
+        "icon": "users"
+      },
+      {
+        "k": "One link",
+        "v": "Followers can follow you on other networks straight from your profile.",
+        "icon": "link"
+      },
+      {
+        "k": "Gifts and coins",
+        "v": "Virtual coins that are bought, gifted between users and cashed out.",
+        "icon": "gift"
+      },
+      {
+        "k": "Vibez",
+        "v": "Swipe discovery to find collaborations between creators, brands and artists.",
+        "icon": "cards"
+      },
+      {
+        "k": "AI chat",
+        "v": "1:1 messaging with photos, video and audio, plus an AI assistant inside the conversation.",
+        "icon": "chat"
+      },
+      {
+        "k": "Verification",
+        "v": "Premium tiers paid with Stripe or PayPal.",
+        "icon": "badge"
+      }
+    ],
+    "networksTitle": "Networks it connects",
+    "timelineTitle": "Timeline",
+    "timeline": [
+      {
+        "date": "Feb 2026",
+        "k": "Lands on the App Store",
+        "v": "MIGOZZ is published for iPhone."
+      },
+      {
+        "date": "Sep 20, 2026",
+        "k": "Version 1.6.0 on iOS",
+        "v": "Latest update published on the App Store."
+      },
+      {
+        "date": "Sep 28, 2026",
+        "k": "I join the team",
+        "v": "I start as a Full Stack developer."
+      },
+      {
+        "date": "Oct 2026",
+        "k": "500+ downloads",
+        "v": "Public figure on Google Play."
+      }
+    ],
+    "shotsTitle": "The app",
+    "shots": [],
+    "roleTitle": "My work",
+    "role": "Full Stack Developer",
+    "period": "Sep 28, 2026 – Present",
+    "duties": [
+      {
+        "k": "Maintenance",
+        "v": "I keep the live app stable on Android, iOS and the web."
+      },
+      {
+        "k": "QA testing",
+        "v": "I test every feature and catch regressions before users do."
+      },
+      {
+        "k": "Development",
+        "v": "I build new features in the Flutter app and the Firebase backend."
+      },
+      {
+        "k": "Issues and PRs",
+        "v": "I fix issues and ship the corrections through pull requests."
+      }
+    ],
+    "stack": [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "Firestore",
+      "Cloud Functions",
+      "Stripe",
+      "PayPal",
+      "Gemini"
+    ],
+    "visit": "Go to migozz.com",
+    "footer": "Harol Guerrero Salgado, Full Stack Developer"
+  }
+}

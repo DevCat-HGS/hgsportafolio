@@ -1,0 +1,672 @@
+{
+  "es": {
+    "skip": "Saltar al contenido",
+    "wordmark": "HGS",
+    "langLabel": "EN",
+    "chapters": [
+      {
+        "id": "intro",
+        "n": "01",
+        "label": "Inicio"
+      },
+      {
+        "id": "practice",
+        "n": "02",
+        "label": "Oficio"
+      },
+      {
+        "id": "startup",
+        "n": "03",
+        "label": "Startup"
+      },
+      {
+        "id": "tenure",
+        "n": "04",
+        "label": "Cargo"
+      },
+      {
+        "id": "selected",
+        "n": "05",
+        "label": "Proyectos"
+      },
+      {
+        "id": "credentials",
+        "n": "06",
+        "label": "Credenciales"
+      },
+      {
+        "id": "stack",
+        "n": "07",
+        "label": "Stack"
+      },
+      {
+        "id": "close",
+        "n": "08",
+        "label": "Cierre"
+      }
+    ],
+    "heroKicker": "Desarrollador Full Stack",
+    "heroName": [
+      "Harol",
+      "G. Salgado"
+    ],
+    "heroDek": "Construyo productos web y móviles que están en producción: de SAP al comercio local.",
+    "heroNow": "Ahora: Desarrollador Full Stack en MIGOZZ",
+    "heroOpen": "Disponible: Remoto / Híbrido / Presencial en Medellín",
+    "heroMeta": [
+      "Colombia",
+      "TypeScript",
+      "SAP / Cloud / IA"
+    ],
+    "heroStats": [
+      {
+        "n": "500+",
+        "l": "descargas de MIGOZZ en Google Play"
+      },
+      {
+        "n": "4",
+        "l": "productos en producción"
+      },
+      {
+        "n": "3",
+        "l": "clientes externos"
+      }
+    ],
+    "resultLabel": "Resultado",
+    "scroll": "Próxima parada: Oficio",
+    "marquee": "Producto, nube e IA",
+    "mapLabel": "Mapa de la línea",
+    "issue": "Número 01  —  Trabajo seleccionado",
+    "practiceEyebrow": "02  —  Oficio",
+    "practiceTitle": "Un product engineer que todavía escribe las partes aburridas.",
+    "practiceBody": "Mi núcleo es JavaScript, TypeScript y Python — React, Next.js y Node en la web, con serverless en AWS detrás. Lo interesante no es el stack. Es poner IA generativa, cloud y una interfaz real en la misma mesa, y que aguante en producción.",
+    "practiceAside": "Interfaces, APIs, Unity, Arduino. El mismo hábito: observar la restricción y entregar el sistema más pequeño que la resuelve.",
+    "portraitAlt": "Retrato de Harol Guerrero Salgado con chaqueta y camisa negras sobre fondo oscuro.",
+    "bento": [
+      {
+        "k": "Full stack",
+        "v": "Productos web con React, Next.js, Node, SQL y NoSQL."
+      },
+      {
+        "k": "IA",
+        "v": "Modelos generativos, búsqueda semántica, automatización que escala a un humano."
+      },
+      {
+        "k": "Cloud",
+        "v": "Serverless en AWS, contenedores, CI/CD, Google Cloud y Firebase."
+      },
+      {
+        "k": "Mobile",
+        "v": "Multiplataforma con Flutter, Android nativo cuando el producto lo pide."
+      },
+      {
+        "k": "Game e IoT",
+        "v": "Unity y C#, prototipos embebidos con Arduino y sensores."
+      },
+      {
+        "k": "Base",
+        "v": "Colombia. Disponible para trabajo remoto, o híbrido y presencial en Medellín."
+      }
+    ],
+    "startupEyebrow": "03  —  Startup",
+    "startupCompany": "MIGOZZ",
+    "startupRole": "Desarrollador Full Stack",
+    "startupPeriod": "28 sep. 2026 – Actualidad",
+    "startupStatus": "Actual",
+    "startupBody": "Una plataforma social para creadores, influencers, marcas y artistas — Android, iOS y Web. Trabajo sobre el producto en vivo: mantenerlo sano, probarlo y entregar lo que viene.",
+    "startupDuties": [
+      {
+        "n": "01",
+        "k": "Mantenimiento",
+        "v": "Mantener estable la app en vivo en Android, iOS y Web."
+      },
+      {
+        "n": "02",
+        "k": "QA testing",
+        "v": "Probar funcionalidades y detectar regresiones antes que los usuarios."
+      },
+      {
+        "n": "03",
+        "k": "Desarrollo",
+        "v": "Construir nuevas funciones en la app Flutter y el backend Firebase."
+      },
+      {
+        "n": "04",
+        "k": "Issues y PRs",
+        "v": "Resolver issues y entregar las correcciones mediante pull requests."
+      }
+    ],
+    "startupLinks": {
+      "web": "https://migozz.com",
+      "play": "https://play.google.com/store/apps/details?id=com.migozz.migozzApp",
+      "apple": "https://apps.apple.com/co/app/migozz/id6502121020"
+    },
+    "startupWeb": "migozz.com",
+    "startupCase": {
+      "label": "Ver métricas y el caso",
+      "href": "/migozz/"
+    },
+    "startupStack": [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "Cloud Functions",
+      "Stripe"
+    ],
+    "tenureEyebrow": "04  —  Cargo",
+    "tenureStatus": "Anterior",
+    "tenureCompany": "Mitsubishi Electric de Colombia",
+    "tenureRole": "Aprendiz IT — Desarrollo SAP / SAP Fiori",
+    "tenurePlace": "Bello, ene. 2026 – jul. 2026",
+    "tenureBeats": [
+      {
+        "n": "01",
+        "title": "OData y SAP Fiori",
+        "body": "Desarrollé y mantuve servicios OData y aplicaciones SAP Fiori / SAPUI5 dentro del equipo SAP."
+      },
+      {
+        "n": "02",
+        "title": "Incidencias antes de producción",
+        "body": "Analicé y corregí incidencias en funcionalidades y servicios SAP, con pruebas funcionales antes de cada paso a producción."
+      }
+    ],
+    "selectedEyebrow": "05  —  Proyectos",
+    "selectedTitle": "Software que he desarrollado.",
+    "selectedLead": "Dos productos propios, hechos de principio a fin, y ocho proyectos para clientes e instituciones: IA empresarial, comercio local, operación académica, juegos y sensores.",
+    "projectsMore": "Ver más proyectos",
+    "projectsLess": "Ver menos proyectos",
+    "credEyebrow": "06  —  Credenciales",
+    "credTitle": "Formación y credenciales.",
+    "credLead": "Títulos, cursos y reconocimientos obtenidos en el camino.",
+    "credGroups": [
+      {
+        "k": "Títulos",
+        "items": [
+          {
+            "img": "tecnologo-ads",
+            "title": "Tecnólogo en Análisis y Desarrollo de Software",
+            "meta": "SENA, sep. 2026"
+          },
+          {
+            "img": "tecnico-sistemas",
+            "title": "Técnico en Sistemas",
+            "meta": "SENA, nov. 2023"
+          },
+          {
+            "img": "bachiller",
+            "title": "Bachiller Académico",
+            "meta": "I.E. Santo Domingo, dic. 2023"
+          }
+        ]
+      },
+      {
+        "k": "Cursos",
+        "compact": true,
+        "items": [
+          {
+            "img": "curso-testing",
+            "title": "Pruebas de Software - Testing",
+            "meta": "SENA, 48 h, oct. 2025"
+          },
+          {
+            "img": "curso-python-eda",
+            "title": "Análisis Exploratorio de Datos en Python",
+            "meta": "SENA, 48 h, may. 2024"
+          },
+          {
+            "img": "curso-python-limpieza",
+            "title": "Limpieza y Transformación de Datos con Python",
+            "meta": "SENA, 48 h, sep. 2024"
+          },
+          {
+            "img": "curso-english-1",
+            "title": "English Does Work, Nivel 1",
+            "meta": "SENA, 48 h, nov. 2024"
+          },
+          {
+            "img": "curso-english-2",
+            "title": "English Does Work, Nivel 2",
+            "meta": "SENA, 48 h, jul. 2025"
+          }
+        ]
+      },
+      {
+        "k": "Reconocimientos",
+        "items": [
+          {
+            "img": "orgullo-sena-2024",
+            "title": "Orgullo SENA 2024, Desempeño Técnico",
+            "meta": "SENA Antioquia, 2024"
+          },
+          {
+            "img": "aprendiz-integral",
+            "title": "Aprendiz Integral, Reconocimiento Especial",
+            "meta": "SENA CTPGA, sep. 2023"
+          },
+          {
+            "img": "reconocimiento-integralidad",
+            "title": "Reconocimiento por su integralidad en la formación",
+            "meta": "SENA CTPGA"
+          }
+        ]
+      }
+    ],
+    "credView": "Ver certificado",
+    "credViewShort": "Ver",
+    "credClose": "Cerrar",
+    "stackEyebrow": "07  —  Stack",
+    "stackTitle": "Herramientas que uso sin pensarlo.",
+    "stackGroups": [
+      {
+        "id": "web",
+        "k": "Web",
+        "v": "TypeScript, React, Next.js, Tailwind"
+      },
+      {
+        "id": "backend",
+        "k": "Backend",
+        "v": "Node.js, TypeScript, Python, PostgreSQL, MongoDB"
+      },
+      {
+        "id": "mobile",
+        "k": "Mobile",
+        "v": "Flutter, Dart, Firebase"
+      },
+      {
+        "id": "cloud",
+        "k": "Cloud",
+        "v": "AWS (Lambda, API Gateway), Docker, GitHub Actions"
+      },
+      {
+        "id": "other",
+        "k": "También he trabajado con",
+        "v": "SAP Fiori, SAPUI5, OData, Bedrock, Supabase, MySQL, Sass, Unity, C#, C++, Arduino",
+        "secondary": true
+      }
+    ],
+    "stackView": "Ver",
+    "stackHide": "Ocultar",
+    "closeEyebrow": "08  —  Cierre",
+    "closeTitle": "Escríbeme.",
+    "closeBody": "Busco empleo remoto, o híbrido y presencial en Medellín. Producto, plataformas, sistemas junto a SAP, o un brief raro que necesite una interfaz que funcione. Respondo en español o en inglés.",
+    "email": "hdevelopergs@gmail.com",
+    "contactForm": {
+      "title": "O escríbeme aquí",
+      "name": "Nombre",
+      "email": "Correo",
+      "message": "Mensaje",
+      "submit": "Enviar mensaje",
+      "sending": "Enviando…",
+      "sent": "Mensaje enviado. Te respondo pronto.",
+      "error": "No se pudo enviar. Escríbeme al correo de arriba."
+    },
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/DevCat-HGS"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/harol-g-salgado-498a60354/"
+      },
+      {
+        "label": "WhatsApp",
+        "href": "https://wa.me/573215634429?text=Hola%20Harol%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20hablar%20contigo."
+      }
+    ],
+    "footer": "Harol Guerrero Salgado, Desarrollador Full Stack",
+    "visit": "Abrir sitio",
+    "offline": "Sitio fuera de línea",
+    "cv": {
+      "label": "Descargar CV",
+      "href": "cv/Harol_Guerrero_CV_ES.pdf"
+    },
+    "clientLabel": "Cliente",
+    "institutionalLabel": "Proyecto institucional",
+    "trademarkNote": "SENA y su logo son propiedad del Servicio Nacional de Aprendizaje. Se usan aquí solo para identificar la institución para la que se desarrollaron estos proyectos, y no implican respaldo.",
+    "githubRepos": "repositorios públicos",
+    "githubLanguages": "Lenguajes principales",
+    "githubLastPush": "Último push",
+    "caseLink": "Ver el caso completo",
+    "codeLink": "Ver código",
+    "downloadLabel": "Descargar para Windows",
+    "ownTitle": "Proyectos propios",
+    "ownLead": "Míos de principio a fin: diseño, código, pruebas, publicación y operación.",
+    "clientTitle": "Para clientes e instituciones"
+  },
+  "en": {
+    "skip": "Skip to content",
+    "wordmark": "HGS",
+    "langLabel": "ES",
+    "chapters": [
+      {
+        "id": "intro",
+        "n": "01",
+        "label": "Intro"
+      },
+      {
+        "id": "practice",
+        "n": "02",
+        "label": "Practice"
+      },
+      {
+        "id": "startup",
+        "n": "03",
+        "label": "Startup"
+      },
+      {
+        "id": "tenure",
+        "n": "04",
+        "label": "Tenure"
+      },
+      {
+        "id": "selected",
+        "n": "05",
+        "label": "Projects"
+      },
+      {
+        "id": "credentials",
+        "n": "06",
+        "label": "Credentials"
+      },
+      {
+        "id": "stack",
+        "n": "07",
+        "label": "Stack"
+      },
+      {
+        "id": "close",
+        "n": "08",
+        "label": "Close"
+      }
+    ],
+    "heroKicker": "Full Stack Developer",
+    "heroName": [
+      "Harol",
+      "G. Salgado"
+    ],
+    "heroDek": "I build web and mobile products that run in production: from SAP to local commerce.",
+    "heroNow": "Now: Full Stack Developer at MIGOZZ",
+    "heroOpen": "Open to work: Remote / Hybrid / On-site in Medellín",
+    "heroMeta": [
+      "Colombia",
+      "TypeScript",
+      "SAP / Cloud / AI"
+    ],
+    "heroStats": [
+      {
+        "n": "500+",
+        "l": "MIGOZZ downloads on Google Play"
+      },
+      {
+        "n": "4",
+        "l": "products in production"
+      },
+      {
+        "n": "3",
+        "l": "external clients"
+      }
+    ],
+    "resultLabel": "Outcome",
+    "scroll": "Next stop: Practice",
+    "marquee": "Product, cloud and AI",
+    "mapLabel": "Line map",
+    "issue": "Issue 01  —  Selected Work",
+    "practiceEyebrow": "02  —  Practice",
+    "practiceTitle": "A product engineer who still writes the boring parts.",
+    "practiceBody": "My core is JavaScript, TypeScript and Python — React, Next.js and Node on the web, with serverless on AWS behind it. The interesting part is not the stack. It is putting generative AI, cloud, and a real interface on the same table, then making it hold in production.",
+    "practiceAside": "Interfaces, APIs, Unity, Arduino. Same habit: observe the constraint, then ship the smallest system that solves it.",
+    "portraitAlt": "Portrait of Harol Guerrero Salgado in a black jacket and shirt against a dark background.",
+    "bento": [
+      {
+        "k": "Full stack",
+        "v": "Web products with React, Next.js, Node, SQL and NoSQL."
+      },
+      {
+        "k": "AI",
+        "v": "Generative models, semantic search, automation that escalates to a human."
+      },
+      {
+        "k": "Cloud",
+        "v": "Serverless on AWS, containers, CI/CD, Google Cloud and Firebase."
+      },
+      {
+        "k": "Mobile",
+        "v": "Cross-platform with Flutter, native Android when the product needs it."
+      },
+      {
+        "k": "Game & IoT",
+        "v": "Unity and C#, embedded prototypes with Arduino and sensors."
+      },
+      {
+        "k": "Based",
+        "v": "Colombia. Open to remote work, or hybrid and on-site in Medellín."
+      }
+    ],
+    "startupEyebrow": "03  —  Startup",
+    "startupCompany": "MIGOZZ",
+    "startupRole": "Full Stack Developer",
+    "startupPeriod": "Sep 28, 2026 – Present",
+    "startupStatus": "Current",
+    "startupBody": "A social platform for creators, influencers, brands and artists — Android, iOS and Web. I work on the live product: keeping it healthy, testing it, and shipping what comes next.",
+    "startupDuties": [
+      {
+        "n": "01",
+        "k": "Maintenance",
+        "v": "Keeping the live app stable across Android, iOS and Web."
+      },
+      {
+        "n": "02",
+        "k": "QA testing",
+        "v": "Testing features and catching regressions before users do."
+      },
+      {
+        "n": "03",
+        "k": "Development",
+        "v": "Building new features across the Flutter app and Firebase backend."
+      },
+      {
+        "n": "04",
+        "k": "Issues & PRs",
+        "v": "Resolving issues and shipping the fixes through pull requests."
+      }
+    ],
+    "startupLinks": {
+      "web": "https://migozz.com",
+      "play": "https://play.google.com/store/apps/details?id=com.migozz.migozzApp",
+      "apple": "https://apps.apple.com/co/app/migozz/id6502121020"
+    },
+    "startupWeb": "migozz.com",
+    "startupCase": {
+      "label": "See metrics and case study",
+      "href": "/en/migozz/"
+    },
+    "startupStack": [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "Cloud Functions",
+      "Stripe"
+    ],
+    "tenureEyebrow": "04  —  Tenure",
+    "tenureStatus": "Previous",
+    "tenureCompany": "Mitsubishi Electric de Colombia",
+    "tenureRole": "IT Apprentice — SAP / SAP Fiori development",
+    "tenurePlace": "Bello, Jan 2026 – Jul 2026",
+    "tenureBeats": [
+      {
+        "n": "01",
+        "title": "OData and SAP Fiori",
+        "body": "Built and maintained OData services and SAP Fiori / SAPUI5 apps within the SAP team."
+      },
+      {
+        "n": "02",
+        "title": "Incidents before production",
+        "body": "Analysed and fixed incidents in SAP features and services, with functional testing before every release to production."
+      }
+    ],
+    "selectedEyebrow": "05  —  Projects",
+    "selectedTitle": "Software I have built.",
+    "selectedLead": "Two products of my own, built end to end, and eight projects for clients and institutions: enterprise AI, local commerce, academic ops, games and sensors.",
+    "projectsMore": "See more projects",
+    "projectsLess": "See fewer projects",
+    "credEyebrow": "06  —  Credentials",
+    "credTitle": "Education and credentials.",
+    "credLead": "Degrees, courses and recognitions earned along the way.",
+    "credGroups": [
+      {
+        "k": "Degrees",
+        "items": [
+          {
+            "img": "tecnologo-ads",
+            "title": "Technologist in Software Analysis and Development",
+            "meta": "SENA, Sep 2026"
+          },
+          {
+            "img": "tecnico-sistemas",
+            "title": "Systems Technician",
+            "meta": "SENA, Nov 2023"
+          },
+          {
+            "img": "bachiller",
+            "title": "Academic High School Diploma",
+            "meta": "I.E. Santo Domingo, Dec 2023"
+          }
+        ]
+      },
+      {
+        "k": "Courses",
+        "compact": true,
+        "items": [
+          {
+            "img": "curso-testing",
+            "title": "Software Testing",
+            "meta": "SENA, 48 h, Oct 2025"
+          },
+          {
+            "img": "curso-python-eda",
+            "title": "Exploratory Data Analysis with Python",
+            "meta": "SENA, 48 h, May 2024"
+          },
+          {
+            "img": "curso-python-limpieza",
+            "title": "Data Cleaning and Transformation with Python",
+            "meta": "SENA, 48 h, Sep 2024"
+          },
+          {
+            "img": "curso-english-1",
+            "title": "English Does Work, Level 1",
+            "meta": "SENA, 48 h, Nov 2024"
+          },
+          {
+            "img": "curso-english-2",
+            "title": "English Does Work, Level 2",
+            "meta": "SENA, 48 h, Jul 2025"
+          }
+        ]
+      },
+      {
+        "k": "Recognitions",
+        "items": [
+          {
+            "img": "orgullo-sena-2024",
+            "title": "Orgullo SENA 2024, Technical Performance",
+            "meta": "SENA Antioquia, 2024"
+          },
+          {
+            "img": "aprendiz-integral",
+            "title": "Aprendiz Integral, Special Recognition",
+            "meta": "SENA CTPGA, Sep 2023"
+          },
+          {
+            "img": "reconocimiento-integralidad",
+            "title": "Recognition for all-round professional training",
+            "meta": "SENA CTPGA"
+          }
+        ]
+      }
+    ],
+    "credView": "View certificate",
+    "credViewShort": "View",
+    "credClose": "Close",
+    "stackEyebrow": "07  —  Stack",
+    "stackTitle": "Tools I reach for without thinking.",
+    "stackGroups": [
+      {
+        "id": "web",
+        "k": "Web",
+        "v": "TypeScript, React, Next.js, Tailwind"
+      },
+      {
+        "id": "backend",
+        "k": "Backend",
+        "v": "Node.js, TypeScript, Python, PostgreSQL, MongoDB"
+      },
+      {
+        "id": "mobile",
+        "k": "Mobile",
+        "v": "Flutter, Dart, Firebase"
+      },
+      {
+        "id": "cloud",
+        "k": "Cloud",
+        "v": "AWS (Lambda, API Gateway), Docker, GitHub Actions"
+      },
+      {
+        "id": "other",
+        "k": "I have also worked with",
+        "v": "SAP Fiori, SAPUI5, OData, Bedrock, Supabase, MySQL, Sass, Unity, C#, C++, Arduino",
+        "secondary": true
+      }
+    ],
+    "stackView": "View",
+    "stackHide": "Hide",
+    "closeEyebrow": "08  —  Close",
+    "closeTitle": "Write to me.",
+    "closeBody": "Looking for remote work, or hybrid and on-site in Medellín. Product work, platforms, SAP-adjacent systems, or a strange brief that needs a working interface. I reply in Spanish or English.",
+    "email": "hdevelopergs@gmail.com",
+    "contactForm": {
+      "title": "Or write to me here",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "sent": "Message sent. I'll get back to you soon.",
+      "error": "It couldn't be sent. Email me at the address above."
+    },
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/DevCat-HGS"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/harol-g-salgado-498a60354/"
+      },
+      {
+        "label": "WhatsApp",
+        "href": "https://wa.me/573215634429?text=Hi%20Harol%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk."
+      }
+    ],
+    "footer": "Harol Guerrero Salgado, Full Stack Developer",
+    "visit": "Open site",
+    "offline": "Site offline",
+    "cv": {
+      "label": "Download CV",
+      "href": "cv/Harol_Guerrero_CV_EN.pdf"
+    },
+    "clientLabel": "Client",
+    "institutionalLabel": "Institutional project",
+    "trademarkNote": "SENA and its logo are the property of Servicio Nacional de Aprendizaje. They are used here only to identify the institution these projects were built for, and do not imply endorsement.",
+    "githubRepos": "public repositories",
+    "githubLanguages": "Top languages",
+    "githubLastPush": "Last push",
+    "caseLink": "Read the case study",
+    "codeLink": "View code",
+    "downloadLabel": "Download for Windows",
+    "ownTitle": "My own products",
+    "ownLead": "Mine from start to finish: design, code, tests, releases and operations.",
+    "clientTitle": "For clients and institutions"
+  }
+}

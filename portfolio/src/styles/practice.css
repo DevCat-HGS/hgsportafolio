@@ -1,0 +1,83 @@
+/* —— Oficio: tablero de salidas —— */
+.practice-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.practice-side {
+  display: grid;
+  gap: 2rem;
+  justify-items: start;
+}
+
+/* Retrato: bloque de tinta con la sombra sólida en amarillo de señal, como los letreros del hero. */
+.portrait {
+  margin: 0 12px 12px 0;
+  width: min(70vw, 19rem);
+  aspect-ratio: 1;
+  background: var(--ink);
+  border: 4px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--signal);
+}
+
+.portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.aside {
+  margin: 0;
+  max-width: 28rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  padding-left: 1rem;
+  border-left: 6px solid var(--signal);
+}
+
+.bento {
+  display: grid;
+  border-top: 4px solid var(--ink);
+}
+
+.bento .card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  gap: 0.2rem 2rem;
+  padding: 1.3rem 0.25rem;
+  border-bottom: 2px solid var(--ink);
+  overflow: hidden;
+}
+
+.bento .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--signal);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+
+.bento .card:hover::before {
+  transform: scaleX(1);
+}
+
+.card .k {
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+}
+
+.card .v {
+  margin: 0;
+  align-self: center;
+  max-width: 34rem;
+  font-size: 1.05rem;
+}

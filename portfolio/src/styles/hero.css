@@ -1,0 +1,153 @@
+/* —— Hero —— */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  padding: calc(var(--nav) + 2rem) 0 2.25rem;
+}
+
+.hero-inner {
+  display: grid;
+  gap: clamp(1rem, 3vh, 2rem);
+}
+
+.kicker {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.hero h1 {
+  font-size: clamp(4rem, min(19vw, 30vh), 17rem);
+  line-height: 0.82;
+}
+
+.mask {
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.04em;
+}
+
+.mask > span {
+  display: block;
+}
+
+.hero .mask:nth-of-type(2) > span {
+  color: var(--metro);
+}
+
+.hero-bottom {
+  display: grid;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.signs {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.sign {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.55rem 1rem;
+  font-weight: 700;
+  font-size: 0.98rem;
+  line-height: 1.3;
+}
+
+.sign i {
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: blink 1.8s ease infinite;
+}
+
+.sign.now {
+  background: var(--ink);
+  color: var(--signal);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sign.now:hover {
+  background: var(--signal);
+  color: var(--ink);
+}
+
+.sign.open {
+  background: var(--metro);
+  color: #fff;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.hero-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  padding-top: 1.4rem;
+  border-top: 4px solid var(--ink);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 600;
+  color: var(--ink-dim);
+}
+
+.scroll-cue {
+  margin-left: auto;
+  font-weight: 700;
+  border-bottom: 3px solid var(--signal);
+}
+
+.scroll-cue:hover {
+  background: var(--signal);
+}
+
+/* Entrada del hero: la única secuencia automática de la página. */
+.hero .mask > span,
+.hero .kicker,
+.hero-bottom,
+.hero-foot {
+  transition: transform 0.9s var(--ease), opacity 0.8s ease;
+}
+
+html:not(.is-ready) .hero .mask > span {
+  transform: translateY(105%);
+}
+
+html:not(.is-ready) .hero .kicker,
+html:not(.is-ready) .hero-bottom,
+html:not(.is-ready) .hero-foot {
+  opacity: 0;
+}
+
+.hero .mask:nth-of-type(2) > span {
+  transition-delay: 0.12s;
+}
+
+.hero-bottom {
+  transition-delay: 0.4s;
+}
+
+.hero-foot {
+  transition-delay: 0.55s;
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>404 — Estación no encontrada</title>
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      :root { --paper: #ebeae4; --ink: #111315; --signal: #ffd400; --metro: #00794f; }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; background: var(--paper); color: var(--ink); font-family: "Archivo Variable", "Archivo", "Segoe UI", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+      main { min-height: 100svh; display: grid; align-content: center; gap: 1.5rem; width: min(960px, calc(100% - 2.5rem)); margin-inline: auto; padding: 3rem 0; }
+      .code { margin: 0; font-weight: 900; font-stretch: 62%; font-size: clamp(7rem, 30vw, 20rem); line-height: 0.8; text-transform: uppercase; color: var(--metro); }
+      h1 { margin: 0; font-weight: 900; font-stretch: 62%; font-size: clamp(2rem, 6vw, 3.6rem); line-height: 0.95; text-transform: uppercase; text-wrap: balance; }
+      p { margin: 0; max-width: 34rem; font-size: 1.1rem; line-height: 1.5; color: #484c50; text-wrap: pretty; }
+      .track { position: relative; height: 6px; background: rgba(17, 19, 21, 0.16); border-radius: 3px; }
+      .track::before { content: ""; position: absolute; inset: 0 62% 0 0; background: var(--metro); border-radius: 3px; }
+      .track i { position: absolute; left: 38%; top: 50%; width: 14px; height: 26px; margin-top: -13px; background: var(--signal); border: 3px solid var(--ink); border-radius: 6px; }
+      .track b { position: absolute; left: 62%; top: 50%; width: 20px; height: 20px; margin: -10px 0 0 -10px; border-radius: 50%; border: 4px solid var(--ink); background: var(--paper); }
+      a { justify-self: start; padding: 0.6rem 1.1rem; font-weight: 700; color: var(--ink); background: var(--signal); border: 2px solid var(--ink); border-radius: 6px; text-decoration: none; transition: background-color 0.18s, color 0.18s, transform 0.18s; }
+      a:hover { background: var(--ink); color: var(--signal); }
+      a:active { transform: scale(0.97); }
+      a:focus-visible { outline: 3px solid var(--metro); outline-offset: 3px; }
+      [data-en] { display: none; }
+      html[data-l="en"] [data-es] { display: none; }
+      html[data-l="en"] [data-en] { display: revert; }
+      html[data-l="en"] a[data-en] { display: inline-block; }
+      @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    </style>
+    <script src="/404.js"></script>
+  </head>
+  <body>
+    <main>
+      <p class="code" aria-hidden="true">404</p>
+      <div class="track" aria-hidden="true"><i></i><b></b></div>
+      <h1 data-es>Esta estación no existe.</h1>
+      <h1 data-en>This station doesn't exist.</h1>
+      <p data-es>La parada que buscas no está en la línea. Vuelve al inicio y retoma el recorrido.</p>
+      <p data-en>The stop you're looking for isn't on the line. Head back to the start and pick up the route.</p>
+      <a data-es href="/">Volver al inicio</a>
+      <a data-en href="/">Back to start</a>
+    </main>
+  </body>
+</html>

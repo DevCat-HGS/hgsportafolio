@@ -1,0 +1,48 @@
+{
+  "name": "harold-gs-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.node.json",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run test",
+    "e2e": "playwright test",
+    "e2e:screenshots": "node scripts/screenshots.mjs",
+    "lighthouse": "node scripts/lighthouse.mjs",
+    "og": "node scripts/og.mjs",
+    "github-stats": "node scripts/github-stats.mjs",
+    "images": "node scripts/images.mjs",
+    "favicon": "node scripts/favicon.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "motion": "^14.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^6.1.1",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.9",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.71.1",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.3"
+  }
+}

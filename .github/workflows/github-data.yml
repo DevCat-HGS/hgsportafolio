@@ -1,0 +1,43 @@
+name: GitHub data
+
+# Refreshes portfolio/src/data/github.json (public repositories, top languages, last push) from the GitHub API.
+# A commit to main redeploys the site; nothing is committed when the numbers did not change.
+on:
+  schedule:
+    - cron: "15 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    working-directory: portfolio
+
+jobs:
+  refresh:
+    name: Refresh GitHub data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - run: node scripts/github-stats.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Commit when the data changed
+        working-directory: .
+        run: |
+          if git diff --quiet -- portfolio/src/data/github.json; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add portfolio/src/data/github.json
+          git commit -m "chore: update github data"
+          git push

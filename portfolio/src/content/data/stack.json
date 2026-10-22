@@ -1,0 +1,136 @@
+{
+  "web": [
+    {
+      "n": "TypeScript",
+      "i": "ts"
+    },
+    {
+      "n": "JavaScript",
+      "i": "js"
+    },
+    {
+      "n": "React",
+      "i": "react"
+    },
+    {
+      "n": "Next.js",
+      "i": "nextjs"
+    },
+    {
+      "n": "Tailwind",
+      "i": "tailwind"
+    },
+    {
+      "n": "HTML",
+      "i": "html"
+    },
+    {
+      "n": "CSS",
+      "i": "css"
+    }
+  ],
+  "backend": [
+    {
+      "n": "Node.js",
+      "i": "nodejs"
+    },
+    {
+      "n": "TypeScript",
+      "i": "ts"
+    },
+    {
+      "n": "Python",
+      "i": "python"
+    },
+    {
+      "n": "PostgreSQL",
+      "i": "postgres"
+    },
+    {
+      "n": "MongoDB",
+      "i": "mongodb"
+    }
+  ],
+  "mobile": [
+    {
+      "n": "Flutter",
+      "i": "flutter"
+    },
+    {
+      "n": "Dart",
+      "i": "dart"
+    },
+    {
+      "n": "Firebase",
+      "i": "firebase"
+    }
+  ],
+  "cloud": [
+    {
+      "n": "AWS",
+      "i": "aws"
+    },
+    {
+      "n": "Lambda",
+      "i": "lambda"
+    },
+    {
+      "n": "API Gateway",
+      "i": "apigateway"
+    },
+    {
+      "n": "Docker",
+      "i": "docker"
+    },
+    {
+      "n": "GitHub Actions",
+      "i": "githubactions"
+    }
+  ],
+  "other": [
+    {
+      "n": "SAP Fiori",
+      "i": "sap"
+    },
+    {
+      "n": "SAPUI5",
+      "i": "sap"
+    },
+    {
+      "n": "OData",
+      "i": "odata"
+    },
+    {
+      "n": "Bedrock",
+      "i": "bedrock"
+    },
+    {
+      "n": "Supabase",
+      "i": "supabase"
+    },
+    {
+      "n": "MySQL",
+      "i": "mysql"
+    },
+    {
+      "n": "Sass",
+      "i": "sass"
+    },
+    {
+      "n": "Unity",
+      "i": "unity"
+    },
+    {
+      "n": "C#",
+      "i": "cs"
+    },
+    {
+      "n": "C++",
+      "i": "cpp"
+    },
+    {
+      "n": "Arduino",
+      "i": "arduino"
+    }
+  ]
+}

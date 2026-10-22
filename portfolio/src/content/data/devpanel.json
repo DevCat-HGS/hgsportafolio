@@ -1,0 +1,196 @@
+{
+  "es": {
+    "back": "Portafolio",
+    "langLabel": "EN",
+    "langAria": "Read in English",
+    "kicker": "Proyecto personal · App de escritorio",
+    "tagline": "Lo que un desarrollador abre todos los días, en un solo panel.",
+    "lede": "DevPanel reúne tus repos de GitHub, tus proyectos locales, herramientas de desarrollo y Claude Code en una app de Windows que se abre con tu rostro. Es mío de principio a fin: la interfaz, la seguridad, el módulo facial en Python, el instalador y la forma en que se publica cada versión.",
+    "meta": ["Proyecto personal", "Octubre 2026", "Código abierto · MIT"],
+    "links": [
+      { "label": "Ver el código", "href": "https://github.com/DevCat-HGS/DevPanel", "event": "code-devpanel" },
+      { "label": "Descargar para Windows", "href": "https://github.com/DevCat-HGS/DevPanel/releases/tag/installer", "event": "devpanel-download" }
+    ],
+    "numbersTitle": "En cifras",
+    "numbers": [
+      { "n": "41", "label": "pruebas unitarias", "note": "más 8 suites de extremo a extremo que manejan la app real de Electron" },
+      { "n": "2", "label": "canales de actualización", "note": "estable para todos y de desarrollo solo para cuentas autorizadas" },
+      { "n": "0", "label": "fotos guardadas", "note": "el rostro se guarda como una huella numérica cifrada por Windows" },
+      { "n": "4", "label": "revisiones en cada cambio", "note": "pruebas, CodeQL, escaneo de secretos y Dependabot" }
+    ],
+    "problemTitle": "El problema",
+    "problem": [
+      "Un día normal de desarrollo salta entre la pestaña de GitHub, la terminal, el explorador de archivos y varias webs de utilidades.",
+      "Para decodificar un JWT o formatear un JSON, mucha gente pega tokens reales en sitios que no conoce.",
+      "Uno se entera tarde de que el CI falló o de que hay un PR esperando revisión."
+    ],
+    "solutionTitle": "La solución",
+    "solution": "Un panel de escritorio que muestra el estado de tus repos y tus proyectos locales, avisa cuando un build falla, trae las herramientas que usas a diario sin salir de tu equipo y te deja hablar con Claude Code sobre un proyecto. Se bloquea solo al ocultarse y se abre con tu rostro o con tu código.",
+    "shotsTitle": "La app",
+    "shots": [
+      { "src": "shots/devpanel.webp", "alt": "Inicio de DevPanel con builds fallando, pull requests, cambios locales y actividad reciente", "caption": "Inicio: lo que pide tu atención hoy, de un vistazo." },
+      { "src": "shots/devpanel-lock.webp", "alt": "Pantalla de bloqueo de DevPanel con el teclado del código de 4 dígitos", "caption": "Bloqueo: entras con tu rostro o con tu código." },
+      { "src": "shots/devpanel-tools.webp", "alt": "Herramientas de DevPanel agrupadas por categoría, con estado de instalación de cada una", "caption": "Herramientas: instala o abre lo que usas, con un clic." }
+    ],
+    "mapTitle": "Cómo funciona",
+    "mapLead": "Dos recorridos que se cruzan en tus datos cifrados: el de instalarlo una vez y el de usarlo cada día.",
+    "transfer": "Transbordo",
+    "lines": [
+      {
+        "name": "Instalación",
+        "color": "signal",
+        "stops": [
+          { "k": "Instalador propio", "v": "Una pregunta por pantalla, en español o inglés. Descarga la última versión desde GitHub." },
+          { "k": "Verificación SHA-256", "v": "Comprueba que el archivo descargado es exactamente el publicado antes de ejecutarlo." },
+          { "k": "Cuenta y código", "v": "Tu usuario de GitHub y un código de 4 dígitos, guardado con scrypt." },
+          { "k": "Canal según la cuenta", "v": "Nadie elige: las cuentas autorizadas reciben la versión de desarrollo; el resto, la estable." },
+          { "k": "Datos cifrados", "v": "PIN, huella del rostro y token quedan en tu equipo, cifrados por Windows (DPAPI).", "transfer": true }
+        ]
+      },
+      {
+        "name": "Cada día",
+        "color": "metro",
+        "stops": [
+          { "k": "Datos cifrados", "v": "La app los lee al abrir; nunca salen de tu equipo.", "transfer": true },
+          { "k": "Bloqueo", "v": "Rostro con un giro de cabeza al azar, o tu código de 4 dígitos." },
+          { "k": "Panel de GitHub", "v": "Repos, commits, Actions y PRs. Con un token opcional ves también tus repos privados." },
+          { "k": "Proyectos locales", "v": "Rama, cambios, diagnóstico y scripts de npm en una terminal integrada." },
+          { "k": "Claude Code", "v": "Conversaciones sobre un proyecto, con su diagnóstico como contexto." },
+          { "k": "Actualización", "v": "Revisa al abrir y cada 15 minutos, en el canal que corresponde a tu cuenta." }
+        ]
+      }
+    ],
+    "decisionsTitle": "Decisiones y por qué",
+    "decisions": [
+      { "k": "Un rostro sin fotos", "v": "OpenCV con YuNet para detectar y SFace para reconocer, sin dlib. Solo se guarda una huella numérica cifrada. El umbral es 0,40, más estricto que el 0,363 que recomienda OpenCV, y exige varias coincidencias seguidas." },
+      { "k": "Un giro de cabeza contra las fotos", "v": "Al entrar, la app pide girar hacia un lado elegido al azar y lo mide con la posición de la nariz respecto a los ojos. Frena fotos y pantallas; el README dice claro que no frena un video ni un modelo 3D." },
+      { "k": "Nadie escribe comandos", "v": "La interfaz solo envía identificadores: el instalador de programas acepta IDs de su catálogo, las recetas son una lista fija y el texto para Claude viaja por la entrada estándar, nunca dentro de la línea de comandos." },
+      { "k": "Dos canales, una sola app", "v": "El sufijo -dev en la versión separa los canales. La actualización solo ofrece versiones de desarrollo a una app de desarrollo cuya cuenta esté autorizada." },
+      { "k": "Python siempre listo", "v": "El módulo facial vive como un proceso de Python que ya tiene los modelos cargados: entrar no paga el arranque de Python ni de OpenCV. Detecta sobre una copia de 320 px y la cámara abre a 640×480." },
+      { "k": "Seguridad de Electron de serie", "v": "contextIsolation, sandbox y nodeIntegration apagado, y cada llamada entre procesos vuelve a validar la carpeta, la rama o la receta antes de actuar." }
+    ],
+    "brokeTitle": "Lo que se rompió",
+    "broke": [
+      { "k": "GitHub bloqueaba el instalador", "v": "Con el límite de la API (403 o 429) el instalador no encontraba la versión. Ahora la busca en las páginas públicas de releases y en su feed, y acepta el usuario escrito sin verificar en vez de bloquear." },
+      { "k": "No se podía instalar encima", "v": "DevPanel vive en la bandeja del sistema, así que su .exe seguía en uso. El instalador ahora lo cierra antes de instalar." },
+      { "k": "Entrar con el rostro era lento", "v": "Cada inicio de sesión arrancaba Python, cargaba OpenCV y descomprimía el ejecutable. Ahora un proceso queda caliente y se apaga solo tras 10 minutos sin uso." },
+      { "k": "La ventana no abría desde VS Code", "v": "Las terminales de VS Code exportan ELECTRON_RUN_AS_NODE, y con eso Electron no abre ventana. npm start limpia esa variable." },
+      { "k": "El arranque con Windows se perdía", "v": "Desinstalar o reinstalar borraba la entrada de inicio y la app solo la escribía al cambiar la opción. Ahora la vuelve a aplicar cada vez que arranca." }
+    ],
+    "roleTitle": "Mi parte",
+    "role": "Todo: diseño, desarrollo, seguridad, instalador y publicación",
+    "period": "Octubre 2026 · proyecto personal",
+    "duties": [
+      { "k": "App de escritorio", "v": "Electron y TypeScript: interfaz, paleta de comandos, bandeja del sistema, idiomas español e inglés y tema claro u oscuro." },
+      { "k": "Módulo facial", "v": "Python con OpenCV: registro, reconocimiento y prueba anti-foto, empaquetado para que el usuario no tenga que instalar Python." },
+      { "k": "Instalador", "v": "Un instalador propio, conversacional, que verifica cada descarga y deja listo el acceso con cuenta, código y rostro." },
+      { "k": "Entrega", "v": "GitHub Actions con canales estable y de desarrollo, notas de versión generadas de los commits, CodeQL, escaneo de secretos y pruebas e2e en Windows." }
+    ],
+    "nextTitle": "Lo que falta",
+    "next": [
+      "Firmar los ejecutables con un certificado reconocido, para que Windows deje de mostrar «Editor desconocido».",
+      "Verificar la cuenta con un inicio de sesión de GitHub: hoy el canal se decide por el usuario que se escribe.",
+      "Un límite de intentos con espera creciente para el código de 4 dígitos.",
+      "Versiones para macOS y Linux."
+    ],
+    "stack": ["Electron", "TypeScript", "Node.js", "Python", "OpenCV", "GitHub API", "electron-updater", "NSIS", "GitHub Actions", "Playwright", "Docker"],
+    "footer": "DevPanel es un proyecto personal de código abierto, con licencia MIT."
+  },
+  "en": {
+    "back": "Portfolio",
+    "langLabel": "ES",
+    "langAria": "Leer en español",
+    "kicker": "Personal project · Desktop app",
+    "tagline": "What a developer opens every day, in one panel.",
+    "lede": "DevPanel brings your GitHub repos, your local projects, developer tools and Claude Code into a Windows app that opens with your face. It is mine from end to end: the interface, the security, the Python face module, the installer and the way every version ships.",
+    "meta": ["Personal project", "October 2026", "Open source · MIT"],
+    "links": [
+      { "label": "View the code", "href": "https://github.com/DevCat-HGS/DevPanel", "event": "code-devpanel" },
+      { "label": "Download for Windows", "href": "https://github.com/DevCat-HGS/DevPanel/releases/tag/installer", "event": "devpanel-download" }
+    ],
+    "numbersTitle": "By the numbers",
+    "numbers": [
+      { "n": "41", "label": "unit tests", "note": "plus 8 end-to-end suites that drive the real Electron app" },
+      { "n": "2", "label": "update channels", "note": "stable for everyone, development only for authorized accounts" },
+      { "n": "0", "label": "photos stored", "note": "the face is kept as a numeric fingerprint encrypted by Windows" },
+      { "n": "4", "label": "checks on every change", "note": "tests, CodeQL, secret scanning and Dependabot" }
+    ],
+    "problemTitle": "The problem",
+    "problem": [
+      "A normal development day jumps between the GitHub tab, the terminal, the file explorer and several utility websites.",
+      "To decode a JWT or format some JSON, many people paste real tokens into sites they do not know.",
+      "You find out late that CI failed or that a PR is waiting for review."
+    ],
+    "solutionTitle": "The solution",
+    "solution": "A desktop panel that shows the state of your repos and local projects, warns you when a build fails, brings the tools you use every day without leaving your machine and lets you talk to Claude Code about a project. It locks itself when hidden and opens with your face or your code.",
+    "shotsTitle": "The app",
+    "shots": [
+      { "src": "shots/devpanel.webp", "alt": "DevPanel home with failing builds, pull requests, local changes and recent activity", "caption": "Home: what needs your attention today, at a glance." },
+      { "src": "shots/devpanel-lock.webp", "alt": "DevPanel lock screen with the 4-digit code keypad", "caption": "Lock: you get in with your face or your code." },
+      { "src": "shots/devpanel-tools.webp", "alt": "DevPanel tools grouped by category, each with its install status", "caption": "Tools: install or open what you use, in one click." }
+    ],
+    "mapTitle": "How it works",
+    "mapLead": "Two journeys that meet at your encrypted data: installing it once and using it every day.",
+    "transfer": "Transfer",
+    "lines": [
+      {
+        "name": "Installation",
+        "color": "signal",
+        "stops": [
+          { "k": "Custom installer", "v": "One question per screen, in Spanish or English. Downloads the latest version from GitHub." },
+          { "k": "SHA-256 check", "v": "Confirms the downloaded file is exactly the published one before running it." },
+          { "k": "Account and code", "v": "Your GitHub username and a 4-digit code, stored with scrypt." },
+          { "k": "Channel by account", "v": "Nobody chooses: authorized accounts get the development build; everyone else, the stable one." },
+          { "k": "Encrypted data", "v": "PIN, face fingerprint and token stay on your machine, encrypted by Windows (DPAPI).", "transfer": true }
+        ]
+      },
+      {
+        "name": "Every day",
+        "color": "metro",
+        "stops": [
+          { "k": "Encrypted data", "v": "The app reads it on start; it never leaves your machine.", "transfer": true },
+          { "k": "Lock", "v": "Face with a random head turn, or your 4-digit code." },
+          { "k": "GitHub panel", "v": "Repos, commits, Actions and PRs. With an optional token you also see your private repos." },
+          { "k": "Local projects", "v": "Branch, changes, diagnosis and npm scripts in a built-in terminal." },
+          { "k": "Claude Code", "v": "Conversations about a project, with its diagnosis as context." },
+          { "k": "Update", "v": "Checks on start and every 15 minutes, on the channel that matches your account." }
+        ]
+      }
+    ],
+    "decisionsTitle": "Decisions and why",
+    "decisions": [
+      { "k": "A face without photos", "v": "OpenCV with YuNet to detect and SFace to recognize, no dlib. Only an encrypted numeric fingerprint is stored. The threshold is 0.40, stricter than OpenCV's recommended 0.363, and it needs several matches in a row." },
+      { "k": "A head turn against photos", "v": "To sign in, the app asks you to turn to a random side and measures it from where the nose sits between the eyes. It stops photos and screens; the README says plainly it does not stop a video or a 3D model." },
+      { "k": "Nobody types commands", "v": "The interface only sends identifiers: the program installer accepts IDs from its catalog, recipes are a fixed list and the text for Claude travels through standard input, never inside the command line." },
+      { "k": "Two channels, one app", "v": "The -dev suffix in the version keeps the channels apart. Updates only offer development builds to a development app whose account is authorized." },
+      { "k": "Python always ready", "v": "The face module lives as a Python process with the models already loaded, so signing in does not pay for starting Python or OpenCV. It detects on a 320 px copy and the camera opens at 640×480." },
+      { "k": "Electron security by default", "v": "contextIsolation, sandbox and nodeIntegration off, and every call between processes re-validates the folder, branch or recipe before acting." }
+    ],
+    "brokeTitle": "What broke",
+    "broke": [
+      { "k": "GitHub blocked the installer", "v": "At the API limit (403 or 429) the installer could not find the version. It now looks it up on the public release pages and their feed, and accepts the typed username unverified instead of blocking." },
+      { "k": "Could not install over it", "v": "DevPanel lives in the system tray, so its .exe was still in use. The installer now closes it before installing." },
+      { "k": "Face sign-in was slow", "v": "Every sign-in started Python, loaded OpenCV and unpacked the executable. Now one process stays warm and shuts itself down after 10 idle minutes." },
+      { "k": "The window would not open from VS Code", "v": "VS Code terminals export ELECTRON_RUN_AS_NODE, which stops Electron from opening a window. npm start clears it." },
+      { "k": "Start with Windows got lost", "v": "Uninstalling or reinstalling removed the startup entry and the app only wrote it when the option changed. Now it re-applies it every time it starts." }
+    ],
+    "roleTitle": "My part",
+    "role": "Everything: design, development, security, installer and releases",
+    "period": "October 2026 · personal project",
+    "duties": [
+      { "k": "Desktop app", "v": "Electron and TypeScript: interface, command palette, system tray, Spanish and English, light and dark themes." },
+      { "k": "Face module", "v": "Python with OpenCV: enrollment, recognition and the anti-photo check, packaged so users never install Python." },
+      { "k": "Installer", "v": "A custom, conversational installer that verifies every download and sets up sign-in with account, code and face." },
+      { "k": "Delivery", "v": "GitHub Actions with stable and development channels, release notes built from commits, CodeQL, secret scanning and e2e tests on Windows." }
+    ],
+    "nextTitle": "What is left",
+    "next": [
+      "Sign the executables with a trusted certificate, so Windows stops showing \"Unknown publisher\".",
+      "Verify the account with a GitHub sign-in: today the channel follows the username that is typed.",
+      "An attempt limit with a growing wait for the 4-digit code.",
+      "Builds for macOS and Linux."
+    ],
+    "stack": ["Electron", "TypeScript", "Node.js", "Python", "OpenCV", "GitHub API", "electron-updater", "NSIS", "GitHub Actions", "Playwright", "Docker"],
+    "footer": "DevPanel is a personal open-source project, MIT licensed."
+  }
+}

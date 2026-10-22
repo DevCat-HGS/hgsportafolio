@@ -1,0 +1,161 @@
+{
+  "site": {
+    "name": "Harol Guerrero Salgado",
+    "author": "Harol Guerrero Salgado",
+    "linkedin": "https://www.linkedin.com/in/harol-g-salgado-498a60354/",
+    "github": "https://github.com/DevCat-HGS",
+    "verification": [
+      "CaDcENUWl_WyV76FfnkXPSHFHtINRqN--14yGQ8w9jA",
+      "28DW9x4HXtx_7uDquUZssQlqIYyx2y8b-5BrnJ4tg_4"
+    ],
+    "migozz": {
+      "url": "https://migozz.com",
+      "play": "https://play.google.com/store/apps/details?id=com.migozz.migozzApp",
+      "apple": "https://apps.apple.com/co/app/migozz/id6502121020"
+    }
+  },
+  "pages": {
+    "es": {
+      "lang": "es",
+      "ogLocale": "es_CO",
+      "ogAlternate": "en_US",
+      "title": "Harol Guerrero Salgado — Desarrollador Full Stack | Medellín",
+      "description": "Desarrollador Full Stack en Medellín: llevo productos web y móviles a producción, con backend serverless e IA. Casos MIGOZZ y ARIA, proyectos y hoja de vida.",
+      "ogDescription": "Full Stack que lleva productos web y móviles a producción, con backend serverless e IA. Remoto, híbrido o presencial en Medellín.",
+      "twitterDescription": "Productos web y móviles en producción, con backend serverless e IA.",
+      "ogImageAlt": "Harol Guerrero Salgado — Desarrollador Full Stack",
+      "jobTitle": "Desarrollador de software Full Stack",
+      "about": "Desarrollador Full Stack en Colombia: lleva productos web y móviles a producción, con backend serverless en AWS y Firebase e integraciones de IA generativa.",
+      "fallback": {
+        "heading": "Harol Guerrero Salgado — Desarrollador Full Stack",
+        "paragraph": "Desarrollador Full Stack en Medellín, Colombia. Llevo productos web y móviles a producción: frontend en React, Next.js y Flutter, backend serverless en AWS y Firebase, e IA generativa con Amazon Bedrock. Hoy trabajo en MIGOZZ. Disponible para trabajo remoto, híbrido o presencial en Medellín.",
+        "linkedin": "LinkedIn — Harol Guerrero Salgado",
+        "github": "GitHub — DevCat-HGS",
+        "projects": "Proyectos"
+      }
+    },
+    "en": {
+      "lang": "en",
+      "ogLocale": "en_US",
+      "ogAlternate": "es_CO",
+      "title": "Harol Guerrero Salgado — Full Stack Developer | Medellín",
+      "description": "Full Stack developer in Medellín, Colombia: I take web and mobile products to production, with serverless backends and AI. MIGOZZ and ARIA case studies, résumé.",
+      "ogDescription": "Full Stack developer who takes web and mobile products to production, with serverless backends and AI. Remote, hybrid or on-site.",
+      "twitterDescription": "Web and mobile products in production, with serverless backends and AI.",
+      "ogImageAlt": "Harol Guerrero Salgado — Full Stack Developer",
+      "jobTitle": "Full Stack Software Developer",
+      "about": "Full Stack developer in Colombia who takes web and mobile products to production, with serverless backends on AWS and Firebase and generative AI integrations.",
+      "fallback": {
+        "heading": "Harol Guerrero Salgado — Full Stack Developer",
+        "paragraph": "Full Stack developer based in Medellín, Colombia. I take web and mobile products to production: React, Next.js and Flutter on the front end, serverless backends on AWS and Firebase, and generative AI with Amazon Bedrock. I currently work at MIGOZZ. Open to remote, hybrid or on-site work in Medellín.",
+        "linkedin": "LinkedIn — Harol Guerrero Salgado",
+        "github": "GitHub — DevCat-HGS",
+        "projects": "Projects"
+      }
+    }
+  },
+  "migozzPages": {
+    "es": {
+      "title": "MIGOZZ — Caso y métricas | Harol Guerrero Salgado",
+      "description": "MIGOZZ, el ecosistema social con IA para creadores, marcas y artistas: métricas públicas, plataformas, funciones y mi trabajo como desarrollador Full Stack.",
+      "ogDescription": "Métricas públicas, plataformas y funciones de MIGOZZ, y mi trabajo como desarrollador Full Stack.",
+      "ogImageAlt": "MIGOZZ — Caso y métricas",
+      "fallback": {
+        "heading": "MIGOZZ — Caso y métricas",
+        "paragraph": "MIGOZZ es un ecosistema social con IA para creadores, influencers, marcas y artistas, disponible en Android, iOS y Web. Trabajo en él como desarrollador Full Stack.",
+        "site": "migozz.com",
+        "back": "Volver al portafolio"
+      }
+    },
+    "en": {
+      "title": "MIGOZZ — Case study and metrics | Harol Guerrero Salgado",
+      "description": "MIGOZZ, the AI social ecosystem for creators, brands and artists: public metrics, platforms, features and my work on it as a Full Stack developer.",
+      "ogDescription": "MIGOZZ public metrics, platforms and features, and my work on it as a Full Stack developer.",
+      "ogImageAlt": "MIGOZZ — Case study and metrics",
+      "fallback": {
+        "heading": "MIGOZZ — Case study and metrics",
+        "paragraph": "MIGOZZ is an AI social ecosystem for creators, influencers, brands and artists, available on Android, iOS and the web. I work on it as a Full Stack developer.",
+        "site": "migozz.com",
+        "back": "Back to the portfolio"
+      }
+    }
+  },
+  "ariaPages": {
+    "es": {
+      "title": "ARIA — IA generativa para soporte SAP | Harol Guerrero Salgado",
+      "description": "Cómo funciona ARIA, un asistente de soporte SAP con Amazon Bedrock, RAG y AWS serverless: arquitectura, decisiones medidas, lo que se rompió y mi parte en el equipo.",
+      "ogDescription": "Arquitectura, decisiones medidas y lo que se rompió en ARIA, un asistente de soporte SAP con IA generativa sobre AWS.",
+      "ogImageAlt": "ARIA — Caso de estudio de IA generativa para soporte SAP",
+      "fallback": {
+        "heading": "ARIA — Asistente de soporte SAP con IA generativa",
+        "paragraph": "ARIA responde dudas de SAP en español a partir de más de 13.000 SAP Notes, con Amazon Bedrock (Claude Haiku 4.5), Knowledge Bases sobre S3 Vectors y una arquitectura serverless en AWS. Proyecto de equipo para Arix Group: construí la interfaz de chat, el panel de fuentes, la capa de API y la documentación.",
+        "site": "arixgroup.com.co",
+        "back": "Volver al portafolio"
+      }
+    },
+    "en": {
+      "title": "ARIA — Generative AI for SAP support | Harol Guerrero Salgado",
+      "description": "How ARIA works, an SAP support assistant built with Amazon Bedrock, RAG and serverless AWS: architecture, measured decisions, what broke and my part in the team.",
+      "ogDescription": "Architecture, measured decisions and what broke in ARIA, an SAP support assistant built on generative AI and AWS.",
+      "ogImageAlt": "ARIA — Generative AI case study for SAP support",
+      "fallback": {
+        "heading": "ARIA — SAP support assistant with generative AI",
+        "paragraph": "ARIA answers SAP questions in Spanish from more than 13,000 SAP Notes, using Amazon Bedrock (Claude Haiku 4.5), Knowledge Bases on S3 Vectors and a serverless AWS architecture. A team project for Arix Group: I built the chat interface, the sources panel, the API layer and the documentation.",
+        "site": "arixgroup.com.co",
+        "back": "Back to the portfolio"
+      }
+    }
+  },
+  "devpanelPages": {
+    "es": {
+      "title": "DevPanel — App de escritorio para devs | Harol Guerrero Salgado",
+      "description": "DevPanel, mi app de escritorio de código abierto: GitHub, proyectos locales y Claude Code en un panel con login facial. Arquitectura, decisiones y lo que se rompió.",
+      "ogDescription": "Mi app de escritorio de código abierto: GitHub, proyectos locales y Claude Code en un panel con login facial.",
+      "ogImageAlt": "DevPanel — App de escritorio para desarrolladores",
+      "fallback": {
+        "heading": "DevPanel — App de escritorio para desarrolladores",
+        "paragraph": "DevPanel es mi proyecto personal de código abierto: una app de Windows en Electron y TypeScript que reúne repos de GitHub, proyectos locales, herramientas y Claude Code, con login facial en Python y OpenCV, instalador propio y canales de actualización estable y de desarrollo.",
+        "site": "Código en GitHub",
+        "back": "Volver al portafolio"
+      }
+    },
+    "en": {
+      "title": "DevPanel — Desktop app for developers | Harol Guerrero Salgado",
+      "description": "DevPanel, my open-source desktop app: GitHub, local projects and Claude Code in one panel with face sign-in. Architecture, decisions and what broke along the way.",
+      "ogDescription": "My open-source desktop app: GitHub, local projects and Claude Code in one panel with face sign-in.",
+      "ogImageAlt": "DevPanel — Desktop app for developers",
+      "fallback": {
+        "heading": "DevPanel — Desktop app for developers",
+        "paragraph": "DevPanel is my open-source personal project: a Windows app in Electron and TypeScript that brings together GitHub repos, local projects, tools and Claude Code, with face sign-in in Python and OpenCV, a custom installer and stable and development update channels.",
+        "site": "Code on GitHub",
+        "back": "Back to the portfolio"
+      }
+    }
+  },
+  "portafolioPages": {
+    "es": {
+      "title": "Portafolio HGS — Se prueba y publica solo | Harol Guerrero Salgado",
+      "description": "Cómo está hecho este portafolio: admin propio, 14 workflows de GitHub Actions y Lighthouse exigido en cada cambio. Documentación en docs.hgsportafolio.site.",
+      "ogDescription": "Un portafolio tratado como producto: admin propio, 14 workflows de GitHub Actions y calidad exigida en cada cambio.",
+      "ogImageAlt": "Portafolio HGS — Un sitio que se prueba y publica solo",
+      "fallback": {
+        "heading": "Portafolio HGS — Un sitio que se prueba, se publica y se vigila solo",
+        "paragraph": "Este portafolio es mi proyecto personal: React, TypeScript y Vite en dos idiomas, un admin propio sobre Netlify Functions para editar todo el contenido, 14 workflows de GitHub Actions con Lighthouse, axe y Playwright, CV en PDF generado de los mismos datos y un resumen semanal por correo. Su documentación técnica completa está en docs.hgsportafolio.site.",
+        "site": "Documentación técnica en docs.hgsportafolio.site",
+        "back": "Volver al portafolio"
+      }
+    },
+    "en": {
+      "title": "Portafolio HGS — Tests and ships itself | Harol Guerrero Salgado",
+      "description": "How this portfolio is built: its own admin, 14 GitHub Actions workflows, Lighthouse and accessibility required on every change. Docs at docs.hgsportafolio.site.",
+      "ogDescription": "A portfolio treated as a product: its own admin, 14 GitHub Actions workflows and quality required on every change.",
+      "ogImageAlt": "Portafolio HGS — A site that tests and ships itself",
+      "fallback": {
+        "heading": "Portafolio HGS — A site that tests, ships and watches itself",
+        "paragraph": "This portfolio is my personal project: React, TypeScript and Vite in two languages, my own admin on Netlify Functions to edit all the content, 14 GitHub Actions workflows with Lighthouse, axe and Playwright, a PDF résumé built from the same data and a weekly email digest. Its full technical documentation is at docs.hgsportafolio.site.",
+        "site": "Technical docs at docs.hgsportafolio.site",
+        "back": "Back to the portfolio"
+      }
+    }
+  }
+}

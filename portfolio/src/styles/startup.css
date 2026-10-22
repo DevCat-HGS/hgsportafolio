@@ -1,0 +1,220 @@
+/* —— Startup (sección oscura) —— */
+.startup-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+.startup-top h2 {
+  font-size: clamp(4.5rem, 16vw, 12rem);
+  max-width: none;
+}
+
+.app-icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 20px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  background: var(--signal);
+  color: var(--ink);
+}
+
+.status i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink);
+  animation: blink 1.8s ease infinite;
+}
+
+.status.past {
+  background: transparent;
+  color: var(--ink-dim);
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.role {
+  margin: 0.4rem 0 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.dark .role {
+  color: var(--signal);
+}
+
+.stores {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.stores a img {
+  display: block;
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.stores a:nth-child(2) img {
+  height: 40px;
+}
+
+.stores a:hover {
+  opacity: 0.85;
+}
+
+.stores .web-link {
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  border: 2px solid var(--paper);
+  border-radius: 6px;
+  transition: background-color 0.18s, color 0.18s;
+}
+
+.stores .web-link:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.duties {
+  display: grid;
+  gap: 1.75rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.duties .card {
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  padding-top: 1rem;
+  border-top: 8px solid var(--signal);
+}
+
+.duties .k {
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+}
+
+.duties .v {
+  color: var(--on-ink-dim);
+  font-size: 1rem;
+}
+
+/* Botón al caso de MIGOZZ: degradado de la marca en movimiento, pulso suave, brillo y flecha al pasar el ratón. */
+.stores .case-link {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 52px;
+  padding: 0 1.1rem 0 0.45rem;
+  font-weight: 800;
+  color: #fff;
+  border-radius: 999px;
+  background: linear-gradient(100deg, #f2994a, #c93cc4 30%, #8e2de2 55%, #c93cc4 80%, #f2994a);
+  background-size: 260% 100%;
+  animation:
+    case-flow 7s linear infinite,
+    case-pulse 2.6s ease-out infinite;
+  transition: transform 0.2s var(--ease);
+}
+
+.stores .case-link img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 6px;
+}
+
+/* Brillo diagonal que cruza el botón al pasar el ratón. */
+.stores .case-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.45) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform 0.7s var(--ease);
+}
+
+.stores .case-link .case-arrow {
+  transition: transform 0.25s var(--ease);
+}
+
+@media (hover: hover) {
+  .stores .case-link:hover {
+    transform: translateY(-2px);
+  }
+
+  .stores .case-link:hover::after {
+    transform: translateX(120%);
+  }
+
+  .stores .case-link:hover .case-arrow {
+    transform: translateX(4px);
+  }
+}
+
+.stores .case-link:active {
+  transform: scale(0.97);
+}
+
+@keyframes case-flow {
+  to {
+    background-position: 260% 0;
+  }
+}
+
+@keyframes case-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(201, 60, 196, 0.55);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 16px rgba(201, 60, 196, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stores .case-link {
+    animation: none;
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.tags span {
+  padding: 0.18rem 0.65rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+}
+
+.startup-stack {
+  margin-top: 2.5rem;
+}
+
+.dark.section {
+  padding-bottom: clamp(4rem, 8vw, 6rem);
+}

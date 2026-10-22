@@ -1,0 +1,180 @@
+{
+  "es": {
+    "back": "Portafolio",
+    "langLabel": "EN",
+    "langAria": "Read in English",
+    "kicker": "Caso de estudio · IA generativa",
+    "tagline": "Asistente de soporte SAP con IA generativa, sobre AWS serverless.",
+    "lede": "Un chat que resuelve dudas de SAP en español a partir de más de 13.000 SAP Notes: responde con síntoma, causa y solución, muestra de qué notas sale cada respuesta y dice «no encontré información» antes que inventar. Lo construimos en equipo para Arix Group entre julio y agosto de 2026.",
+    "meta": ["Arix Group", "Julio – agosto 2026", "Proyecto de equipo"],
+    "numbersTitle": "Lo que se midió",
+    "numbers": [
+      { "n": "5,9 s", "label": "respuesta completa con RAG directo", "note": "16,7 s con Bedrock Agent, en las mismas 6 preguntas de prueba" },
+      { "n": "6 de 6", "label": "respuestas en vivo y con fuentes", "note": "el agente transmitía en vivo solo 2 de 6" },
+      { "n": "13.403", "label": "SAP Notes medidas para el índice", "note": "la mitad pesa menos de 1,1 KB" },
+      { "n": "12", "label": "stacks de AWS CDK", "note": "toda la infraestructura como código, en Python" }
+    ],
+    "problemTitle": "El problema",
+    "problem": [
+      "El soporte SAP era manual: cada duda pasaba por un consultor, aunque la respuesta ya estuviera escrita en una SAP Note.",
+      "Las notas son miles, están en inglés y no se encuentran fácil por síntoma.",
+      "Un modelo de lenguaje sin control inventa transacciones y pasos, y en soporte una respuesta inventada es peor que ninguna."
+    ],
+    "solutionTitle": "La solución",
+    "solution": "Un asistente que busca en las notas, responde en español con la plantilla síntoma, causa y solución, cita sus fuentes con su relevancia y se niega a responder cuando la documentación no lo respalda. Cada usuario entra con su cuenta y conserva su historial.",
+    "mapTitle": "Cómo funciona",
+    "mapLead": "Dos líneas que se cruzan en la base de conocimiento: una atiende cada pregunta en segundos; la otra la mantiene al día cada noche.",
+    "transfer": "Transbordo",
+    "lines": [
+      {
+        "name": "Consulta",
+        "color": "metro",
+        "stops": [
+          { "k": "Navegador", "v": "React en CloudFront. Inicia sesión con Cognito y abre un WebSocket." },
+          { "k": "API WebSocket", "v": "Valida el token al conectar y recibe la pregunta." },
+          { "k": "Lambda que responde", "v": "Guarda la pregunta, decide si es un seguimiento y arma el contexto." },
+          { "k": "Base de conocimiento", "v": "Bedrock Knowledge Bases sobre S3 Vectors con Titan Embeddings V2: 25 candidatas.", "transfer": true },
+          { "k": "Claude Haiku 4.5 + Guardrail", "v": "Responde con temperatura 0,2. El guardrail revisa que la respuesta esté anclada en las notas antes de mostrarla." },
+          { "k": "Respuesta en vivo", "v": "Llega token a token por el WebSocket, con las fuentes al final. Se guarda en DynamoDB." }
+        ]
+      },
+      {
+        "name": "Ingesta diaria",
+        "color": "signal",
+        "stops": [
+          { "k": "EventBridge, 08:00 UTC", "v": "Busca las notas publicadas el día anterior en los módulos MM, SD, FI y BC." },
+          { "k": "Lambda scraper", "v": "Contenedor con navegador, a ritmo bajo para no saturar el portal. Sale por una IP fija." },
+          { "k": "S3", "v": "Guarda cada nota en crudo, procesada y lista para indexar." },
+          { "k": "SQS, 5 minutos", "v": "Agrupa los cambios: Bedrock admite una sola ingesta a la vez." },
+          { "k": "Base de conocimiento", "v": "Se reindexa y queda lista en desarrollo; a las 09:30 se copia a producción.", "transfer": true }
+        ]
+      }
+    ],
+    "decisionsTitle": "Decisiones y por qué",
+    "decisions": [
+      { "k": "RAG directo en vez de Bedrock Agent", "v": "Se midió con 6 preguntas: el agente tardaba 16,7 s y solo transmitía en vivo en 2. Llamando directamente a la base de conocimiento y al modelo bajó a 5,9 s, con streaming y fuentes en las 6." },
+      { "k": "WebSocket para el streaming", "v": "API Gateway HTTP corta a los 30 s y no transmite por partes. La respuesta llega por WebSocket; si la conexión falla, la interfaz consulta el estado cada 1,5 s hasta que termina." },
+      { "k": "S3 Vectors en vez de OpenSearch", "v": "Para el tamaño del corpus, el índice costaba centavos al mes frente a cientos de dólares con OpenSearch Serverless. El plan B era volver a OpenSearch si el p95 pasaba de 3 s." },
+      { "k": "Una nota, un vector", "v": "Con fragmentos de hasta 4.000 tokens, el 99,3 % de las notas cabe entera en un solo vector, y la búsqueda devuelve notas completas en vez de pedazos sueltos." },
+      { "k": "Guardrail antes de mostrar", "v": "Revisar la respuesta antes de pintarla retrasa el primer texto de 1,9 s a 4,3 s, pero nunca aparece algo inventado que luego se borra delante del usuario." },
+      { "k": "Cuántas notas leer, según la pregunta", "v": "No hay un número fijo: las candidatas se cortan donde la relevancia cae en picada. En una consulta real, las notas correctas estaban en los puestos 9 y 10 de 25." }
+    ],
+    "brokeTitle": "Lo que se rompió",
+    "broke": [
+      { "k": "4 días con datos viejos", "v": "Producción respondía bien pero sin unas 780 notas nuevas, y nada daba error. Ahora una tarea copia el corpus cada mañana y una alarma avisa si no corrió." },
+      { "k": "Un filtro que escondía la respuesta", "v": "Filtrar por módulo SAP con el propio modelo acertaba 88 % frente a 85 % sin filtro, pero sumaba casi un segundo y, cuando se equivocaba de módulo, la nota correcta ya no aparecía. Se quitó: solo se filtra cuando la pregunta trae un número de nota." },
+      { "k": "Cortes a los 29.000 ms exactos", "v": "Las respuestas largas morían en el límite de API Gateway. El chat pasó a ser asíncrono: contesta 202 en un segundo y un worker termina el trabajo." },
+      { "k": "Preguntas demasiado largas", "v": "El guardrail admite 1.000 caracteres por consulta, y pegar un volcado de ABAP rompía el chat. Por encima de ese límite se responde sin ese filtro." },
+      { "k": "Notas que no cabían", "v": "42 notas superaban los 8.192 tokens del modelo de embeddings y fallaron en la primera carga." }
+    ],
+    "roleTitle": "Mi parte",
+    "role": "Desarrollador Full Stack: interfaz, capa de API y documentación",
+    "period": "Julio – agosto de 2026 · Arix Group",
+    "duties": [
+      { "k": "Interfaz de chat", "v": "La pantalla principal en React y TypeScript: respuesta en vivo, acciones por mensaje, preguntas sugeridas, filtrado de conversaciones, cierre de sesión y diseño responsive." },
+      { "k": "Panel de fuentes", "v": "Muestra de qué SAP Notes sale cada respuesta y con qué relevancia, para que el consultor pueda comprobarla. En el backend, el filtrado de las fuentes que devuelve el agente." },
+      { "k": "API y pruebas con Bedrock", "v": "Una API local en FastAPI y el cliente de Bedrock con los que se probó la integración antes de llevarla a Lambda." },
+      { "k": "Pipeline batch", "v": "Preparación y ejecución de lotes en Bedrock Batch para enriquecer cada nota con resumen, módulo, severidad y transacciones. Quedó lista para una fase posterior." },
+      { "k": "Documentación", "v": "Manual de usuario, guía rápida, documentación de la API, README técnico y una demo interactiva." }
+    ],
+    "teamNote": "El motor RAG, el WebSocket y la infraestructura en CDK los construyó principalmente otro desarrollador del equipo, y la arquitectura la definió el arquitecto del proyecto. Aquí cuento el sistema completo porque lo conozco por dentro, pero lo que es mío está en esta sección.",
+    "nextTitle": "Lo que falta",
+    "next": [
+      "Pasar el caso a un consultor cuando el asistente no lo resuelve, y crear el ticket en SAP.",
+      "Un WAF delante de la API.",
+      "Guardar la valoración de cada respuesta: la ruta existe, pero todavía no guarda nada.",
+      "Medir la precisión con preguntas reales: el objetivo es 85 %."
+    ],
+    "stack": ["React", "TypeScript", "Python", "FastAPI", "AWS Lambda", "API Gateway", "Amazon Bedrock", "Claude Haiku 4.5", "S3 Vectors", "DynamoDB", "Cognito", "AWS CDK", "GitHub Actions"],
+    "footer": "ARIA es un producto de Arix Group. Los datos de clientes, cuentas e infraestructura se dejaron fuera a propósito."
+  },
+  "en": {
+    "back": "Portfolio",
+    "langLabel": "ES",
+    "langAria": "Leer en español",
+    "kicker": "Case study · Generative AI",
+    "tagline": "An SAP support assistant built on generative AI and serverless AWS.",
+    "lede": "A chat that answers SAP questions in Spanish from more than 13,000 SAP Notes: it replies with symptom, cause and solution, shows which notes each answer comes from, and says \"I found no information\" rather than make something up. We built it as a team for Arix Group between July and August 2026.",
+    "meta": ["Arix Group", "July – August 2026", "Team project"],
+    "numbersTitle": "What we measured",
+    "numbers": [
+      { "n": "5.9 s", "label": "full answer with direct RAG", "note": "16.7 s with Bedrock Agent, on the same 6 test questions" },
+      { "n": "6 of 6", "label": "answers streamed live, with sources", "note": "the agent streamed only 2 of 6" },
+      { "n": "13,403", "label": "SAP Notes measured for the index", "note": "half of them are under 1.1 KB" },
+      { "n": "12", "label": "AWS CDK stacks", "note": "the whole infrastructure as code, in Python" }
+    ],
+    "problemTitle": "The problem",
+    "problem": [
+      "SAP support was manual: every question went through a consultant, even when the answer was already written in an SAP Note.",
+      "There are thousands of notes, they are in English and they are hard to find by symptom.",
+      "An unchecked language model invents transactions and steps, and in support a made-up answer is worse than none."
+    ],
+    "solutionTitle": "The solution",
+    "solution": "An assistant that searches the notes, answers in Spanish with a symptom, cause and solution template, cites its sources with their relevance and refuses to answer when the documentation does not back it. Each user signs in with their own account and keeps their history.",
+    "mapTitle": "How it works",
+    "mapLead": "Two lines that meet at the knowledge base: one answers each question in seconds; the other keeps it up to date every night.",
+    "transfer": "Transfer",
+    "lines": [
+      {
+        "name": "Question",
+        "color": "metro",
+        "stops": [
+          { "k": "Browser", "v": "React on CloudFront. Signs in with Cognito and opens a WebSocket." },
+          { "k": "WebSocket API", "v": "Checks the token on connect and receives the question." },
+          { "k": "Answering Lambda", "v": "Stores the question, decides whether it is a follow-up and builds the context." },
+          { "k": "Knowledge base", "v": "Bedrock Knowledge Bases on S3 Vectors with Titan Embeddings V2: 25 candidates.", "transfer": true },
+          { "k": "Claude Haiku 4.5 + Guardrail", "v": "Answers at temperature 0.2. The guardrail checks the answer is grounded in the notes before it is shown." },
+          { "k": "Live answer", "v": "Arrives token by token over the WebSocket, with the sources at the end. Stored in DynamoDB." }
+        ]
+      },
+      {
+        "name": "Daily ingestion",
+        "color": "signal",
+        "stops": [
+          { "k": "EventBridge, 08:00 UTC", "v": "Looks for notes published the day before in the MM, SD, FI and BC modules." },
+          { "k": "Scraper Lambda", "v": "A container with a browser, at a low rate so it does not strain the portal. Goes out through a fixed IP." },
+          { "k": "S3", "v": "Keeps every note raw, parsed and ready to index." },
+          { "k": "SQS, 5 minutes", "v": "Batches the changes: Bedrock allows only one ingestion at a time." },
+          { "k": "Knowledge base", "v": "Reindexed and ready in development; at 09:30 it is copied to production.", "transfer": true }
+        ]
+      }
+    ],
+    "decisionsTitle": "Decisions and why",
+    "decisions": [
+      { "k": "Direct RAG instead of Bedrock Agent", "v": "Measured on 6 questions: the agent took 16.7 s and streamed live in only 2. Calling the knowledge base and the model directly brought it to 5.9 s, with streaming and sources in all 6." },
+      { "k": "WebSocket for streaming", "v": "API Gateway HTTP cuts off at 30 s and does not stream. The answer arrives over a WebSocket; if the connection fails, the interface polls the status every 1.5 s until it is done." },
+      { "k": "S3 Vectors instead of OpenSearch", "v": "For the size of the corpus, the index cost cents a month against hundreds of dollars with OpenSearch Serverless. Plan B was to go back to OpenSearch if p95 went over 3 s." },
+      { "k": "One note, one vector", "v": "With chunks of up to 4,000 tokens, 99.3% of the notes fit whole in a single vector, so search returns complete notes instead of loose fragments." },
+      { "k": "Guardrail before showing", "v": "Checking the answer before painting it delays the first text from 1.9 s to 4.3 s, but nothing invented ever appears and then disappears in front of the user." },
+      { "k": "How many notes to read, per question", "v": "There is no fixed number: candidates are cut where relevance drops off a cliff. In a real query, the right notes were in positions 9 and 10 out of 25." }
+    ],
+    "brokeTitle": "What broke",
+    "broke": [
+      { "k": "4 days of stale data", "v": "Production answered fine but without about 780 new notes, and nothing raised an error. Now a job copies the corpus every morning and an alarm fires if it did not run." },
+      { "k": "A filter that hid the answer", "v": "Filtering by SAP module with the model itself was right 88% of the time against 85% without it, but added almost a second and, when it picked the wrong module, the right note no longer showed up. It was removed: results are filtered only when the question includes a note number." },
+      { "k": "Cut off at exactly 29,000 ms", "v": "Long answers died at the API Gateway limit. The chat became asynchronous: it replies 202 in a second and a worker finishes the job." },
+      { "k": "Questions that were too long", "v": "The guardrail accepts 1,000 characters per query, and pasting an ABAP dump broke the chat. Above that limit the answer goes without that filter." },
+      { "k": "Notes that did not fit", "v": "42 notes were over the embedding model's 8,192 tokens and failed on the first load." }
+    ],
+    "roleTitle": "My part",
+    "role": "Full Stack developer: interface, API layer and documentation",
+    "period": "July – August 2026 · Arix Group",
+    "duties": [
+      { "k": "Chat interface", "v": "The main screen in React and TypeScript: live answers, per-message actions, suggested questions, conversation filtering, sign-out and responsive layout." },
+      { "k": "Sources panel", "v": "Shows which SAP Notes each answer comes from and how relevant they are, so a consultant can check it. On the backend, filtering the sources the agent returns." },
+      { "k": "API and Bedrock tests", "v": "A local FastAPI API and the Bedrock client used to test the integration before moving it to Lambda." },
+      { "k": "Batch pipeline", "v": "Preparing and running Bedrock Batch jobs that enrich each note with a summary, module, severity and transactions. Ready for a later phase." },
+      { "k": "Documentation", "v": "User manual, quick guide, API docs, technical README and an interactive demo." }
+    ],
+    "teamNote": "The RAG engine, the WebSocket and the CDK infrastructure were built mainly by another developer on the team, and the architecture was set by the project's architect. I describe the whole system because I know it from the inside, but what is mine is in this section.",
+    "nextTitle": "What is left",
+    "next": [
+      "Hand the case to a consultant when the assistant cannot solve it, and open the ticket in SAP.",
+      "A WAF in front of the API.",
+      "Store the rating of each answer: the route exists, but it does not store anything yet.",
+      "Measure accuracy on real questions: the target is 85%."
+    ],
+    "stack": ["React", "TypeScript", "Python", "FastAPI", "AWS Lambda", "API Gateway", "Amazon Bedrock", "Claude Haiku 4.5", "S3 Vectors", "DynamoDB", "Cognito", "AWS CDK", "GitHub Actions"],
+    "footer": "ARIA is an Arix Group product. Client, account and infrastructure details were left out on purpose."
+  }
+}

@@ -1,0 +1,172 @@
+name: Portfolio CI
+
+on:
+  pull_request:
+    paths:
+      - portfolio/**
+      # The admin's sign-in rules are tested here (tests/admin-auth.test.ts).
+      - admin/netlify/**
+      - .github/workflows/portfolio-ci.yml
+  push:
+    branches: [main]
+    paths:
+      - portfolio/**
+      # The admin's sign-in rules are tested here (tests/admin-auth.test.ts).
+      - admin/netlify/**
+      - .github/workflows/portfolio-ci.yml
+  # Started by the Images workflow after it commits generated files to a pull request branch.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: portfolio-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: portfolio
+
+jobs:
+  check:
+    name: Typecheck, lint, test, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: portfolio/package-lock.json
+
+      - run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Format
+        run: npm run format:check
+
+      # Capturas subidas desde el admin: los tests exigen sus WebP aunque el workflow Images aún no los haya subido.
+      - name: Optimize images
+        run: npm run images
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+  quality:
+    name: Lighthouse, accessibility and screenshots
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      pull-requests: write
+      # Reads the Lighthouse baseline artifact saved by the last run on main.
+      actions: read
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: portfolio/package-lock.json
+
+      - run: npm ci
+
+      - run: npm run images
+
+      - run: npm run build
+
+      - name: Install the browser used by Playwright and Lighthouse
+        run: npx playwright install --with-deps chromium
+
+      - name: Serve the production build
+        run: |
+          npm run preview -- --port 4173 --strictPort > preview.log 2>&1 &
+          curl --silent --fail --retry 30 --retry-connrefused --retry-delay 1 http://localhost:4173/ > /dev/null
+
+      - name: Lighthouse budgets
+        id: lighthouse
+        continue-on-error: true
+        env:
+          LH_RUNS: "5"
+        run: |
+          export CHROME_PATH="$(node -e "console.log(require('@playwright/test').chromium.executablePath())")"
+          npm run lighthouse
+
+      # main keeps its numbers as the baseline; pull requests download them to show the difference.
+      - name: Save the Lighthouse baseline
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.lighthouse.outcome != 'skipped'
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse-baseline
+          path: portfolio/.reports/lighthouse-summary.json
+          include-hidden-files: true
+          retention-days: 90
+
+      - name: Download the Lighthouse baseline from main
+        if: github.event_name != 'push'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          run_id=$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=lighthouse-baseline&per_page=1" --jq '.artifacts[0].workflow_run.id // empty')
+          if [ -z "$run_id" ]; then echo "No baseline yet: it appears after the next push to main."; exit 0; fi
+          gh run download "$run_id" --repo "$GITHUB_REPOSITORY" --name lighthouse-baseline --dir .reports/baseline
+
+      - name: Accessibility, keyboard and screenshots
+        id: e2e
+        continue-on-error: true
+        env:
+          SCREENSHOTS: "1"
+        run: npx playwright test
+
+      - name: Upload reports and screenshots
+        id: upload
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: quality-report
+          path: portfolio/.reports
+          # .reports is a hidden directory, which upload-artifact skips unless told otherwise.
+          include-hidden-files: true
+          retention-days: 14
+
+      - name: Build the report
+        if: always()
+        env:
+          ARTIFACT_URL: ${{ steps.upload.outputs.artifact-url }}
+        run: |
+          node scripts/quality-report.mjs > /dev/null
+          cat .reports/quality-comment.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Comment on the pull request
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require("fs");
+            const MARKER = "<!-- quality-report -->";
+            const body = fs.readFileSync("portfolio/.reports/quality-comment.md", "utf8");
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+            const existing = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number, per_page: 100 });
+            const mine = existing.find((c) => c.body?.includes(MARKER));
+            if (mine) await github.rest.issues.updateComment({ owner, repo, comment_id: mine.id, body });
+            else await github.rest.issues.createComment({ owner, repo, issue_number, body });
+
+      - name: Fail when a budget or a browser check failed
+        if: steps.lighthouse.outcome == 'failure' || steps.e2e.outcome == 'failure'
+        run: |
+          echo "Lighthouse: ${{ steps.lighthouse.outcome }}, browser checks: ${{ steps.e2e.outcome }}"
+          exit 1

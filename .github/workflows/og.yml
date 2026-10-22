@@ -1,0 +1,49 @@
+name: Open Graph image
+
+# Regenerates portfolio/public/og.png whenever its template changes, so the share card never goes stale.
+on:
+  push:
+    branches: [main]
+    paths:
+      - portfolio/scripts/og-template.html
+      - portfolio/scripts/og.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    working-directory: portfolio
+
+jobs:
+  render:
+    name: Render og.png
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: portfolio/package-lock.json
+
+      - run: npm ci
+
+      - run: npx playwright install --with-deps chromium
+
+      - run: npm run og
+
+      - name: Commit when the image changed
+        working-directory: .
+        run: |
+          if git diff --quiet -- portfolio/public/og.png; then
+            echo "og.png is already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add portfolio/public/og.png
+          git commit -m "chore: regenerate og.png"
+          git push

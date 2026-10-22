@@ -1,0 +1,104 @@
+/* —— La línea —— */
+.line {
+  position: fixed;
+  z-index: 30;
+  left: 0;
+  top: var(--nav);
+  bottom: 0;
+  width: var(--gutter);
+  --track: calc(100svh - var(--nav) - 6svh - 6svh);
+}
+
+.line::before,
+.line-fill {
+  content: "";
+  position: absolute;
+  left: calc(var(--pad) * 0.6);
+  top: 6svh;
+  width: 6px;
+  height: var(--track);
+  border-radius: 3px;
+  background: rgba(17, 19, 21, 0.16);
+}
+
+.line-fill {
+  background: var(--metro);
+  transform-origin: top;
+  transform: scaleY(var(--line, 0));
+}
+
+.train {
+  position: absolute;
+  z-index: 1;
+  left: calc(var(--pad) * 0.6 - 4px);
+  top: calc(6svh + var(--track) * var(--line, 0));
+  width: 14px;
+  height: 26px;
+  margin-top: -13px;
+  border-radius: 6px;
+  background: var(--signal);
+  border: 3px solid var(--ink);
+}
+
+.stop {
+  position: absolute;
+  top: calc(6svh + var(--track) * var(--at));
+  left: calc(var(--pad) * 0.6 + 3px);
+  display: flex;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  padding: 8px;
+}
+
+.stop i {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  transition: transform 0.25s var(--ease), background-color 0.25s;
+}
+
+.stop.is-active i,
+.stop:hover i {
+  background: var(--signal);
+  transform: scale(1.35);
+}
+
+.stop span {
+  position: absolute;
+  left: 30px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0.12rem 0.5rem;
+  background: var(--ink);
+  color: var(--paper);
+  opacity: 0;
+  transform: translateX(-6px);
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.25s var(--ease);
+}
+
+.stop:hover span,
+.stop:focus-visible span,
+.stop.is-active span {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 1079px) {
+  .stop:not(.is-active):not(:hover):not(:focus-visible) span {
+    opacity: 0;
+  }
+
+  .stop.is-active span {
+    display: none;
+  }
+}
+
+/* On the first stop the label would sit on top of the hero kicker, so it only shows on hover or keyboard focus. */
+html[data-on="intro"] .stop.is-active:not(:hover):not(:focus-visible) span {
+  opacity: 0;
+  transform: translateX(-6px);
+}

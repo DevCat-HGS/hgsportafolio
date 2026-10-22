@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--seo-head-->
+    <!--/seo-head-->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#ebeae4" />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #ebeae4;
+      }
+
+      /* Texto de respaldo para buscadores y lectores sin JS: sigue en el DOM, pero no se ve sin estilos. */
+      #root > main:not(#main) {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!--seo-body-->
+      <!--/seo-body-->
+    </div>
+    <script type="module" src="/src/aria.tsx"></script>
+  </body>
+</html>

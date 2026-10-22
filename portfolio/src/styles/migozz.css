@@ -1,0 +1,983 @@
+/* —— Caso MIGOZZ —— El diseño actual de la marca: fondo blanco con el morado como color principal y el fucsia de
+   acento. Un solo momento protagonista: la portada "un solo link". El resto es sobrio: franjas, listas y texto grande
+   en vez de tarjetas iguales. Los textos de color usan el morado oscuro, que pasa AA sobre blanco. */
+:root {
+  --mz-bg: #ffffff;
+  --mz-surface: #f6f1fd;
+  --mz-line: rgba(88, 28, 160, 0.14);
+  --mz-ink: #1c1029;
+  --mz-muted: #5a5068;
+  --mz-purple: #8e2de2;
+  --mz-purple-text: #6d1fc0;
+  --mz-fuchsia: #d43fc6;
+  --mz-gradient: linear-gradient(100deg, #6d1fc0, var(--mz-purple) 45%, var(--mz-fuchsia));
+  --mz-shadow: 0 12px 32px rgba(88, 28, 160, 0.12);
+}
+
+html,
+body {
+  background: var(--mz-bg);
+  color: var(--mz-ink);
+}
+
+/* Sin la línea de metro: contenido centrado. */
+.mz .wrap,
+.mz-footer .wrap {
+  width: min(var(--max), calc(100% - 2 * var(--pad)));
+  margin-inline: auto;
+}
+
+.mz-nav {
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.86) !important;
+  box-shadow: inset 0 -1px 0 var(--mz-line) !important;
+}
+
+.mz-nav .wordmark {
+  font-size: 1rem;
+}
+
+/* El menú del portafolio viene pensado para fondo oscuro en esta página: aquí va en tinta sobre blanco. */
+.mz-nav,
+.mz-nav a {
+  color: var(--mz-ink);
+}
+
+.mz-nav .lang {
+  color: var(--mz-ink);
+  border-color: currentColor;
+}
+
+.mz-nav .lang:hover {
+  background: var(--mz-purple-text);
+  border-color: var(--mz-purple-text);
+  color: #fff;
+}
+
+.mz {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* —— Portada —— */
+.mz-hero {
+  position: relative;
+  padding: calc(var(--nav) + clamp(2.5rem, 7vw, 5rem)) 0 clamp(3rem, 7vw, 5rem);
+}
+
+.mz-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(40rem 32rem at 78% 40%, rgba(142, 45, 226, 0.14), transparent 70%),
+    radial-gradient(30rem 26rem at 10% 90%, rgba(212, 63, 198, 0.1), transparent 70%);
+}
+
+.mz-hero-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .mz-hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.mz-hero-copy .status {
+  background: rgba(142, 45, 226, 0.1);
+  color: var(--mz-purple-text);
+}
+
+.mz-hero-copy .status i {
+  background: var(--mz-purple);
+}
+
+.mz-title {
+  display: flex;
+  margin: 1rem 0 0;
+  font-size: clamp(4.5rem, 15vw, 10.5rem);
+  line-height: 0.86;
+  max-width: none;
+}
+
+.mz-title-mask {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.04em;
+}
+
+.mz-title-letter {
+  display: inline-block;
+  background: var(--mz-gradient);
+  background-size: 600% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Cada letra toma su tramo del mismo degradado. */
+.mz-title-mask:nth-child(1) .mz-title-letter {
+  background-position: 0% 0;
+}
+.mz-title-mask:nth-child(2) .mz-title-letter {
+  background-position: 20% 0;
+}
+.mz-title-mask:nth-child(3) .mz-title-letter {
+  background-position: 40% 0;
+}
+.mz-title-mask:nth-child(4) .mz-title-letter {
+  background-position: 60% 0;
+}
+.mz-title-mask:nth-child(5) .mz-title-letter {
+  background-position: 80% 0;
+}
+.mz-title-mask:nth-child(6) .mz-title-letter {
+  background-position: 100% 0;
+}
+
+.mz-tagline {
+  margin: 0.6rem 0 1.25rem;
+  font-weight: 800;
+  font-variation-settings: "wdth" 70;
+  font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+  line-height: 1.05;
+}
+
+.mz-hero .lede {
+  max-width: 36rem;
+  color: var(--mz-muted);
+}
+
+/* "Un solo link": las redes alrededor, flujos de luz hacia MIGOZZ. */
+.mz-link {
+  position: relative;
+  width: min(460px, 86vw);
+  aspect-ratio: 1;
+  justify-self: center;
+}
+
+.mz-link-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.mz-link-flow {
+  stroke-dasharray: 0.16 0.84;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  animation:
+    mz-flow-in 0.4s ease var(--d) forwards,
+    mz-flow 2.4s linear var(--d) infinite;
+}
+
+/* Los flujos y el latido esperan a que arranque la secuencia (al irse la pantalla de carga). */
+.mz-link:not(.is-playing) .mz-link-flow,
+.mz-link:not(.is-playing) .mz-link-core::before,
+.mz-link:not(.is-playing) .mz-link-core::after {
+  animation: none;
+}
+
+@keyframes mz-flow-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mz-flow {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.mz-link-node {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin: -29px 0 0 -29px;
+  border-radius: 50%;
+  background: var(--mz-surface);
+  border: 1px solid var(--mz-line);
+  box-shadow: var(--mz-shadow);
+}
+
+.mz-link-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  margin: -15% 0 0 -15%;
+}
+
+.mz-link-core img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 26%;
+  box-shadow: 0 24px 60px rgba(142, 45, 226, 0.35);
+}
+
+/* Latido: anillos que salen del ícono cuando le llegan los flujos. */
+.mz-link-core::before,
+.mz-link-core::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 26%;
+  border: 2px solid var(--mz-fuchsia);
+  opacity: 0;
+  animation: mz-beat 2.4s ease-out 1.7s infinite;
+}
+
+.mz-link-core::after {
+  animation-delay: 2.9s;
+}
+
+@keyframes mz-beat {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+}
+
+/* —— Secciones —— */
+.mz-section {
+  padding: clamp(3rem, 7vw, 5.5rem) 0;
+}
+
+.mz-h2 {
+  margin: 0 0 2rem;
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  text-transform: uppercase;
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  line-height: 0.92;
+}
+
+.mz-h3 {
+  margin: 2.75rem 0 0;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--mz-muted);
+}
+
+.mz-note {
+  margin: 1.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--mz-muted);
+}
+
+/* —— Métricas: una franja con divisiones, no tarjetas —— */
+.mz-metrics-band {
+  border-block: 1px solid var(--mz-line);
+  background: linear-gradient(180deg, rgba(142, 45, 226, 0.06), transparent);
+}
+
+.mz-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 900px) {
+  .mz-metrics {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.mz-metrics li {
+  display: grid;
+  align-content: start;
+  gap: 0.3rem;
+  padding: 1.25rem 1rem 1.25rem 0;
+  border-top: 1px solid var(--mz-line);
+}
+
+@media (min-width: 900px) {
+  .mz-metrics li {
+    padding: 0.5rem 1.25rem;
+    border-top: 0;
+    border-left: 1px solid var(--mz-line);
+  }
+
+  .mz-metrics li:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+.mz-metric-icon {
+  color: var(--mz-purple);
+}
+
+.mz-metrics strong {
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  font-size: clamp(2.4rem, 4.6vw, 3.4rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.mz-metric-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.mz-metrics small {
+  font-size: 0.78rem;
+  color: var(--mz-muted);
+}
+
+/* —— Gráficas de usuarios —— */
+.mz-charts {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 960px) {
+  .mz-charts {
+    grid-template-columns: 1.6fr 1fr;
+  }
+}
+
+.mz-charts-side {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.mz-chart {
+  margin: 0;
+  padding: clamp(1.1rem, 3vw, 1.6rem);
+  background: var(--mz-surface);
+  border: 1px solid var(--mz-line);
+  border-radius: 18px;
+}
+
+.mz-chart-main {
+  border-radius: 22px;
+}
+
+.mz-chart-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.mz-chart-title {
+  display: block;
+  flex-basis: 100%;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: var(--mz-muted);
+}
+
+.mz-chart-sub {
+  display: block;
+  margin-top: 0.2rem;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--mz-ink);
+}
+
+.mz-chart-head .mz-chart-title {
+  margin-bottom: 0;
+}
+
+.mz-chart-big {
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.mz-chart-delta {
+  font-weight: 700;
+  color: var(--mz-ink);
+}
+
+.mz-chart-plot {
+  position: relative;
+}
+
+.mz-chart-plot svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: pan-y;
+}
+
+.mz-axis line {
+  stroke: var(--mz-line);
+  stroke-width: 1;
+}
+
+.mz-axis text,
+.mz-axis-x {
+  fill: var(--mz-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.mz-cross line {
+  stroke: rgba(28, 16, 41, 0.35);
+  stroke-dasharray: 3 4;
+}
+
+.mz-tip {
+  position: absolute;
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.45rem 0.7rem;
+  background: #fff;
+  border: 1px solid var(--mz-line);
+  border-radius: 10px;
+  box-shadow: var(--mz-shadow);
+  transform: translate(-50%, calc(-100% - 14px));
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.mz-tip span {
+  font-size: 0.78rem;
+  color: var(--mz-muted);
+}
+
+.mz-tip strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.mz-table {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.mz-table summary {
+  cursor: pointer;
+  color: var(--mz-muted);
+  font-weight: 600;
+}
+
+.mz-table table {
+  width: 100%;
+  margin-top: 0.6rem;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.mz-table th,
+.mz-table td {
+  padding: 0.35rem 0;
+  text-align: left;
+  border-bottom: 1px solid var(--mz-line);
+}
+
+.mz-table td:last-child,
+.mz-table th:last-child {
+  text-align: right;
+}
+
+.mz-stack {
+  display: flex;
+  gap: 2px;
+  height: 22px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.mz-stack span {
+  transform-origin: left;
+}
+
+.mz-legend {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mz-legend li {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.mz-legend i {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.mz-legend small {
+  min-width: 4ch;
+  text-align: right;
+  color: var(--mz-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.mz-bars {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mz-bars li {
+  display: grid;
+  grid-template-columns: minmax(6rem, 8rem) 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+}
+
+.mz-bar-track {
+  height: 10px;
+}
+
+.mz-bar {
+  display: block;
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  transform-origin: left;
+}
+
+.mz-bars strong {
+  font-variant-numeric: tabular-nums;
+}
+
+/* —— Cómo funciona: una línea que avanza con el scroll y enciende cada paso —— */
+.mz-flow {
+  position: relative;
+}
+
+.mz-flow-steps {
+  position: relative;
+  display: grid;
+  gap: 2rem;
+  margin: 0;
+  padding: 0 0 0 4.5rem;
+  list-style: none;
+}
+
+.mz-flow::before,
+.mz-flow-line {
+  content: "";
+  position: absolute;
+  top: 28px;
+  bottom: 28px;
+  left: 27px;
+  width: 3px;
+  border-radius: 2px;
+}
+
+.mz-flow::before {
+  background: var(--mz-line);
+}
+
+.mz-flow-line {
+  display: block;
+  z-index: 1;
+  background: linear-gradient(var(--mz-purple), var(--mz-fuchsia));
+  transform: scaleY(var(--p, 0));
+  transform-origin: top;
+}
+
+.mz-step {
+  position: relative;
+  display: grid;
+}
+
+.mz-step-icon {
+  position: absolute;
+  top: 0;
+  left: -4.5rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  color: var(--mz-muted);
+  background: var(--mz-surface);
+  border: 1px solid var(--mz-line);
+  transition:
+    background 0.4s var(--ease),
+    color 0.4s var(--ease),
+    transform 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+
+.mz-step.is-on .mz-step-icon {
+  color: #fff;
+  background: var(--mz-gradient);
+  border-color: transparent;
+  transform: scale(1.08);
+  box-shadow: 0 0 0 8px rgba(142, 45, 226, 0.14);
+}
+
+.mz-step-n {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--mz-muted);
+}
+
+.mz-step h3 {
+  margin: 0.1rem 0 0.3rem;
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  text-transform: uppercase;
+  font-size: clamp(1.8rem, 3.6vw, 2.4rem);
+  line-height: 1;
+  color: var(--mz-muted);
+  transition: color 0.4s var(--ease);
+}
+
+.mz-step.is-on h3 {
+  color: var(--mz-ink);
+}
+
+.mz-step p {
+  margin: 0;
+  max-width: 32rem;
+  color: var(--mz-muted);
+}
+
+@media (min-width: 900px) {
+  .mz-flow-steps {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 5.5rem 0 0;
+  }
+
+  .mz-flow::before,
+  .mz-flow-line {
+    top: 27px;
+    bottom: auto;
+    left: 29px;
+    right: 29px;
+    width: auto;
+    height: 3px;
+  }
+
+  .mz-flow-line {
+    transform: scaleX(var(--p, 0));
+    transform-origin: left;
+  }
+
+  .mz-step-icon {
+    top: -5.5rem;
+    left: 0;
+  }
+}
+
+/* —— Problema y solución: texto, no cajas —— */
+.mz-split {
+  display: grid;
+  gap: 3rem;
+}
+
+@media (min-width: 900px) {
+  .mz-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.mz-problem {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mz-problem li {
+  padding-left: 1rem;
+  border-left: 3px solid var(--mz-line);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--mz-muted);
+}
+
+.mz-solution p {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.mz-solution .mz-h2 {
+  background: var(--mz-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* —— Funciones: lista a dos columnas con ícono —— */
+.mz-features {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 760px) {
+  .mz-features {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+  }
+}
+
+.mz-feature {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--mz-line);
+}
+
+.mz-feature-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  color: var(--mz-purple-text);
+  background: rgba(142, 45, 226, 0.1);
+}
+
+.mz-feature h3 {
+  margin: 0 0 0.25rem;
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+
+.mz-feature p {
+  margin: 0;
+  color: var(--mz-muted);
+}
+
+.mz-networks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mz-networks li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem 0.4rem 0.6rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: var(--mz-surface);
+  border: 1px solid var(--mz-line);
+  border-radius: 999px;
+}
+
+/* —— Línea de tiempo —— */
+.mz-timeline {
+  position: relative;
+  display: grid;
+  gap: 1.75rem;
+  margin: 0;
+  padding: 0 0 0 1.9rem;
+  list-style: none;
+}
+
+.mz-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  left: 0.4rem;
+  width: 2px;
+  background: linear-gradient(var(--mz-purple), var(--mz-fuchsia));
+}
+
+.mz-milestone {
+  position: relative;
+}
+
+.mz-milestone::before {
+  content: "";
+  position: absolute;
+  top: 0.3rem;
+  left: -1.9rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--mz-bg);
+  border: 3px solid var(--mz-purple);
+}
+
+.mz-milestone time {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--mz-purple-text);
+}
+
+.mz-milestone h3 {
+  margin: 0.15rem 0 0.2rem;
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1.15;
+}
+
+.mz-milestone p {
+  margin: 0;
+  color: var(--mz-muted);
+}
+
+@media (min-width: 900px) {
+  .mz-timeline {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2rem 0 0;
+  }
+
+  .mz-timeline::before {
+    top: 0.45rem;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 2px;
+    background: linear-gradient(90deg, var(--mz-purple), var(--mz-fuchsia));
+  }
+
+  .mz-milestone::before {
+    top: -2rem;
+    left: 0;
+  }
+}
+
+/* —— Capturas en marco de teléfono (cuando existan) —— */
+.mz-shots {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(240px, 70vw);
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+}
+
+.mz-phone {
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.mz-phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 8px solid var(--mz-ink);
+  border-radius: 32px;
+  background: #000;
+}
+
+.mz-phone figcaption {
+  margin-top: 0.6rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--mz-muted);
+}
+
+/* —— Mi trabajo —— */
+.mz .role {
+  color: var(--mz-purple-text);
+}
+
+.mz .duties .card {
+  background: var(--mz-surface);
+  border-top-color: var(--mz-purple);
+  color: var(--mz-ink);
+}
+
+.mz .duties .v {
+  color: var(--mz-muted);
+}
+
+.mz-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+.mz-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  background: var(--mz-gradient);
+  border-radius: 999px;
+  transition:
+    transform 0.18s var(--ease),
+    filter 0.18s;
+}
+
+.mz-btn:hover {
+  filter: brightness(1.1);
+}
+
+.mz-btn:active {
+  transform: scale(0.97);
+}
+
+.mz-btn-ghost {
+  color: var(--mz-purple-text);
+  background: transparent;
+  border: 2px solid currentColor;
+}
+
+.mz-footer {
+  padding: 2rem 0;
+  color: var(--mz-muted);
+  background: var(--mz-surface);
+  border-top: 1px solid var(--mz-line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mz-link-flow {
+    animation: none;
+    opacity: 1;
+    stroke-dasharray: none;
+  }
+
+  .mz-link-core::before,
+  .mz-link-core::after {
+    animation: none;
+  }
+}

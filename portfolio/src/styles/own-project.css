@@ -1,0 +1,157 @@
+/* —— Proyectos: subsecciones (propios primero, después clientes e instituciones) —— */
+.work-group {
+  margin-bottom: clamp(3.5rem, 8vw, 5.5rem);
+}
+
+.work-group-head {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  padding-top: 1rem;
+  border-top: 4px solid var(--ink);
+}
+
+.work-group-head h3 {
+  margin: 0;
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 0.95;
+}
+
+.work-group-head p {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--ink-dim);
+}
+
+/* —— Proyecto propio: franja oscura con su caso, su código y, si es una app, la descarga —— */
+.own-projects {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.own-project {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+  padding: clamp(1.75rem, 5vw, 3.5rem);
+  border-radius: 16px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (min-width: 960px) {
+  .own-project {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+  }
+
+  /* La segunda franja pone la captura a la izquierda, para que las dos no se lean como copias. */
+  .own-project:nth-child(even) .own-project-shot {
+    order: -1;
+  }
+}
+
+.own-project-copy {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.own-project-eyebrow {
+  width: fit-content;
+  margin: 0;
+  padding: 0.25rem 0.75rem;
+  background: var(--signal);
+  color: var(--ink);
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.own-project h4 {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+}
+
+.own-project .lede {
+  margin: 0;
+  color: var(--on-ink-dim);
+}
+
+.own-project-points {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.own-project-points li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.own-project-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--signal);
+}
+
+.own-project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.own-project .tags span {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: var(--paper);
+}
+
+.side-cta {
+  display: inline-block;
+  padding: 0.65rem 1.2rem;
+  border: 2px solid var(--paper);
+  border-radius: 6px;
+  font-weight: 700;
+  transition:
+    background-color 0.18s,
+    color 0.18s,
+    border-color 0.18s;
+}
+
+.side-cta.primary {
+  background: var(--signal);
+  border-color: var(--signal);
+  color: var(--ink);
+}
+
+.side-cta:hover,
+.side-cta:focus-visible {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+
+.own-project-shot {
+  margin: 0;
+}
+
+.own-project-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
+}

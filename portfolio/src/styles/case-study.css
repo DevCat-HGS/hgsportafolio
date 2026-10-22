@@ -1,0 +1,474 @@
+/* —— Casos de estudio (ARIA, DevPanel): mismo papel, tinta, amarillo y verde del portafolio, sin el riel lateral de la portada —— */
+.ar .wrap,
+.ar-footer .wrap {
+  width: min(var(--max), calc(100% - 2 * var(--pad)));
+  margin-inline: auto;
+}
+
+.ar-nav .wordmark {
+  font-size: 1rem;
+  font-variation-settings: normal;
+  font-weight: 700;
+}
+
+.ar {
+  padding-top: var(--nav);
+}
+
+.ar-hero {
+  padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 6vw, 4rem);
+}
+
+.ar-hero .wrap {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.ar-title {
+  font-size: clamp(5rem, 22vw, 15rem);
+}
+
+.ar-tagline {
+  margin: 0;
+  max-width: 34rem;
+  font-weight: 800;
+  font-size: clamp(1.35rem, 2.6vw, 2rem);
+  line-height: 1.2;
+}
+
+.ar-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ar-meta li {
+  padding: 0.25rem 0.75rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.ar-meta li:first-child {
+  background: var(--signal);
+}
+
+.ar-section {
+  padding: clamp(3rem, 7vw, 5.5rem) 0;
+}
+
+.ar-h2 {
+  margin: 0 0 1.75rem;
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  text-transform: uppercase;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 0.9;
+}
+
+.ar-lead {
+  max-width: 40rem;
+  margin: -0.75rem 0 2.5rem;
+  color: var(--ink-dim);
+  font-size: 1.1rem;
+}
+
+/* Cifras medidas: cada una con su contexto debajo, para que no se lea como una promesa. */
+.ar-numbers-band {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.ar-numbers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 2rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ar-numbers li {
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+  padding-top: 1rem;
+  border-top: 8px solid var(--signal);
+}
+
+.ar-numbers strong {
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  font-size: clamp(2.6rem, 6vw, 3.8rem);
+  line-height: 1;
+}
+
+.ar-numbers span {
+  font-weight: 700;
+}
+
+.ar-numbers small {
+  color: var(--on-ink-dim);
+  font-size: 0.92rem;
+}
+
+.ar-split {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .ar-split {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.ar-problem,
+.ar-next {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ar-problem li,
+.ar-next li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: 1.05rem;
+}
+
+.ar-problem li::before,
+.ar-next li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+
+.ar-problem li::before {
+  background: var(--signal);
+}
+
+.ar-solution {
+  padding: 1.5rem;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.ar-solution p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+/* —— Mapa de arquitectura: dos líneas de metro con una estación de transbordo —— */
+.ar-map {
+  display: grid;
+  gap: 3rem;
+}
+
+@media (min-width: 900px) {
+  .ar-map {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.ar-line {
+  --line: var(--metro);
+}
+
+.ar-line-signal {
+  --line: var(--signal);
+}
+
+.ar-line-name {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1.25rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.ar-line-name i {
+  width: 2.2rem;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--line);
+  border: 2px solid var(--ink);
+}
+
+.ar-stops {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ar-stop {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+/* El tramo de vía hasta la estación siguiente. */
+.ar-stop:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: calc(0.75rem - 4px);
+  top: 0.9rem;
+  bottom: -0.4rem;
+  width: 8px;
+  background: var(--line);
+}
+
+.ar-line-signal .ar-stop:not(:last-child)::before {
+  box-shadow:
+    inset 2px 0 0 var(--ink),
+    inset -2px 0 0 var(--ink);
+}
+
+.ar-dot {
+  position: relative;
+  z-index: 1;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.1rem;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 4px solid var(--ink);
+}
+
+.is-transfer .ar-dot {
+  background: var(--ink);
+  box-shadow:
+    0 0 0 3px var(--paper),
+    0 0 0 6px var(--line);
+}
+
+.ar-stop h4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+}
+
+.ar-stop p {
+  margin: 0;
+  color: var(--ink-dim);
+  font-size: 0.97rem;
+}
+
+.ar-transfer {
+  padding: 0.05rem 0.5rem;
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--signal);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* —— Decisiones —— */
+.ar-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: decision;
+}
+
+.ar-card {
+  counter-increment: decision;
+  padding: 1.4rem 1.4rem 1.5rem;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+}
+
+.ar-card h3::before {
+  content: counter(decision, decimal-leading-zero);
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--metro);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.ar-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+.ar-card p {
+  margin: 0;
+  color: var(--ink-dim);
+}
+
+/* —— Lo que se rompió: franja de obra, amarilla —— */
+.ar-broke-band {
+  background:
+    repeating-linear-gradient(-45deg, var(--ink) 0 14px, var(--signal) 14px 28px) top / 100% 10px no-repeat,
+    var(--paper-2);
+}
+
+.ar-broke {
+  display: grid;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 900px) {
+  .ar-broke {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 3rem;
+  }
+}
+
+.ar-broke li {
+  padding-left: 1rem;
+  border-left: 6px solid var(--ink);
+}
+
+.ar-broke h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+}
+
+.ar-broke p {
+  margin: 0;
+  color: var(--ink-dim);
+}
+
+/* —— Mi parte —— */
+.ar .duties {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  margin: 1.75rem 0 0;
+}
+
+/* En la portada estas tarjetas son cristal oscuro sobre tinta; aquí van sobre papel, así que se vuelven blancas. */
+.ar .duties .card {
+  padding: 1.1rem 1.2rem 1.35rem;
+  background: #fff;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border: 2px solid var(--ink);
+  border-top: 8px solid var(--signal);
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.ar .duties .k {
+  font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+}
+
+.ar .duties .v {
+  margin: 0;
+  color: var(--ink-dim);
+}
+
+.ar-team {
+  max-width: 46rem;
+  margin: 2rem 0 1.5rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border-left: 6px solid var(--metro);
+  border-radius: 0 8px 8px 0;
+}
+
+.ar-back {
+  display: inline-block;
+  margin-top: 2.5rem;
+  padding: 0.6rem 1.2rem;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  font-weight: 700;
+  transition:
+    background-color 0.18s,
+    color 0.18s;
+}
+
+.ar-back:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* —— Llamados a la acción del hero (código, descarga) —— */
+.ar-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.ar-cta {
+  display: inline-block;
+  padding: 0.65rem 1.2rem;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  font-weight: 700;
+  transition:
+    background-color 0.18s,
+    color 0.18s;
+}
+
+.ar-cta.primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.ar-cta:hover,
+.ar-cta:focus-visible {
+  background: var(--signal);
+  color: var(--ink);
+}
+
+/* —— Capturas de la app, enmarcadas como en las tarjetas de proyectos —— */
+.ar-shots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1.5rem;
+}
+
+.ar-shots figure {
+  margin: 0;
+}
+
+.ar-shots img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  box-shadow: 6px 6px 0 var(--ink);
+  background: #111315;
+}
+
+.ar-shots figcaption {
+  margin-top: 0.9rem;
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+}

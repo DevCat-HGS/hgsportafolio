@@ -1,0 +1,45 @@
+/* —— Cargo anterior —— */
+.tenure-sticky {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.company-logo {
+  display: block;
+  width: clamp(170px, 22vw, 218px);
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.company {
+  font-size: clamp(3.2rem, 8vw, 6.4rem);
+  max-width: 9ch;
+}
+
+.beats {
+  display: grid;
+}
+
+.beat {
+  padding: 1.6rem 0;
+  border-top: 4px solid var(--ink);
+}
+
+.beat:last-child {
+  border-bottom: 4px solid var(--ink);
+}
+
+.beat h3 {
+  margin: 0 0 0.5rem;
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  text-transform: uppercase;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  line-height: 1;
+}
+
+.beat p {
+  margin: 0;
+  max-width: 38rem;
+  color: var(--ink-dim);
+}

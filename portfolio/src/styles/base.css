@@ -1,0 +1,111 @@
+/* Concepto: la línea del metro de Medellín como columna vertebral. Concreto, tinta, amarillo de señalética y verde de línea. */
+:root {
+  --paper: #ebeae4;
+  --paper-2: #dedcd3;
+  --ink: #111315;
+  --ink-dim: #484c50;
+  --signal: #ffd400;
+  --metro: #00794f;
+  --on-ink-dim: #b7b8b2;
+  --font: "Archivo Variable", "Archivo", "Segoe UI", system-ui, sans-serif;
+  --pad: clamp(1.25rem, 4vw, 3.5rem);
+  --gutter: clamp(2.75rem, 7vw, 8.5rem);
+  --max: 1180px;
+  --nav: 60px;
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--paper);
+}
+
+html,
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font);
+  font-stretch: 100%;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid var(--metro);
+  outline-offset: 3px;
+}
+
+.dark :focus-visible,
+.close :focus-visible {
+  outline-color: var(--signal);
+}
+
+.close :focus-visible {
+  outline-color: var(--ink);
+}
+
+.skip {
+  position: absolute;
+  left: 12px;
+  top: -52px;
+  z-index: 80;
+  padding: 0.5rem 0.9rem;
+  background: var(--signal);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.skip:focus {
+  top: 12px;
+}
+
+/* —— Tipografía de señalética: Archivo condensado y pesado —— */
+.display {
+  margin: 0;
+  font-weight: 900;
+  font-variation-settings: "wdth" 62;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  line-height: 0.86;
+}
+
+.lede {
+  max-width: 36rem;
+  margin: 0;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--ink-dim);
+}
+
+.dark .lede {
+  color: var(--on-ink-dim);
+}
