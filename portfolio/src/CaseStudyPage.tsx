@@ -88,6 +88,38 @@ export default function CaseStudyPage({
           </div>
         </section>
 
+        {t.video ? (
+          <section className="ar-section ar-video" aria-labelledby="ar-video">
+            <div className="wrap">
+              <h2 className="ar-h2" id="ar-video">
+                {t.video.title}
+              </h2>
+              <figure>
+                <video
+                  controls
+                  preload="none"
+                  playsInline
+                  poster={asset(t.video.poster)}
+                  width={1280}
+                  height={720}
+                  aria-describedby="ar-video-caption"
+                >
+                  <source src={asset(t.video.src)} type="video/webm" />
+                </video>
+                <figcaption id="ar-video-caption">{t.video.caption}</figcaption>
+              </figure>
+              <details className="ar-transcript">
+                <summary>{t.video.transcriptLabel}</summary>
+                <ol>
+                  {t.video.transcript.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ol>
+              </details>
+            </div>
+          </section>
+        ) : null}
+
         <section className="ar-section ar-numbers-band" aria-labelledby="ar-numbers">
           <div className="wrap">
             <h2 className="ar-h2" id="ar-numbers">

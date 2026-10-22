@@ -28,6 +28,24 @@
         "event": "portafolio-docs"
       }
     ],
+    "video": {
+      "title": "El producto en 75 segundos",
+      "src": "video/portafolio-es.webm",
+      "poster": "video/portafolio-es.webp",
+      "caption": "Video sin sonido: el texto aparece en pantalla. Las cifras de Lighthouse salen del monitor público el día de la grabación.",
+      "transcriptLabel": "Leer la transcripción",
+      "transcript": [
+        "Portafolio HGS: un portafolio tratado como producto.",
+        "El problema: un portafolio envejece rápido. Cifras viejas, enlaces rotos y un CV que ya no dice lo mismo que la web.",
+        "El sitio: bilingüe, rápido y legible. React, TypeScript y Vite, en español e inglés; Google lo lee antes de que corra JavaScript, y cada caso cuenta decisiones y errores.",
+        "El admin, por qué existe: editar sin tocar código. Cambio un texto y el admin hace el commit por mí. Es privado y se entra con dos factores; cómo está hecho no se publica.",
+        "Cada cambio: nada sale sin pasar el CI. Pull request o el admin, más de 100 pruebas unitarias, Lighthouse y axe, escaneo de secretos, fusión a main y publicación en Netlify. 15 workflows de GitHub Actions, ningún despliegue a mano.",
+        "La documentación se publica sola en docs.hgsportafolio.site, y la edición pública deja fuera lo privado.",
+        "El código: un espejo público en github.com/DevCat-HGS/hgsportafolio se actualiza con cada cambio, con lista blanca: el sitio y sus workflows, nunca el admin ni los datos personales.",
+        "health.hgsportafolio.site: medido, no prometido. Comprobaciones cada 30 minutos y Lighthouse diario, desde un monitor público aparte de Netlify, con código, datos y logs a la vista.",
+        "¿Eres reclutador? No me creas: compruébalo en hgsportafolio.site/portafolio, health.hgsportafolio.site y docs.hgsportafolio.site."
+      ]
+    },
     "numbersTitle": "En cifras",
     "numbers": [
       {
@@ -259,6 +277,24 @@
         "event": "portafolio-docs"
       }
     ],
+    "video": {
+      "title": "The product in 75 seconds",
+      "src": "video/portafolio-en.webm",
+      "poster": "video/portafolio-en.webp",
+      "caption": "Silent video: the text is on screen. The Lighthouse figures come from the public monitor on the day it was recorded.",
+      "transcriptLabel": "Read the transcript",
+      "transcript": [
+        "Portafolio HGS: a portfolio built as a product.",
+        "The problem: a portfolio ages fast. Stale figures, broken links and a résumé that no longer matches the site.",
+        "The site: bilingual, fast and readable. React, TypeScript and Vite, in Spanish and English; Google reads it before any JavaScript runs, and every case study tells its decisions and mistakes.",
+        "The admin, why it exists: edit without touching code. I change some copy and the admin commits for me. It is private and takes two factors to sign in; how it is built is not published.",
+        "Every change: nothing ships without CI. A pull request or the admin, over 100 unit tests, Lighthouse and axe, a secret scan, the merge to main and Netlify shipping it. 15 GitHub Actions workflows, no manual deploys.",
+        "The docs publish themselves to docs.hgsportafolio.site, and the public edition leaves the private parts out.",
+        "The code: a public mirror at github.com/DevCat-HGS/hgsportafolio updates with every change, through an allowlist: the site and its workflows, never the admin or personal data.",
+        "health.hgsportafolio.site: measured, not promised. Checks every 30 minutes and a daily Lighthouse run, from a public monitor apart from Netlify, with code, data and logs in the open.",
+        "Are you a recruiter? Don’t take my word for it: check hgsportafolio.site/en/portafolio, health.hgsportafolio.site and docs.hgsportafolio.site."
+      ]
+    },
     "numbersTitle": "By the numbers",
     "numbers": [
       {

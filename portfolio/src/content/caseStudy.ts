@@ -39,6 +39,16 @@ export interface CaseShot {
   caption: string;
 }
 
+/** A silent explainer video under /public, with its poster and a transcript for anyone who cannot or will not play it. */
+export interface CaseVideo {
+  title: string;
+  src: string;
+  poster: string;
+  caption: string;
+  transcriptLabel: string;
+  transcript: readonly string[];
+}
+
 export interface CaseCopy {
   back: string;
   langLabel: string;
@@ -48,6 +58,7 @@ export interface CaseCopy {
   lede: string;
   meta: readonly string[];
   links?: readonly CaseLink[];
+  video?: CaseVideo;
   numbersTitle: string;
   numbers: readonly Figure[];
   problemTitle: string;
