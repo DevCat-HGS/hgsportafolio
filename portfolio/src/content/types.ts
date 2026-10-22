@@ -54,6 +54,8 @@ export interface Project {
   points?: readonly string[];
   /** Where to download an own product, when it is an app. */
   downloadHref?: string;
+  /** Public page where anyone can audit the product live (health.hgsportafolio.site for this site). */
+  healthHref?: string;
 }
 
 export interface CredItem {
@@ -190,6 +192,15 @@ export interface Copy {
   clientTitle: string;
   /** Download button of an own product that is an app. */
   downloadLabel: string;
+  /** Button to an own product's live audit page. */
+  healthLabel: string;
+  /** Invitation in the contact section to audit the site before getting in touch. */
+  audit: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    links: readonly { label: string; href: string; event: string }[];
+  };
   cv: { label: string; href: string };
   clientLabel: string;
   institutionalLabel: string;

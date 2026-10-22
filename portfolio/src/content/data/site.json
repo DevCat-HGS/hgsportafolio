@@ -332,7 +332,30 @@
     "downloadLabel": "Descargar para Windows",
     "ownTitle": "Proyectos propios",
     "ownLead": "Míos de principio a fin: diseño, código, pruebas, publicación y operación.",
-    "clientTitle": "Para clientes e instituciones"
+    "clientTitle": "Para clientes e instituciones",
+    "audit": {
+      "eyebrow": "¿Eres reclutador?",
+      "title": "No me creas: compruébalo.",
+      "body": "Lo que este sitio dice de sí mismo se puede auditar. Un monitor público, aparte del sitio, mide cada 30 minutos si está arriba y una vez al día su velocidad, accesibilidad y seguridad, y deja a la vista el código, los datos en bruto y el log de cada medición.",
+      "links": [
+        {
+          "label": "Auditar el sitio en vivo",
+          "href": "https://health.hgsportafolio.site",
+          "event": "health"
+        },
+        {
+          "label": "Ver el código del sitio",
+          "href": "https://github.com/DevCat-HGS/hgsportafolio",
+          "event": "code-portafolio"
+        },
+        {
+          "label": "Ver cómo mide el monitor",
+          "href": "https://github.com/DevCat-HGS/health",
+          "event": "health-code"
+        }
+      ]
+    },
+    "healthLabel": "Auditar en vivo"
   },
   "en": {
     "skip": "Skip to content",
@@ -667,6 +690,29 @@
     "downloadLabel": "Download for Windows",
     "ownTitle": "My own products",
     "ownLead": "Mine from start to finish: design, code, tests, releases and operations.",
-    "clientTitle": "For clients and institutions"
+    "clientTitle": "For clients and institutions",
+    "audit": {
+      "eyebrow": "Are you a recruiter?",
+      "title": "Don’t take my word for it: check.",
+      "body": "What this site says about itself can be audited. A public monitor, separate from the site, checks every 30 minutes that it is up and once a day its speed, accessibility and security, and leaves the code, the raw data and the log of every check in the open.",
+      "links": [
+        {
+          "label": "Audit the site live",
+          "href": "https://health.hgsportafolio.site",
+          "event": "health"
+        },
+        {
+          "label": "See the site’s code",
+          "href": "https://github.com/DevCat-HGS/hgsportafolio",
+          "event": "code-portafolio"
+        },
+        {
+          "label": "See how the monitor measures",
+          "href": "https://github.com/DevCat-HGS/health",
+          "event": "health-code"
+        }
+      ]
+    },
+    "healthLabel": "Audit it live"
   }
 }

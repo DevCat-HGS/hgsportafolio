@@ -164,6 +164,11 @@ function OwnProject({ p, t }: { p: Project; t: Copy }) {
               {t.codeLink} ↗
             </a>
           ) : null}
+          {p.healthHref ? (
+            <a className="side-cta" href={p.healthHref} target="_blank" rel="noreferrer" data-umami-event="health">
+              {t.healthLabel} ↗
+            </a>
+          ) : null}
           {p.downloadHref ? (
             <a
               className="side-cta"

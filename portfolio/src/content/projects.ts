@@ -22,6 +22,8 @@ export interface ProjectEntry {
   code?: string | null;
   /** Download page of an own product that is an app. */
   download?: string | null;
+  /** Public page where the product can be audited live. */
+  health?: string | null;
   offline?: boolean | null;
   shot?: string | null;
   clientHref?: string | null;
@@ -75,6 +77,7 @@ export function projectsFrom(entries: readonly ProjectEntry[], locale: Locale): 
         own: p.own || undefined,
         points: t.points?.length ? t.points.map((s) => s.trim()).filter(Boolean) : undefined,
         downloadHref: text(p.download),
+        healthHref: text(p.health),
       };
       // Drop undefined keys so the objects match the hand-written ones the components were built against.
       return Object.fromEntries(Object.entries(project).filter(([, v]) => v !== undefined)) as unknown as Project;

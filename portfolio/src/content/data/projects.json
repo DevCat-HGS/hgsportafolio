@@ -45,6 +45,7 @@
       "featured": true,
       "shot": "shots/portafolio.webp",
       "code": "https://github.com/DevCat-HGS/hgsportafolio",
+      "health": "https://health.hgsportafolio.site",
       "hue": 280,
       "stack": [
         "React",

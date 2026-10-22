@@ -18,6 +18,11 @@
         "event": "code-portafolio"
       },
       {
+        "label": "Auditar el sitio en vivo",
+        "href": "https://health.hgsportafolio.site",
+        "event": "health"
+      },
+      {
         "label": "Leer la documentación técnica",
         "href": "https://docs.hgsportafolio.site",
         "event": "portafolio-docs"
@@ -242,6 +247,11 @@
         "label": "View the code",
         "href": "https://github.com/DevCat-HGS/hgsportafolio",
         "event": "code-portafolio"
+      },
+      {
+        "label": "Audit the site live",
+        "href": "https://health.hgsportafolio.site",
+        "event": "health"
       },
       {
         "label": "Read the technical docs",
