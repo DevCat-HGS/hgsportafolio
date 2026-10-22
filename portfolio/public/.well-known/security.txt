@@ -1,5 +1,5 @@
-# Cómo reportar un problema de seguridad de hgsportafolio.site y admin.hgsportafolio.site (RFC 9116).
-# How to report a security issue in hgsportafolio.site and admin.hgsportafolio.site (RFC 9116).
+# Cómo reportar un problema de seguridad de hgsportafolio.site (RFC 9116). El admin publica el suyo en admin.hgsportafolio.site.
+# How to report a security issue in hgsportafolio.site (RFC 9116). The admin publishes its own at admin.hgsportafolio.site.
 Contact: mailto:hdevelopergs@gmail.com
 Expires: 2027-10-21T00:00:00.000Z
 Preferred-Languages: es, en
