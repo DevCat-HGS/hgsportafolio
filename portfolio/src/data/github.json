@@ -1,26 +1,26 @@
 {
-  "publicRepos": 1,
+  "publicRepos": 8,
   "languages": [
     {
       "name": "TypeScript",
-      "percent": 52
+      "percent": 67
     },
     {
       "name": "JavaScript",
-      "percent": 20
-    },
-    {
-      "name": "CSS",
-      "percent": 19
+      "percent": 12
     },
     {
       "name": "HTML",
-      "percent": 6
+      "percent": 12
     },
     {
-      "name": "Python",
-      "percent": 2
+      "name": "CSS",
+      "percent": 7
+    },
+    {
+      "name": "C++",
+      "percent": 1
     }
   ],
-  "lastPush": "2026-10-19"
+  "lastPush": "2026-10-26"
 }
