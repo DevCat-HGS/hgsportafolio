@@ -2,8 +2,11 @@
   "site": {
     "name": "Harol Guerrero Salgado",
     "author": "Harol Guerrero Salgado",
-    "linkedin": "https://www.linkedin.com/in/harol-g-salgado-498a60354/",
+    "linkedin": "https://www.linkedin.com/in/harol-guerrero-salgado-498a60354/",
     "github": "https://github.com/DevCat-HGS",
+    "products": "https://products.hgsportafolio.site",
+    "health": "https://health.hgsportafolio.site",
+    "docs": "https://docs.hgsportafolio.site",
     "verification": [
       "CaDcENUWl_WyV76FfnkXPSHFHtINRqN--14yGQ8w9jA",
       "28DW9x4HXtx_7uDquUZssQlqIYyx2y8b-5BrnJ4tg_4"
@@ -31,7 +34,10 @@
         "paragraph": "Desarrollador Full Stack en Medellín, Colombia. Llevo productos web y móviles a producción: frontend en React, Next.js y Flutter, backend serverless en AWS y Firebase, e IA generativa con Amazon Bedrock. Hoy trabajo en MIGOZZ. Disponible para trabajo remoto, híbrido o presencial en Medellín.",
         "linkedin": "LinkedIn — Harol Guerrero Salgado",
         "github": "GitHub — DevCat-HGS",
-        "projects": "Proyectos"
+        "projects": "Proyectos",
+        "products": "HGS Digital — catálogo de software y desarrollo a medida",
+        "health": "Monitor público del sitio (disponibilidad y Lighthouse)",
+        "docs": "Documentación técnica del portafolio"
       }
     },
     "en": {
@@ -50,7 +56,10 @@
         "paragraph": "Full Stack developer based in Medellín, Colombia. I take web and mobile products to production: React, Next.js and Flutter on the front end, serverless backends on AWS and Firebase, and generative AI with Amazon Bedrock. I currently work at MIGOZZ. Open to remote, hybrid or on-site work in Medellín.",
         "linkedin": "LinkedIn — Harol Guerrero Salgado",
         "github": "GitHub — DevCat-HGS",
-        "projects": "Projects"
+        "projects": "Projects",
+        "products": "HGS Digital — software catalog and custom development",
+        "health": "Public monitor of this site (uptime and Lighthouse)",
+        "docs": "Technical documentation of this portfolio"
       }
     }
   },

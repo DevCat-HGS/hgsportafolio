@@ -30,7 +30,16 @@ export interface PageCopy {
   jobTitle: string;
   about: string;
   /** Text kept in the HTML for crawlers and readers without JavaScript. */
-  fallback: { heading: string; paragraph: string; projects: string; linkedin: string; github: string };
+  fallback: {
+    heading: string;
+    paragraph: string;
+    projects: string;
+    linkedin: string;
+    github: string;
+    products: string;
+    health: string;
+    docs: string;
+  };
 }
 
 export const PAGES: Record<PageLocale, PageCopy> = { es: as<PageCopy>(seo.pages.es), en: as<PageCopy>(seo.pages.en) };

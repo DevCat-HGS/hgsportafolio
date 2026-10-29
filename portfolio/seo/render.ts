@@ -44,6 +44,8 @@ export function structuredData(locale: PageLocale, base: string, pageId: PageId 
     jobTitle: page.jobTitle,
     description: page.about,
     sameAs: [SITE.linkedin, SITE.github],
+    // HGS Digital (products.hgsportafolio.site) is my own catalog: a brand of mine, with its own node below.
+    brand: { "@id": `${base}#hgs-digital` },
     knowsAbout: [
       "JavaScript",
       "TypeScript",
@@ -78,7 +80,19 @@ export function structuredData(locale: PageLocale, base: string, pageId: PageId 
     author: { "@id": `${base}#person` },
   };
 
-  const graph: object[] = [person, migozz];
+  const hgsDigital = {
+    "@type": "Organization",
+    "@id": `${base}#hgs-digital`,
+    name: "HGS Digital",
+    url: SITE.products,
+    description:
+      locale === "es"
+        ? "Catálogo de software para negocios con demos que se usan, y desarrollo a medida."
+        : "Software catalog for businesses with working demos, and custom development.",
+    founder: { "@id": `${base}#person` },
+  };
+
+  const graph: object[] = [person, migozz, hgsDigital];
   if (base && pageId !== "home") {
     const subpage = SUBPAGES[pageId];
     const sub = subpage.copy[locale];
@@ -213,6 +227,9 @@ export function renderFallback(locale: PageLocale, pageId: PageId = "home"): str
     "        <ul>",
     `          <li><a href="${SITE.linkedin}">${esc(f.linkedin)}</a></li>`,
     `          <li><a href="${SITE.github}">${esc(f.github)}</a></li>`,
+    `          <li><a href="${SITE.products}">${esc(f.products)}</a></li>`,
+    `          <li><a href="${SITE.health}">${esc(f.health)}</a></li>`,
+    `          <li><a href="${SITE.docs}">${esc(f.docs)}</a></li>`,
     ...SUBPAGE_IDS.map(
       (id) =>
         `          <li><a href="/${pagePath(locale, id)}">${esc(SUBPAGES[id].copy[locale].fallback.heading)}</a></li>`,

@@ -68,11 +68,11 @@ describe("structured data", () => {
   const types = (locale: "es" | "en", base: string) => graph(locale, base).map((n) => n["@type"]);
 
   it("describes the person, the app, the website and the profile page", () => {
-    expect(types("es", BASE)).toEqual(["Person", "SoftwareApplication", "WebSite", "ProfilePage"]);
+    expect(types("es", BASE)).toEqual(["Person", "SoftwareApplication", "Organization", "WebSite", "ProfilePage"]);
   });
 
-  it("falls back to person and app without a site URL", () => {
-    expect(types("es", "")).toEqual(["Person", "SoftwareApplication"]);
+  it("falls back to person, app and brand without a site URL", () => {
+    expect(types("es", "")).toEqual(["Person", "SoftwareApplication", "Organization"]);
   });
 
   it("links the app to both stores and the profile page to its own URL and language", () => {
@@ -86,6 +86,18 @@ describe("structured data", () => {
     expect(profile.url).toBe(`${BASE}en/`);
     expect(profile.inLanguage).toBe("en");
     expect(profile.mainEntity).toEqual({ "@id": `${BASE}#person` });
+  });
+
+  it("declares HGS Digital as my brand, with its own site", () => {
+    const nodes = graph("es", BASE);
+    const brand = nodes.find((n) => n["@type"] === "Organization")!;
+    expect(brand).toMatchObject({
+      "@id": `${BASE}#hgs-digital`,
+      name: "HGS Digital",
+      url: "https://products.hgsportafolio.site",
+      founder: { "@id": `${BASE}#person` },
+    });
+    expect(nodes.find((n) => n["@type"] === "Person")!.brand).toEqual({ "@id": `${BASE}#hgs-digital` });
   });
 
   it("is valid JSON inside the page", () => {
@@ -162,6 +174,13 @@ describe("localizeHtml", () => {
     expect(renderFallback("es")).toContain("Desarrollador");
     expect(renderFallback("en")).toContain("Full Stack");
   });
+
+  it("links HGS Digital, the health monitor and the docs for crawlers", () => {
+    const html = renderFallback("es");
+    expect(html).toContain('href="https://products.hgsportafolio.site"');
+    expect(html).toContain('href="https://health.hgsportafolio.site"');
+    expect(html).toContain('href="https://docs.hgsportafolio.site"');
+  });
 });
 
 describe("security headers", () => {
@@ -234,7 +253,13 @@ describe("MIGOZZ case study page", () => {
 
   it("describes itself as a web page about the app, with a breadcrumb home", () => {
     const graph = (structuredData("es", BASE, "migozz") as { "@graph": Record<string, unknown>[] })["@graph"];
-    expect(graph.map((n) => n["@type"])).toEqual(["Person", "SoftwareApplication", "WebPage", "BreadcrumbList"]);
+    expect(graph.map((n) => n["@type"])).toEqual([
+      "Person",
+      "SoftwareApplication",
+      "Organization",
+      "WebPage",
+      "BreadcrumbList",
+    ]);
   });
 
   it("keeps crawler fallback text with a link back to the portfolio", () => {
@@ -268,13 +293,14 @@ describe("ARIA case study page", () => {
     expect(graph.map((n) => n["@type"])).toEqual([
       "Person",
       "SoftwareApplication",
+      "Organization",
       "SoftwareApplication",
       "WebPage",
       "BreadcrumbList",
     ]);
-    const app = graph[2];
+    const app = graph[3];
     expect(app).toMatchObject({ "@id": `${BASE}#aria`, name: "ARIA", contributor: { "@id": `${BASE}#person` } });
-    expect(graph[3]).toMatchObject({ about: { "@id": `${BASE}#aria` } });
+    expect(graph[4]).toMatchObject({ about: { "@id": `${BASE}#aria` } });
   });
 
   it("links back home in its fallback, and the home fallback lists every project with its case study", () => {
