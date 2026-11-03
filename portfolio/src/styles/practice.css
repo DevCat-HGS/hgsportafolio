@@ -4,29 +4,6 @@
   gap: 1.5rem;
 }
 
-.practice-side {
-  display: grid;
-  gap: 2rem;
-  justify-items: start;
-}
-
-/* Retrato: bloque de tinta con la sombra sólida en amarillo de señal, como los letreros del hero. */
-.portrait {
-  margin: 0 12px 12px 0;
-  width: min(70vw, 19rem);
-  aspect-ratio: 1;
-  background: var(--ink);
-  border: 4px solid var(--ink);
-  box-shadow: 12px 12px 0 var(--signal);
-}
-
-.portrait img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .aside {
   margin: 0;
   max-width: 28rem;

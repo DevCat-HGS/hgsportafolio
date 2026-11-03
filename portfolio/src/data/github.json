@@ -3,24 +3,24 @@
   "languages": [
     {
       "name": "TypeScript",
-      "percent": 67
-    },
-    {
-      "name": "JavaScript",
-      "percent": 12
+      "percent": 75
     },
     {
       "name": "HTML",
-      "percent": 12
+      "percent": 9
+    },
+    {
+      "name": "JavaScript",
+      "percent": 9
     },
     {
       "name": "CSS",
-      "percent": 7
+      "percent": 6
     },
     {
       "name": "C++",
       "percent": 1
     }
   ],
-  "lastPush": "2026-10-26"
+  "lastPush": "2026-11-02"
 }

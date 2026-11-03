@@ -124,7 +124,6 @@ export interface Copy {
   practiceTitle: string;
   practiceBody: string;
   practiceAside: string;
-  portraitAlt: string;
   bento: readonly Pair[];
   startupEyebrow: string;
   startupCompany: string;
